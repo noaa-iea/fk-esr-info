@@ -1,0 +1,686 @@
+<!DOCTYPE HTML>
+<!--
+	Artificial Structures Indicator Page
+-->
+<html>
+	<head>
+    	<title>Florida Keys ESR</title>
+        <link rel="shortcut icon" type="image/png" href='NOAAfavicon.ico'/>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		    
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176398491-1"></script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'UA-176398491-1');
+            </script>
+            <link rel="stylesheet" href="assets/css/main.css" />
+            <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+            <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+            <script src="http://code.highcharts.com/highcharts.js"></script>
+            <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+            <script src="https://code.highcharts.com/highcharts.js"></script>
+            <script src="https://code.highcharts.com/highcharts-more.js"></script>
+            <script src="http://code.highcharts.com/modules/exporting.js"></script>
+            <!-- optional -->
+            <script src="http://code.highcharts.com/modules/offline-exporting.js"></script>
+    
+        <!--highcharts dependency-->
+	</head>
+	<body>
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="home.html">home</a></h1>
+						<nav id="nav">
+							<ul>
+								<li class="special">
+									<a href="#menu" class="menuToggle"><span>key indicators</span></a>
+									<div id="menu">
+										<ul>
+							                                        
+									                               
+											<li><h3>key indicators</h3></li>                                            
+											<li><a href="human-activities.html">Human Activities</a></li>
+                                            <li><a href="ecosystem-services.html">Ecosystem Services</a></li>
+                                            <li><a href="habitat.html">Habitat</a></li>
+                                            <li><a href="living-resources.html">Living Resources</a></li>
+                                            <li><a href="sanctuary-waters.html">Sanctuary Waters</a></li>
+                                            <li><a href="maritime-archaeological-resources.html">Maritime Archaeological Resources</a></li>
+                                     
+                                            <br>
+                                            <br>
+                                            <br>
+                                           <br>
+                                            <br>
+                                           <li><a href="https://doi.org/10.25923/f7ce-st38" target="_blank"><h1>Download the Report</h1></a></li>
+                                            <br>
+                                            <li><a href="download.html"><h1>Download Data</h1></a></li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<article id="main">
+						<header>
+							<h2>human activities</h2>
+							<p>Drivers and Pressures</p>
+						</header>
+						<section class="wrapper style5">
+							<div class="inner">
+                                <h3>human activities</h3>
+                                <p>
+	 Indicators were selected to identify drivers and pressures to the condition of the Sanctuary. Key findings to illustrate human activities that influence quality of habitats, water, living resources, and maritime archaeological resources were drawn from the status and trends of resident population, cruise ship visitors, registered vessels, and housing units connected to wastewater treatment. Resident population has increased in the Keys over the last century, but has leveled out since the 1980s. This driver puts pressure on the ecosystem, but level or decreasing population growth in turn changes the ecosystem services available and provided in the Keys. Tourism trends, via tax revenue and cruise ship passenger numbers, have greatly increased in the last 30 years, other than a dip in 2017 likely due to Hurricane Irma. This can put pressure on infrastructure, increase degradation of Sanctuary waters, and increase extractive resource use. However, Sanctuary resources help to support the total tourism value of the Keys as an ecosystem service to the community. The number of registered vessels in Monroe County dropped and then recovered in response to the 2008 recession. This drop likely slowed the impact of vessels on Sanctuary resources. Almost 92% of housing units in the Florida Keys are now connected to central wastewater treatment. This trend promises to improve water quality, compared to the alternative of wastewater being released into Sanctuary waters. 
+                                 </p>
+                            
+                         <!--    <h3>Keys Resident population</h3>   --> 
+                                
+                                        		<!-- Chart 1 -->
+                                
+                                <div id="chart1" style="width:100%; height:350px;"></div>
+                                <script>
+                            $(document).ready(function() {
+                                              
+                                    var ranges =[
+                                        
+                                                                                              
+                                                
+                                                ],
+                                        
+                                            oil = [
+                                                
+                                                [1942,	5],
+
+                                                                                        
+                                            ],
+                                        
+                                        
+                                            averages = [
+                                                
+                                                [	1830	,	517	]	,
+                                             [	1840	,	688	]	,
+                                             [	1850	,	2645	]	,
+                                             [	1860	,	2913	]	,
+                                             [	1870	,	5657	]	,
+                                             [	1880	,	10940	]	,
+                                             [	1890	,	18786	]	,
+                                             [	1900	,	18006	]	,
+                                             [	1910	,	21563	]	,
+                                             [	1920	,	19550	]	,
+                                             [	1930	,	13624	]	,
+                                             [	1940	,	14078	]	,
+                                             [	1950	,	29957	]	,
+                                             [	1960	,	47921	]	,
+                                             [	1970	,	52586	]	,
+                                             [	1980	,	63188	]	,
+                                             [	1990	,	78024	]	,
+                                             [	2010	,	73219	]	,
+                                             [	2011	,	73981	]	,
+                                             [	2012	,	74627	]	,
+                                             [	2013	,	75914	]	,
+                                             [	2014	,	76492	]	,
+                                             [	2015	,	77003	]	,
+	                                       [ 2016	,	77304	]	,
+	                                       [  2017	,	77013	]	,
+
+
+
+                                                
+                                                                                                
+
+                                              ];
+
+            
+                                              
+                                var chart3 = new Highcharts.Chart({
+                                     credits: {
+                                        enabled: false
+                                    },
+                                    
+                                    chart: {
+                                        zoomType: 'x'  ,
+                                        renderTo: 'chart1',
+                           
+                                    },
+                                    title: {
+                                        text: 'Keys Resident Population'
+                             
+                                    },
+                                    
+                                                                                                            
+                                    xAxis: {
+                                    type: Number,
+                                        
+                                    },
+                                    yAxis: {
+                                        title: {
+                                            text: null
+                                        }
+                                    },
+                                    
+                                    // Enable for x-axis only//
+                                    tooltip: {
+                                            valueDecimals: 0,
+                                            crosshairs: true,
+                                            snap: false,
+                                            shared: true,
+                                            valueSuffix: ''
+                                        
+                                    },
+                                    
+                                    xAxis: {
+                                        plotBands: [{
+                                            from: [2016], 
+                                            to: [2020],
+                                            color: '#DEDEFF',
+                                                                               
+                                    }]
+                                        
+                                },
+                                    
+                                    legend:{
+                                        align: 'right',
+                                        
+                                    },
+                                                                
+
+                                    series: [{
+                                        name: 'Keys Resident Population',
+                                        data: averages,
+                                        zIndex: 1,
+                                        marker: {
+                                            enabled: false,
+                                            fillColor: 'white',
+                                            lineWidth: 1,
+                                            lineColor: Highcharts.getOptions().colors[0],
+                                        }
+                                    }, {
+                                        name: 'Range',
+                                        data: ranges,
+                                        type: 'arearange',
+                                        lineWidth: 0,
+                                        linkedTo: ':previous',
+                                        color: Highcharts.getOptions().colors[0],
+                                        fillOpacity: 0.2,
+                                        zIndex: 0
+                                        
+                                        
+                                    }]
+                                    
+                                    
+
+                                                                    
+                                });
+                               });
+                                                      
+                                </script>
+                                
+                     <!--            <h3>Cruise ship visitors</h3>
+								<p>text for human activities still need this</p>
+                                
+                        		<!-- Chart 2 -->
+                                <div id="chart2" style="width:100%; height:350px;"></div>
+                                <script>
+                            
+                            
+                            $(document).ready(function() {
+                                              
+                                Highcharts.setOptions({
+                                lang: {
+                                    thousandsSep: ','
+                                }
+                            });
+
+                                    var ranges =[
+                                        
+                                                                                              
+                                                
+                                                ],
+                                        
+                                            oil = [
+                                                
+                                                [1997,	5],
+
+                                                                                        
+                                            ],
+                                        
+                                        
+                                            averages = [
+                                                
+                                                
+                                             [	1997	,	565768	]	,
+                                             [	1998	,	585028	]	,
+                                             [	1999	,	625810	]	,
+                                             [	2000	,	670531	]	,
+                                             [	2001	,	621232	]	,
+                                             [	2002	,	927746	]	,
+                                             [	2003	,	1122197	]	,
+                                             [	2004	,	929790	]	,
+                                             [	2005	,	976761	]	,
+                                             [	2006	,	859089	]	,
+                                             [	2007	,	830954	]	,
+                                             [	2008	,	754407	]	,
+                                             [	2009	,	863767	]	,
+                                             [	2010	,	804845	]	,
+                                             [	2011	,	853673	]	,
+                                             [	2012	,	832887	]	,
+                                             [	2013	,	734349	]	,
+                                             [	2014	,	800752	]	,
+                                             [	2015	,	745864	]	,
+                                             [	2016	,	696224	]	,
+                                             [	2017	,	746781	]	,
+                                             [	2018	,	865909	]	,
+                                             [	2019	,	886783	]	,
+
+
+
+                                                
+                                                                                                
+
+                                              ];
+
+            
+                                              
+                                var chart2 = new Highcharts.Chart({
+                                     credits: {
+                                        enabled: false
+                                    },
+                                    
+                                    chart: {
+                                        zoomType: 'x'  ,
+                                        renderTo: 'chart2',
+                           
+                                    },
+                                    title: {
+                                        text: 'Cruise Passenger Visits to Key West'
+                             
+                                    },
+                                    
+                                                                                                        
+                                    xAxis: {
+                                    type: Number,
+                                                                                                       
+                                    },
+                                    
+                                    yAxis: {
+                                        
+                                        title: {
+                                            text: null
+                                        }
+                                    },
+                                    
+                                    
+                                    
+                                    
+                                    // Enable for x-axis only//
+                                    tooltip: {
+                                        valueDecimals: 0,
+                                            crosshairs: true,
+                                            shared: true,
+                                       
+                                        
+                                    },
+                                    
+                                    xAxis: {
+                                        plotBands: [{
+                                            from: [2016], 
+                                            to: [2030],
+                                            color: '#DEDEFF',
+                                                                               
+                                    }]
+                                        
+                                },
+                                                                
+                                legend: {
+                                        align: 'right'
+                                    },
+                                                   
+                                    series: [{
+                                        name: 'Number of Visitors',
+                                        data: averages,
+                                        zIndex: 1,
+                                        marker: {
+                                            enabled: false,
+                                            fillColor: 'white',
+                                            lineWidth: 1,
+                                            lineColor: Highcharts.getOptions().colors[0],
+                                        }
+                                    }, {
+                                        name: 'Range',
+                                        data: ranges,
+                                        type: 'arearange',
+                                        lineWidth: 0,
+                                        linkedTo: ':previous',
+                                        color: Highcharts.getOptions().colors[0],
+                                        fillOpacity: 0.2,
+                                        zIndex: 0
+                                        
+                                                                                                    
+                                    }]
+                                    
+                                    
+                                                                    
+                                });
+                               });
+                                                      
+                                </script>
+                                
+                                   						
+											        
+                         <!--        <h3>Registered Vessels</h3>
+								<p>text for human activities still need this</p>
+                                	                                
+                        
+                                		<!-- Chart 3 -->
+                                
+                                <div id="chart3" style="width:100%; height:350px;"></div>
+                                <script>
+                            $(document).ready(function() {
+                                              
+                                    var ranges =[
+                                        
+                                                                                              
+                                                
+                                                ],
+                                        
+                                            oil = [
+                                                
+                                                [1942,	5],
+
+                                                                                        
+                                            ],
+                                        
+                                        
+                                            averages = [
+                                                
+                                              
+                                       [	2000	,	26690	]	,
+                                     [	2001	,	29204	]	,
+                                     [	2002	,	29607	]	,
+                                     [	2003	,	29734	]	,
+                                     [	2004	,	29500	]	,
+                                     [	2005	,	29990	]	,
+                                     [	2006	,	29392	]	,
+                                     [	2007	,	28235	]	,
+                                     [	2008	,	29988	]	,
+                                     [	2009	,	26330	]	,
+                                     [	2010	,	26181	]	,
+                                     [	2011	,	26252	]	,
+                                     [	2012	,	26461	]	,
+                                     [	2013	,	27100	]	,
+                                     [	2014	,	27522	]	,
+                                     [	2015	,	28247	]	,
+                                     [	2016	,	29106	]	,
+                                     [	2017	,	29377	]	,
+                                     [	2018	,	29037	]	,
+
+
+                                                
+                                                                                                
+
+                                              ];
+
+            
+                                              
+                                var chart4 = new Highcharts.Chart({
+                                     credits: {
+                                        enabled: false
+                                    },
+                                    
+                                    chart: {
+                                        zoomType: 'x'  ,
+                                        renderTo: 'chart3',
+                           
+                                    },
+                                    title: {
+                                        text: 'Registered Vessels'
+                             
+                                    },
+                                    
+                                                                                                            
+                                    xAxis: {
+                                    type: Number,
+                                        
+                                    },
+                                    yAxis: {
+                                        title: {
+                                            text: null
+                                        }
+                                    },
+                                    
+                                    // Enable for x-axis only//
+                                    tooltip: {
+                                            valueDecimals: 0,
+                                           crosshairs: true,
+                                            shared: true,
+                                            valueSuffix: ''
+                                        
+                                    },
+                                    
+                                    xAxis: {
+                                        plotBands: [{
+                                            from: [2016], 
+                                            to: [2020],
+                                            color: '#DEDEFF',
+                                                                               
+                                    }]
+                                    
+                                },
+                                              legend: {
+                                        align: 'right'
+                                    },
+                                                              
+
+                                    series: [{
+                                        name: 'Registered Vessels',
+                                        data: averages,
+                                        zIndex: 1,
+                                        marker: {
+                                            enabled: false,
+                                            fillColor: 'white',
+                                            lineWidth: 1,
+                                            lineColor: Highcharts.getOptions().colors[0],
+                                        }
+                                    },
+                                             
+                                             {
+                                        name: 'Range',
+                                        data: ranges,
+                                        type: 'arearange',
+                                        lineWidth: 0,
+                                        linkedTo: ':previous',
+                                        color: Highcharts.getOptions().colors[0],
+                                        fillOpacity: 0.2,
+                                        zIndex: 0
+                                        
+                                        
+                                    }]
+                                    
+                                    
+
+                                                                    
+                                });
+                               });
+                                                      
+                                </script>
+                                
+                    <!--             	<h3>Household connections to central wastewater treatment</h3>
+								<p>text still need this</p>
+                                
+                                <!-- Chart 4 -->
+                                
+                                <div id="chart4" style="width:100%; height:350px;"></div>
+                                <script>
+                            $(document).ready(function() {
+                                              
+                                    var ranges =[
+                                        
+                                                                                              
+                                                
+                                                ],
+                                        
+                                            oil = [
+                                                
+                                                [1942,	5],
+
+                                                                                        
+                                            ],
+                                        
+                                        
+                                            averages = [
+                                                
+                                           [	2009	,	53	]	,
+         [	2011	,	43	]	,
+         [	2013	,	72	]	,
+         [	2014	,	72	]	,
+         [	2014	,	73	]	,
+         [	2015	,	76	]	,
+         [	2016	,	78	]	,
+         [	2016	,	84	]	,
+         [	2017	,	93	]	,
+         [	2019	,	93	]	,
+
+
+                                                
+                                                                                                
+
+                                              ];
+
+            
+                                              
+                                var chart4 = new Highcharts.Chart({
+                                     credits: {
+                                        enabled: false
+                                    },
+                                    
+                                    chart: {
+                                        zoomType: 'x'  ,
+                                        renderTo: 'chart4',
+                           
+                                    },
+                                    title: {
+                                        text: 'Household connections to central wastewater treatment'
+                             
+                                    },
+                                    
+                                                                                                            
+                                    xAxis: {
+                                    type: Number,
+                                        
+                                    },
+                                    yAxis: {
+                                        title: {
+                                            text: null
+                                        }
+                                    },
+                                    
+                                    // Enable for x-axis only//
+                                    tooltip: {
+                                            valueDecimals: 0,
+                                           crosshairs: true,
+                                            shared: true,
+                                            valueSuffix: ''
+                                        
+                                    },
+                                    
+                                    xAxis: {
+                                        plotBands: [{
+                                            from: [2016], 
+                                            to: [2020],
+                                            color: '#DEDEFF',
+                                                                               
+                                    }]
+                                    
+                                },
+                                              legend: {
+                                        align: 'right'
+                                    },
+                                                              
+
+                                    series: [{
+                                        name: 'Percent of households connected to sewer system',
+                                        data: averages,
+                                        zIndex: 1,
+                                        marker: {
+                                            enabled: false,
+                                            fillColor: 'white',
+                                            lineWidth: 1,
+                                            lineColor: Highcharts.getOptions().colors[0],
+                                        }
+                                    },
+                                             
+                                             {
+                                        name: 'Range',
+                                        data: ranges,
+                                        type: 'arearange',
+                                        lineWidth: 0,
+                                        linkedTo: ':previous',
+                                        color: Highcharts.getOptions().colors[0],
+                                        fillOpacity: 0.2,
+                                        zIndex: 0
+                                        
+                                        
+                                    }]
+                                    
+                                    
+
+                                                                    
+                                });
+                               });
+                                                      
+                                </script>
+                                            <i>*purple shaded section represents trends over the last five years. </i>                         				
+							</div>
+                                                                                                  
+						</section>
+                        
+                                        
+                        
+					</article>
+
+			<!-- Footer -->
+					<footer id="footer">
+                    <br>
+		              		              
+                                <img src="images/NOAA.svg" height="50" >
+                                 <img src="images/DOC_logo.svg" height="50">
+
+                        
+				    <ul class="copyright">
+							<li>2019  &copy; <a href="http://www.noaa.gov" target="_blank">National Oceanic and Atmospheric Administration</a> A Proejct of the NOAA <a href="https://www.integratedecosystemassessment.noaa.gov" target="_blank">IEA</a> Program </li> <br>
+                        <a href="https://www.commerce.gov/" target="_blank">U.S. Department of Commerce</a>
+                  
+               
+                        <br>
+                        <br>
+                        <h6>PHOTOS FROM THE FKIEA TEAM, THE FLORIDA KEYS NATIONAL MARINE SANCTUARY, AND THE NOAA FLICKR ACCOUNT <a href="https://www.flickr.com/photos/noaaphotolib/">Flickr</a></h6>
+                                   
+                        
+                        </ul> 
+                   <br/> 
+            
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

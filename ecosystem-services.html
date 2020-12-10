@@ -1,0 +1,549 @@
+<!DOCTYPE HTML>
+<!--
+	Artificial Structures Indicator Page
+-->
+<html>
+	<head>
+    	<title>Florida Keys ESR</title>
+        <link rel="shortcut icon" type="image/png" href='NOAAfavicon.ico'/>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		    
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176398491-1"></script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'UA-176398491-1');
+            </script>
+            <link rel="stylesheet" href="assets/css/main.css" />
+            <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+            <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+            <script src="http://code.highcharts.com/highcharts.js"></script>
+            <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+            <script src="https://code.highcharts.com/highcharts.js"></script>
+            <script src="https://code.highcharts.com/highcharts-more.js"></script>
+            <script src="http://code.highcharts.com/modules/exporting.js"></script>
+            <!-- optional -->
+            <script src="http://code.highcharts.com/modules/offline-exporting.js"></script>
+    
+        <!--highcharts dependency-->
+	</head>
+	<body>
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="home.html">home</a></h1>
+						<nav id="nav">
+							<ul>
+								<li class="special">
+									<a href="#menu" class="menuToggle"><span>key indicators</span></a>
+									<div id="menu">
+										<ul>
+							                                        
+											<li><h3>key indicators</h3></li>                                            
+											<li><a href="human-activities.html">Human Activities</a></li>
+                                            <li><a href="ecosystem-services.html">Ecosystem Services</a></li>
+                                            <li><a href="habitat.html">Habitat</a></li>
+                                            <li><a href="living-resources.html">Living Resources</a></li>
+                                            <li><a href="sanctuary-waters.html">Sanctuary Waters</a></li>
+                                            <li><a href="maritime-archaeological-resources.html">Maritime Archaeological Resources</a></li>
+                                           
+                                            <br>
+                                            <br>
+                                            <br>
+                                           <br>
+                                            <br>
+                                           <li><a href="https://doi.org/10.25923/f7ce-st38" target="_blank"><h1>Download the Report</h1></a></li>
+                                            <br>
+                                            <li><a href="download.html"><h1>Download Data</h1></a></li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<article id="main">
+						<header>
+							<h2>ecosystem services</h2>
+							<p>services derived from the system </p>
+						</header>
+						<section class="wrapper style5">
+							<div class="inner">
+
+								<h3>ecosystem services</h3>
+								<p>Many ecosystem services are gained from the resources in the Florida Keys National Marine Sanctuary, primarily from commercial and recreational fishing, tourism, and coastal protection. Key indicators of ecosystem services were the total number of commercial fishing trips from the Keys, the number of economically important species fishing trips, the number of recreational fishing licenses sold in Monroe County, and coastal protection provided by mangrove land cover (slider tool?), and total tourism value Gross Domestic Product. A decline in the total number of commercial fishing trips was seen since 1999, followed by a slow recovery. Total number of commercial grouper and snapper trips also declined, while the total number of lobster trips had large inter year variability. The total number of stone crab trips dropped and then rose, though not to 1999 levels. This trend likely causes less pressure on Sanctuary resources, but may mean that the way of life and income provided by career commercial fishing is more difficult to continue. The number of recreational fishing licenses has stayed relatively stable; however, there have been more non-resident licenses than resident licenses sold in Monroe County since 2010. Recreational fishing continues to be a major economic driver for tourism. There has been an overall loss of mangrove land cover and overall gain in developed land cover, reducing the amount of coastal protection provided by mangrove coastline. The adjusted GDP from the tourism industry in Monroe County continues to rise. </p>
+                            
+                               
+                                
+                                        		<!-- Chart 1 -->
+                                
+                                <div id="chart1" style="width:100%; height:350px;"></div>
+                                <script>
+                            $(document).ready(function() {
+                                              
+                                    var ranges =[
+                                        
+                                                                                              
+                                                
+                                                ],
+                                        
+                                            oil = [
+                                                
+                                                [1942,	5],
+
+                                                                                        
+                                            ],
+                                        
+                                        
+                                            averages = [
+                             [	1998	,	25121	]	,
+                             [	1999	,	109485	]	,
+                             [	2000	,	102349	]	,
+                             [	2001	,	86477	]	,
+                             [	2002	,	87993	]	,
+                             [	2003	,	89081	]	,
+                             [	2004	,	84910	]	,
+                             [	2005	,	73842	]	,
+                             [	2006	,	68433	]	,
+                             [	2007	,	67444	]	,
+                             [	2008	,	53536	]	,
+                             [	2009	,	50095	]	,
+                             [	2010	,	53845	]	,
+                             [	2011	,	63362	]	,
+                             [	2012	,	62274	]	,
+                             [	2013	,	68106	]	,
+                             [	2014	,	72370	]	,
+                             [	2015	,	71637	]	,
+                             [	2016	,	67247	]	,
+                             [	2017	,	62144	]	,
+                             [	2018	,	63792	]	,
+
+
+
+
+                                                
+                                                                                                
+
+                                              ];
+
+            
+                                              
+                                var chart3 = new Highcharts.Chart({
+                                     credits: {
+                                        enabled: false
+                                    },
+                                    
+                                    chart: {
+                                        zoomType: 'x'  ,
+                                        renderTo: 'chart1',
+                           
+                                    },
+                                    title: {
+                                        text: 'Commercial fishing trips'
+                             
+                                    },
+                                    
+                                                                                                            
+                                    xAxis: {
+                                    type: Number,
+                                        
+                                    },
+                                    yAxis: {
+                                        title: {
+                                            text: null
+                                        }
+                                    },
+                                    
+                                    // Enable for x-axis only//
+                                    tooltip: {
+                                            valueDecimals: 0,
+                                            crosshairs: true,
+                                            snap: false,
+                                            shared: true,
+                                            valueSuffix: ''
+                                        
+                                    },
+                                    
+                                    xAxis: {
+                                        plotBands: [{
+                                            from: [2016], 
+                                            to: [2020],
+                                            color: '#DEDEFF',
+                                                                               
+                                    }]
+                                        
+                                },
+                                    
+                                    legend:{
+                                        align: 'right',
+                                        
+                                    },
+                                                                
+
+                                    series: [{
+                                        name: 'Total number of commercial fishing trips',
+                                        data: averages,
+                                        zIndex: 1,
+                                        marker: {
+                                            enabled: false,
+                                            fillColor: 'white',
+                                            lineWidth: 1,
+                                            lineColor: Highcharts.getOptions().colors[0],
+                                        }
+                                    }, {
+                                        name: 'Range',
+                                        data: ranges,
+                                        type: 'arearange',
+                                        lineWidth: 0,
+                                        linkedTo: ':previous',
+                                        color: Highcharts.getOptions().colors[0],
+                                        fillOpacity: 0.2,
+                                        zIndex: 0
+                                        
+                                        
+                                    }]
+                                    
+                                    
+
+                                                                    
+                                });
+                               });
+                                                      
+                                </script>
+                                
+                           
+                                
+                        		<!-- Chart 2 -->
+                                <div id="chart2" style="width:100%; height:350px;"></div>
+                                <script>
+                            
+                            
+                            $(document).ready(function() {
+                                              
+                                Highcharts.setOptions({
+                                lang: {
+                                    thousandsSep: ','
+                                }
+                            });
+
+                                    var ranges =[
+                                        
+                                                                                              
+                                                
+                                                ],
+                                        
+                                            oil = [
+                                                
+                                                [2018,	5],
+
+                                                                                        
+                                            ],
+                                        
+                                        
+                                            averages = [
+                                                
+                                     [	2015	,	1373554	]	,
+                                     [	2016	,	1435115	]	,
+                                     [	2017	,	1513696	]	,
+                                     [	2018	,	1538835	]	,
+
+                                
+
+                                                
+                                                                                                
+
+                                              ];
+
+            
+                                              
+                                var chart2 = new Highcharts.Chart({
+                                     credits: {
+                                        enabled: false
+                                    },
+                                    
+                                    chart: {
+                                        zoomType: 'x'  ,
+                                        renderTo: 'chart2',
+                           
+                                    },
+                                    title: {
+                                        text: 'Recreational Fishing Licenses Sold'
+                             
+                                    },
+                                    
+                                                                                                        
+                                    xAxis: {
+                                        
+                                        type: Number,
+                                 
+                                                                                                   
+                                    },
+                                    
+                                    yAxis: {
+                                        
+                                        title: {
+                                            text: null
+                                        }
+                                    },
+                                    
+                                    
+                                    
+                                    
+                                    // Enable for x-axis only//
+                                    tooltip: {
+                                       
+                                           allowDecimals: false,
+                                            crosshairs: true,
+                                            shared: true,
+                                       
+                                        
+                                    },
+                                    
+                                    xAxis: {
+                                        allowDecimals: false,
+                                        plotBands: [{
+                                            from: [2017], 
+                                            to: [2018],
+                                            color: '#DEDEFF',
+                                                                               
+                                    }]
+                                        
+                                },
+                                                                
+                                legend: {
+                                        align: 'right'
+                                    },
+                                                   
+                                    series: [{
+                                        name: 'Number of Licenses Sold',
+                                        data: averages,
+                                        zIndex: 1,
+                                        marker: {
+                                            enabled: false,
+                                            fillColor: 'white',
+                                            lineWidth: 1,
+                                            lineColor: Highcharts.getOptions().colors[0],
+                                        }
+                                    }, {
+                                        name: 'Range',
+                                        data: ranges,
+                                        type: 'arearange',
+                                        lineWidth: 0,
+                                        linkedTo: ':previous',
+                                        color: Highcharts.getOptions().colors[0],
+                                        fillOpacity: 0.2,
+                                        zIndex: 0
+                                        
+                                                                                                    
+                                    }]
+                                    
+                                    
+                                                                    
+                                });
+                               });
+                                                      
+                                </script>
+                                
+                                   						
+											        
+                         
+                        
+                                		<!-- Chart 3 -->
+                                
+                                <div id="chart3" style="width:100%; height:350px;"></div>
+                                <script>
+                            $(document).ready(function() {
+                                              
+                                    var ranges =[
+                                        
+                                                                                              
+                                                
+                                                ],
+                                        
+                                            oil = [
+                                                
+                                                [1942,	5],
+
+                                                                                        
+                                            ],
+                                        
+                                        
+                                            averages = [
+                                                
+                                              
+                                   [	1984	,	830885.11	]	,
+                                     [	1985	,	1720610.24	]	,
+                                     [	1986	,	2183953.98	]	,
+                                     [	1987	,	3464389.29	]	,
+                                     [	1988	,	4322020.23	]	,
+                                     [	1989	,	5318094.195	]	,
+                                     [	1990	,	5970852.165	]	,
+                                     [	1991	,	6106101.475	]	,
+                                     [	1992	,	6399061.74	]	,
+                                     [	1993	,	7357919.935	]	,
+                                     [	1994	,	7433356.62	]	,
+                                     [	1995	,	7939804.35	]	,
+                                     [	1996	,	8778828.43	]	,
+                                     [	1997	,	9570966.24	]	,
+                                     [	1998	,	10017013.43	]	,
+                                     [	1999	,	10491757.58	]	,
+                                     [	2000	,	11380211.33	]	,
+                                     [	2001	,	12385202.46	]	,
+                                     [	2002	,	11698336.99	]	,
+                                     [	2003	,	12483458.85	]	,
+                                     [	2004	,	13598010.35	]	,
+                                     [	2005	,	14246896.71	]	,
+                                     [	2006	,	13961657.92	]	,
+                                     [	2007	,	14996654.3	]	,
+                                     [	2008	,	15176238.54	]	,
+                                     [	2009	,	15190632.14	]	,
+                                     [	2010	,	19716720.76	]	,
+                                     [	2011	,	22382958.57	]	,
+                                     [	2012	,	25159575.65	]	,
+                                     [	2013	,	27232902.43	]	,
+                                     [	2014	,	30643184.41	]	,
+                                     [	2015	,	34292830.23	]	,
+                                     [	2016	,	36654284	]	,
+                                     [	2017	,	36663796.2	]	,
+                                     [	2018	,	32471735.23	]	,
+
+
+                                                
+                                                                                                
+
+                                              ];
+
+            
+                                              
+                                var chart4 = new Highcharts.Chart({
+                                     credits: {
+                                        enabled: false
+                                    },
+                                    
+                                    chart: {
+                                        zoomType: 'x'  ,
+                                        renderTo: 'chart3',
+                           
+                                    },
+                                    title: {
+                                        text: 'Total Tourism Value GDP'
+                             
+                                    },
+                                    
+                                                                                                            
+                                    xAxis: {
+                                    type: Number,
+                                        
+                                    },
+                                    yAxis: {
+                                        title: {
+                                            text: null
+                                        }
+                                    },
+                                    
+                                    // Enable for x-axis only//
+                                    tooltip: {
+                                            valueDecimals: 0,
+                                           crosshairs: true,
+                                            shared: true,
+                                            valueSuffix: ''
+                                        
+                                    },
+                                    
+                                    xAxis: {
+                                        plotBands: [{
+                                            from: [2016], 
+                                            to: [2020],
+                                            color: '#DEDEFF',
+                                                                               
+                                    }]
+                                    
+                                },
+                                              legend: {
+                                        align: 'right'
+                                    },
+                                                              
+
+                                    series: [{
+                                        name: 'Total Tourism Value GDP',
+                                        data: averages,
+                                        zIndex: 1,
+                                        marker: {
+                                            enabled: false,
+                                            fillColor: 'white',
+                                            lineWidth: 1,
+                                            lineColor: Highcharts.getOptions().colors[0],
+                                        }
+                                    },
+                                             
+                                             {
+                                        name: 'Range',
+                                        data: ranges,
+                                        type: 'arearange',
+                                        lineWidth: 0,
+                                        linkedTo: ':previous',
+                                        color: Highcharts.getOptions().colors[0],
+                                        fillOpacity: 0.2,
+                                        zIndex: 0
+                                        
+                                   }]
+                                    
+                                    
+                                                                    
+                                });
+                               });
+                                                      
+                                </script>
+                                        <i>*purple shaded section represents trends over the last five years. </i>                              				
+							</div>
+                                                                                             
+						</section>
+                        
+                                        
+                        
+					</article>
+
+				<!-- Footer -->
+					<footer id="footer">
+                    <br>
+		              		              
+                                <img src="images/NOAA.svg" height="50" >
+                                 <img src="images/DOC_logo.svg" height="50">
+
+                        
+				    <ul class="copyright">
+							<li>2019  &copy; <a href="http://www.noaa.gov" target="_blank">National Oceanic and Atmospheric Administration</a> A Proejct of the NOAA <a href="https://www.integratedecosystemassessment.noaa.gov" target="_blank">IEA</a> Program </li> <br>
+                        <a href="https://www.commerce.gov/" target="_blank">U.S. Department of Commerce</a>
+                  
+               
+                        <br>
+                        <br>
+                        <h6>PHOTOS FROM THE FKIEA TEAM, THE FLORIDA KEYS NATIONAL MARINE SANCTUARY, AND THE NOAA FLICKR ACCOUNT <a href="https://www.flickr.com/photos/noaaphotolib/">Flickr</a></h6>
+                                   
+                        
+                        </ul> 
+                   <br/> 
+            
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
