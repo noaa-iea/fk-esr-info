@@ -5,6 +5,15 @@ Florida Keys infographic update using Ecosystem Status Report website
 
 Create a navigational page using provided art clickable by element to popup-windows (i.e. "modals") display time series data plotted individually.
 
+## Develop
+
+Because of CORS dependencies, need to view in local webserver, for instance:
+
+```r
+servr::httd()
+```
+
+
 ## Materials
 
 - website

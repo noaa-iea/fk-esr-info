@@ -21,15 +21,20 @@
             <link rel="stylesheet" href="assets/css/main.css" />
             <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
             <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-            <script src="http://code.highcharts.com/highcharts.js"></script>
-            <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-            <script src="https://code.highcharts.com/highcharts.js"></script>
-            <script src="https://code.highcharts.com/highcharts-more.js"></script>
-            <script src="http://code.highcharts.com/modules/exporting.js"></script>
+            <!--script src="http://code.highcharts.com/highcharts.js"></script-->
+            <!--script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script-->
+            <!--script src="https://code.highcharts.com/highcharts.js"></script-->
+            <!--script src="https://code.highcharts.com/highcharts-more.js"></script-->
+            <!--script src="http://code.highcharts.com/modules/exporting.js"></script-->
             <!-- optional -->
-            <script src="http://code.highcharts.com/modules/offline-exporting.js"></script>
+            <!--script src="http://code.highcharts.com/modules/offline-exporting.js"></script-->
     
         <!--highcharts dependency-->
+        
+        <!-- infographiq dependencies -->
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">
+        
 	</head>
 	<body class="landing">
 
@@ -48,8 +53,11 @@
                                                        
                                   <h2>conceptual model of the Florida Keys Ecosystem </h2>
                                  <br /> 
-                                 <img src="images/FKIEA_Ecosystem_tri.jpg" width=900px height=600px;>   
-                                
+                                 <!--img src="images/FKIEA_Ecosystem_tri.jpg" width=900px height=600px;-->
+                                 
+                                 <!-- infographiq placeholder for svg -->
+                                 <div id='svg'></div>
+
                                 <br>
                                <p>
                                Text how to use and navigate the infogrpahic 
@@ -130,6 +138,13 @@
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
+			
+    <!-- infographiq dependencies -->
+      <script src='assets/js/d3.v5.min.js'></script>
+      <script src='assets/js/infographiq.js'></script>
+      <script src="assets/js/bootstrap.min.js"></script>
+    <!-- infographiq: run function to link the svg -->
+      <script>link_svg(svg='assets/svg/FKIEA_Ecosystem.svg', csv='assets/svg/svg_links.csv');</script>
 
 	</body>
 </html>
