@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Black Grouper</title>
+</head>
+<body>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/data.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+<div id="container" style="min-width: 310px; max-width: 600px; height: 400px; margin: 0 auto"></div>
+
+<script>
+Highcharts.chart('container', {
+  title: {
+    text: 'Black Grouper' 
+  },
+  data: {
+    googleSpreadsheetKey: '1pSEGcAoc2ywwcQeXBN79K6_KFKK3FgFxhYKvSKmdCr4' 
+    // [black-grouper](https://docs.google.com/spreadsheets/d/1pSEGcAoc2ywwcQeXBN79K6_KFKK3FgFxhYKvSKmdCr4/edit#gid=702915032)
+  }
+});
+</script>
+
+</body>
+</html>
