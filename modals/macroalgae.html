@@ -1,0 +1,38 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Macroalgae</title>
+</head>
+<body>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/data.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+<div id="container" style="min-width: 310px; max-width: 600px; height: 400px; margin: 0 auto"></div>
+
+<script>
+csv   = 'https://marinebon.org/fk-esr-info/data/fknms_esr_indicator_data/fiu_serl_macroalgae_abundance.csv';
+title = 'Macroalgae';
+icon  = 'macroalgae';
+
+if (csv == "NA"){
+  document.getElementById("container").innerHTML = "<em>No data</em> yet assigned to icon <b>" + icon + "</b>. This needs to be specified in this Google Sheet: <a href='https://docs.google.com/spreadsheets/d/1_o8HOiZ_35uajupEsw6xLSsneTBTeLh0bqvFQvMpBNY/edit#gid=0'>icons to data | fk-esr-info</a>."
+} else {
+  Highcharts.chart('container', {
+    title: {
+      text: title
+    },
+    data: {
+      csvURL: csv,
+      firstRowAsNames: false,
+      startRow: 4
+    }, 
+    series: [{
+      name: 'value' }]
+  });
+}
+</script>
+
+</body>
+</html>

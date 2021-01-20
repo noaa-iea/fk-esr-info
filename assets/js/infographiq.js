@@ -47,6 +47,7 @@ function link_svg(svg, csv, debug = false, hover_color = 'yellow', width = '100%
     
     d3.csv(csv).then(function(data) {
       
+      /* dropping svg field from csv, so not filtering
       if (debug){ 
         console.log("data before filter");
         console.log(data);
@@ -58,13 +59,17 @@ function link_svg(svg, csv, debug = false, hover_color = 'yellow', width = '100%
         console.log("data after filter");
         console.log(data);
       }
+      */
 
       // iterate through rows of csv
       data.forEach(function(d) {
         if (debug){ 
-          console.log('forEach d.id: ' + d.id);
+          console.log('forEach d.icon: ' + d.icon);
         }
-      
+        
+        // TODO: wrap this hack into function args
+        d.link = 'modals/' + d.icon + '.html';
+        
         function handleClick(){
           if (d.not_modal == 'T'){
             window.location = d.link;
@@ -89,10 +94,10 @@ function link_svg(svg, csv, debug = false, hover_color = 'yellow', width = '100%
         }
         function handleMouseOver(){
           if (debug){ 
-              console.log('  mouseover():' + d.id);
+              console.log('  mouseover():' + d.icon);
           }
            
-          d3.select('#' + d.id)
+          d3.select('#' + d.icon)
             .style("stroke-width", 2)
             .style("stroke", hover_color);
           
@@ -105,21 +110,21 @@ function link_svg(svg, csv, debug = false, hover_color = 'yellow', width = '100%
         }
         function handleMouseOverSansTooltip(){
           if (debug){ 
-              console.log(' handleMouseOverSansTooltip():' + d.id);
+              console.log(' handleMouseOverSansTooltip():' + d.icon);
           }
            
-          d3.select('#' + d.id)
+          d3.select('#' + d.icon)
             .style("stroke-width", 2)
             .style("stroke", hover_color);
           
         }
         function handleMouseOut(){
           if (debug){ 
-              console.log('  mouseout():' + d.id);
+              console.log('  mouseout():' + d.icon);
             }
             
             //d3.select(this)
-            d3.select('#' + d.id)
+            d3.select('#' + d.icon)
               .style("stroke-width",0);
   
             tooltip_div.transition()
@@ -127,18 +132,18 @@ function link_svg(svg, csv, debug = false, hover_color = 'yellow', width = '100%
             tooltip_div.style("opacity", 0);
         }
         
-        h.select('#' + d.id)
+        h.select('#' + d.icon)
           .on("click", handleClick)
           .on('mouseover', handleMouseOver)
           .on('mouseout', handleMouseOut);
           
         // set outline of paths within group to null
-        d3.select('#' + d.id).selectAll("path")
+        d3.select('#' + d.icon).selectAll("path")
             .style("stroke-width", null)
             .style("stroke", null);
           
         // add to bulleted list of svg elements
-        list_text = d.title ? d.title : d.id;  // fall back on id if title not set
+        list_text = d.title ? d.title : d.icon;  // fall back on id if title not set
         d3.select("#svg_list").append("li").append("a")
           .text(list_text)
           .on("click", handleClick)

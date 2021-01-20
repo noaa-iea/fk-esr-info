@@ -32,9 +32,13 @@
         <!--highcharts dependency-->
         
         <!-- infographiq dependencies -->
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">
-        
+        <script src="assets/libs/jquery-1.11.3/jquery.min.js"></script>
+        <script src="assets/libs/jquery-1.11.3/jquery.min.js"></script>
+        <link href="assets/libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="assets/libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+        <script src="assets/libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+        <script src="assets/libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+
 	</head>
 	<body class="landing">
 
@@ -139,20 +143,20 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
+		<!-- script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
+			<script src="assets/js/util.js"></script -->
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
+			<!-- script src="assets/js/main.js"></script -->
 			
     <!-- infographiq dependencies -->
       <script src='assets/js/d3.v5.min.js'></script>
       <script src='assets/js/infographiq.js'></script>
-      <script src="assets/js/bootstrap.min.js"></script>
+      <!-- script src="assets/js/bootstrap.min.js"></script -->
     <!-- infographiq: run function to link the svg -->
-      <script>link_svg(svg='assets/svg/FKIEA_Ecosystem.svg', csv='assets/svg/svg_links.csv');</script>
+      <script>link_svg(svg='assets/svg/FKIEA_Ecosystem.svg', csv='assets/svg/svg_links.csv', debug=true);</script>
 
 	</body>
 </html>

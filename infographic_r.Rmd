@@ -1,0 +1,27 @@
+---
+title: "Infographic | Florida Keys ESR"
+params:
+  #csv: "assets/svg/svg_links.csv"
+  csv: "https://docs.google.com/spreadsheets/d/e/2PACX-1vSAROGVpYB58Zkr8P0iwJdTMRPNLZtJ07IyUn-dQ62C2HMuCEScyl8x7urCD7QbRXQYSIJwDn_wku9G/pub?gid=0&single=true&output=csv"
+  svg: "https://marinebon.org/fk-esr-info/assets/svg/FKIEA_Ecosystem.svg"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F, message = F, warning = F)
+```
+
+<script src = "assets/js/d3.v5.min.js"></script>
+<script src = "assets/js/infographiq.js"></script>
+
+<div class = "col-md-9">
+  <div id = "svg"></div>
+</div>
+
+<div class = "col-md-3">
+  <ul id = "svg_list"></ul>
+</div>
+
+<script>
+link_svg(svg = "`r params$svg`", csv = "`r params$csv`", debug = true);
+</script>
+

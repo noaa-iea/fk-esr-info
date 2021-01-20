@@ -1,8 +1,7 @@
-<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Black Grouper</title>
+  <title>Black grouper</title>
 </head>
 <body>
 
@@ -13,15 +12,26 @@
 <div id="container" style="min-width: 310px; max-width: 600px; height: 400px; margin: 0 auto"></div>
 
 <script>
-Highcharts.chart('container', {
-  title: {
-    text: 'Black Grouper' 
-  },
-  data: {
-    googleSpreadsheetKey: '1pSEGcAoc2ywwcQeXBN79K6_KFKK3FgFxhYKvSKmdCr4' 
-    // [black-grouper](https://docs.google.com/spreadsheets/d/1pSEGcAoc2ywwcQeXBN79K6_KFKK3FgFxhYKvSKmdCr4/edit#gid=702915032)
-  }
-});
+csv   = 'https://marinebon.org/fk-esr-info/data/fknms_esr_indicator_data/black_grouper.csv';
+title = 'Black grouper';
+icon  = 'black-grouper';
+
+if (csv == "NA"){
+  document.getElementById("container").innerHTML = "<em>No data</em> yet assigned to icon <b>" + icon + "</b>. This needs to be specified in this Google Sheet: <a href='https://docs.google.com/spreadsheets/d/1_o8HOiZ_35uajupEsw6xLSsneTBTeLh0bqvFQvMpBNY/edit#gid=0'>icons to data | fk-esr-info</a>."
+} else {
+  Highcharts.chart('container', {
+    title: {
+      text: title
+    },
+    data: {
+      csvURL: csv,
+      firstRowAsNames: false,
+      startRow: 4
+    }, 
+    series: [{
+      name: 'value' }]
+  });
+}
 </script>
 
 </body>
