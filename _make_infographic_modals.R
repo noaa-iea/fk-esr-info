@@ -11,9 +11,11 @@ shelf(
 icons_to_data_csv <- "https://docs.google.com/spreadsheets/d/e/2PACX-1vSAROGVpYB58Zkr8P0iwJdTMRPNLZtJ07IyUn-dQ62C2HMuCEScyl8x7urCD7QbRXQYSIJwDn_wku9G/pub?gid=0&single=true&output=csv"
 
 # create modals ----
-icons_to_data <- read_csv(icons_to_data_csv)
+icons_to_data <- read_csv(icons_to_data_csv) # View(icons_to_data)
 
 icons_to_data %>% 
+  filter(icon == "black-grouper") %>% 
+  # pull(data)
   pwalk(
     function(...){
       row <- tibble(...)
@@ -24,7 +26,8 @@ icons_to_data %>%
       csv   <- ifelse(
         is.na(row$data),
         NA,
-        glue("https://marinebon.org/fk-esr-info/data/fknms_esr_indicator_data/{row$data}"))
+        #glue("https://marinebon.org/fk-esr-info/data/fknms_esr_indicator_data/{row$data}"))
+        glue("{row$data}"))
       
       knitr::knit_expand(
         file  = "_infographic_modal_template.html", 

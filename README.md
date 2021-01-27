@@ -13,6 +13,11 @@ Because of CORS dependencies, need to view in local webserver, for instance:
 servr::httd()
 ```
 
+## Rendering
+
+```r
+source("_make_infographic_modals.R")
+```
 
 ## Materials
 
