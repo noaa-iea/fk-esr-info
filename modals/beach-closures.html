@@ -1,7 +1,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Beach closures</title>
+  <title>Beach closures due to presence of fecal indicator</title>
 </head>
 <body>
 
@@ -12,12 +12,12 @@
 <div id="container" style="min-width: 310px; max-width: 600px; height: 400px; margin: 0 auto"></div>
 
 <script>
-csv   = 'NA';
-title = 'Beach closures';
+csv   = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT3c4QZPzxvH3yqYQb1aOVlMPglKmW6rgfYhAiAGRHICqwlgR_StnjyOT7RPAD3FNBXChsZhuOhxMJg/pub?gid=1525589878&single=true&output=csv';
+title = 'Beach closures due to presence of fecal indicator';
 icon  = 'beach-closures';
 
-if (csv == "NA"){
-  document.getElementById("container").innerHTML = "<em>No data</em> yet assigned to icon <b>" + icon + "</b>. This needs to be specified in this Google Sheet: <a href='https://docs.google.com/spreadsheets/d/1_o8HOiZ_35uajupEsw6xLSsneTBTeLh0bqvFQvMpBNY/edit#gid=0'>icons to data | fk-esr-info</a>."
+if (csv == 'NA'){
+  document.getElementById('container').innerHTML = "<em>No data</em> yet assigned to icon <b>" + icon + "</b>. This needs to be specified in this Google Sheet: <a href='https://docs.google.com/spreadsheets/d/1_o8HOiZ_35uajupEsw6xLSsneTBTeLh0bqvFQvMpBNY/edit#gid=0'>icons to data | fk-esr-info</a>."
 } else {
   Highcharts.chart('container', {
     title: {

@@ -1,7 +1,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Maritime hermitage</title>
+  <title>Maritime heritage resources listed on National Register of Historic Places</title>
 </head>
 <body>
 
@@ -12,12 +12,12 @@
 <div id="container" style="min-width: 310px; max-width: 600px; height: 400px; margin: 0 auto"></div>
 
 <script>
-csv   = 'NA';
-title = 'Maritime hermitage';
+csv   = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS1p_uYNd-1IThnfv7Ti6NkG821C_WpxDgqK3BG0MlimEuMQmIFhlRsP-xV1FsO28hbkKmGlHwYdbXD/pub?gid=1077361851&single=true&output=csv';
+title = 'Maritime heritage resources listed on National Register of Historic Places';
 icon  = 'maritime-hermitage';
 
-if (csv == "NA"){
-  document.getElementById("container").innerHTML = "<em>No data</em> yet assigned to icon <b>" + icon + "</b>. This needs to be specified in this Google Sheet: <a href='https://docs.google.com/spreadsheets/d/1_o8HOiZ_35uajupEsw6xLSsneTBTeLh0bqvFQvMpBNY/edit#gid=0'>icons to data | fk-esr-info</a>."
+if (csv == 'NA'){
+  document.getElementById('container').innerHTML = "<em>No data</em> yet assigned to icon <b>" + icon + "</b>. This needs to be specified in this Google Sheet: <a href='https://docs.google.com/spreadsheets/d/1_o8HOiZ_35uajupEsw6xLSsneTBTeLh0bqvFQvMpBNY/edit#gid=0'>icons to data | fk-esr-info</a>."
 } else {
   Highcharts.chart('container', {
     title: {

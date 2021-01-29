@@ -1,7 +1,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Sponges soft corals</title>
+  <title>Barrel sponges count</title>
 </head>
 <body>
 
@@ -12,12 +12,12 @@
 <div id="container" style="min-width: 310px; max-width: 600px; height: 400px; margin: 0 auto"></div>
 
 <script>
-csv   = 'https://marinebon.org/fk-esr-info/data/fknms_esr_indicator_data/xesto_sponge_colony-count.csv';
-title = 'Sponges soft corals';
+csv   = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSKIpq-3maRMy_EsOuo8GhMxCwNpTYF_6Zs4u_tezd-2v6ACdBMopv9ubI1rPXMJ6_Y92U2XyrP1B86/pub?gid=49603026&single=true&output=csv';
+title = 'Barrel sponges count';
 icon  = 'sponges-soft-corals';
 
-if (csv == "NA"){
-  document.getElementById("container").innerHTML = "<em>No data</em> yet assigned to icon <b>" + icon + "</b>. This needs to be specified in this Google Sheet: <a href='https://docs.google.com/spreadsheets/d/1_o8HOiZ_35uajupEsw6xLSsneTBTeLh0bqvFQvMpBNY/edit#gid=0'>icons to data | fk-esr-info</a>."
+if (csv == 'NA'){
+  document.getElementById('container').innerHTML = "<em>No data</em> yet assigned to icon <b>" + icon + "</b>. This needs to be specified in this Google Sheet: <a href='https://docs.google.com/spreadsheets/d/1_o8HOiZ_35uajupEsw6xLSsneTBTeLh0bqvFQvMpBNY/edit#gid=0'>icons to data | fk-esr-info</a>."
 } else {
   Highcharts.chart('container', {
     title: {
