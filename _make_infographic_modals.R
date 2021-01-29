@@ -15,7 +15,7 @@ icons_to_data <- read_csv(icons_to_data_csv) %>%
   arrange(icon) # View(icons_to_data)
 
 icons_to_data %>% 
-  filter(icon %in% c("registered-vessels", "calcification", "black-grouper", "beach-closures")) %>% 
+  # filter(icon %in% c("registered-vessels", "calcification", "black-grouper", "beach-closures")) %>% 
   # pull(data)
   pwalk(
     function(...){
