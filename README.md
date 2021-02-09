@@ -1,6 +1,8 @@
 # fk-esr-info
 Florida Keys infographic update using Ecosystem Status Report website
 
+Working infographic (without styling): https://marinebon.org/fk-esr-info/infographic_r.html
+
 ## Goal
 
 Create a navigational page using provided art clickable by element to popup-windows (i.e. "modals") display time series data plotted individually.
