@@ -98,29 +98,30 @@ x_axis_label = "Year";
 y_axis_label = "Population";
 last_year = 2017;
 plot_band_width = 5;
+
 Highcharts.chart('container', {
-    title: {text: title},
-    credits: {enabled: false},
-    data: {
-      csvURL: csv,
-      firstRowAsNames: true,
-      startRow: 0
-    }, 
-    series: [{
-      name: 'value', 
-      showInLegend: false
-    }],
-    xAxis: {
-      plotBands: [{
-        from: last_year-plot_band_width, 
-        to: last_year,
-        color: '#DEDEFF'}],
-      title: {text: x_axis_label}
-    },
-    yAxis: {
-         title: {text: y_axis_label}  
-    }
-  });
+  title: {text: title},
+  credits: {enabled: false},
+  data: {
+    csvURL: csv,
+    firstRowAsNames: true,
+    startRow: 0 }, 
+  series: [{
+    name: 'value', 
+    showInLegend: true,
+    marker: {
+      enabled: false,
+      fillColor: 'white',
+      lineWidth: 1,
+      lineColor: Highcharts.getOptions().colors[0] }}],
+  xAxis: {
+    plotBands: [{
+      from: last_year-plot_band_width, 
+      to: last_year,
+      color: '#DEDEFF'}],
+    title: {text: x_axis_label}},
+  yAxis: {
+    title: {text: y_axis_label} }});
 
 
 </script>

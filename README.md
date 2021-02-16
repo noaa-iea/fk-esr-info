@@ -13,6 +13,7 @@ Because of CORS dependencies, need to view in local webserver, for instance:
 
 ```r
 servr::httd()
+servr::httd("modals")
 ```
 
 ## Rendering

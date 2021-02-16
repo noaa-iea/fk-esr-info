@@ -12,26 +12,29 @@ icons_to_data_csv <- "https://docs.google.com/spreadsheets/d/e/2PACX-1vSAROGVpYB
 
 # create modals ----
 icons_to_data <- read_csv(icons_to_data_csv) %>% 
-  arrange(icon) # View(icons_to_data)
+  arrange(icon)
 
 icons_to_data %>% 
   # filter(icon %in% c("registered-vessels", "calcification", "black-grouper", "beach-closures")) %>% 
-  # pull(data)
+  filter(icon %in% c("resident-population")) %>% 
   pwalk(
-    function(...){
-      row <- tibble(...)
+    function(icon, title, data, y_label, ...){
       
-      icon  <- row$icon
       out   <- glue("modals/{icon}.html")
-      title <- row$title
-      csv   <- row$data
-      
       message(glue("{icon}: {csv}"))
       
+      year_max <- read_csv(csv) %>% 
+        select(1) %>% 
+        pull() %>% 
+        max()
+      
       knitr::knit_expand(
-        file  = "_infographic_modal_template.html", 
-        icon  = icon,
-        title = title,
-        csv   = csv) %>% 
+        file       = "_infographic_modal_template.html", 
+        icon       = icon,
+        title      = title,
+        csv        = csv,
+        y_label    = y_label,
+        year_max   = year_max, 
+        years_band = 5) %>% 
         writeLines(out) })
   
