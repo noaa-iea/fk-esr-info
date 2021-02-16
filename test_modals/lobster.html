@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Number of spiny lobster commercial fishing trips</title>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  </head>
+<body>
+    <div id="container" style="width:100%; height:350px;"></div>
+      <script>
+      csv = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQnH9UDDjeDWpthgRXpK7lUl1TsmuSEYJtOivb6w3Us_XCIptR2UYW7P8gOsSs7dWrHc4ZNNlUH0wjp/pub?gid=499105770&single=true&output=csv";
+title = "Number of spiny lobster commercial fishing trips";
+x_axis_label = "";
+y_axis_label = "";
+last_year = ;
+plot_band_width = 5;
+    Highcharts.chart("container", {
+      title: {text: title},
+      credits: {enabled: false},
+      data: {
+        csvURL: csv,
+        firstRowAsNames: true,
+        startRow: 0
+      }, 
+      series: [{
+        name: "value", 
+        showInLegend: false
+      }],
+      xAxis: {
+        plotBands: [{
+          from: last_year-plot_band_width, 
+          to: last_year,
+          color: "#DEDEFF"}],
+        title: {text: x_axis_label}
+      },
+      yAxis: {
+        title: {text: y_axis_label}  
+      }
+    });
+    </script>
+    </body>
+    </html>

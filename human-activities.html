@@ -88,34 +88,41 @@
                                 
 <!-- Chart 1 -->
 
-<div id="container" style="min-width: 310px; max-width: 600px; height: 400px; margin: 0 auto"></div>
+<div id="container" style="width:100%; height:350px;"></div>
 
 <script>
-csv   = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vR2QEK4lRwEOx1edeyGwU57i-jrr7PdnjFtTHart0Ow5ooHn4lImxVEacgK1E3Z8h1_DjkOeP4vlCtk/pub?gid=148237486&single=true&output=csv';
-title = 'Tourism population via tax revenue';
-icon  = 'tourism-population';
-
-if (csv == 'NA'){
-  document.getElementById('container').innerHTML = "<em>No data</em> yet assigned to icon <b>" + icon + "</b>. This needs to be specified in this Google Sheet: <a href='https://docs.google.com/spreadsheets/d/1_o8HOiZ_35uajupEsw6xLSsneTBTeLh0bqvFQvMpBNY/edit#gid=0'>icons to data | fk-esr-info</a>."
-} else {
-  Highcharts.chart('container', {
-    title: {
-      text: title
-    },
+csv = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRE4yLL8XRMi2BAUTMgL5hNxVJ-RwFy_kbnaPKEhllULeSdgfXPfSwvKGVjw8QDNqY3iOVHx6D9sgl5/pub?output=csv';
+title = 'Keys Resident Population';
+icon  = 'resident population';
+x_axis_label = "Year";
+y_axis_label = "Population";
+last_year = 2017;
+plot_band_width = 5;
+Highcharts.chart('container', {
+    title: {text: title},
+    credits: {enabled: false},
     data: {
       csvURL: csv,
       firstRowAsNames: true,
       startRow: 0
     }, 
     series: [{
-      name: 'value' }],
+      name: 'value', 
+      showInLegend: false
+    }],
     xAxis: {
       plotBands: [{
-        from: [2014], 
-        to: [2018],
-        color: '#DEDEFF',}] }
+        from: last_year-plot_band_width, 
+        to: last_year,
+        color: '#DEDEFF'}],
+      title: {text: x_axis_label}
+    },
+    yAxis: {
+         title: {text: y_axis_label}  
+    }
   });
-}
+
+
 </script>
 
                                 
