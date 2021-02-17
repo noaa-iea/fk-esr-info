@@ -1,7 +1,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Macroalgae abundance on reef sites</title>
+  <title>Green macroalgae abundance on reef sites</title>
 </head>
 <body>
 
@@ -12,26 +12,42 @@
 <div id="container" style="min-width: 310px; max-width: 600px; height: 400px; margin: 0 auto"></div>
 
 <script>
-csv   = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS8CDz73Mokrx4ZI8fqOIZONfqbk_grBPgFJ-jQRZxrJuqcaDP1uFxNTykcggBdEM0ik6IiGW7ExuY6/pub?gid=2067262768&single=true&output=csv';
-title = 'Macroalgae abundance on reef sites';
-icon  = 'macroalgae';
+  csv   = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS8CDz73Mokrx4ZI8fqOIZONfqbk_grBPgFJ-jQRZxrJuqcaDP1uFxNTykcggBdEM0ik6IiGW7ExuY6/pub?gid=2067262768&single=true&output=csv';
+  title = 'Green macroalgae abundance on reef sites';
+  icon  = 'macroalgae';
 
-if (csv == 'NA'){
-  document.getElementById('container').innerHTML = "<em>No data</em> yet assigned to icon <b>" + icon + "</b>. This needs to be specified in this Google Sheet: <a href='https://docs.google.com/spreadsheets/d/1_o8HOiZ_35uajupEsw6xLSsneTBTeLh0bqvFQvMpBNY/edit#gid=0'>icons to data | fk-esr-info</a>."
-} else {
-  Highcharts.chart('container', {
-    title: {
-      text: title
-    },
-    data: {
-      csvURL: csv,
-      firstRowAsNames: true,
-      startRow: 0
-    }, 
-    series: [{
-      name: 'value' }]
-  });
-}
+  x_axis_label = "Year";
+  y_axis_label = 'Total abundance';
+  year_max     = 2018;      // TODO: to use JS to read in max year, presumably 1st column
+  years_band   = 5;
+  
+  if (csv == 'NA'){
+    document.getElementById('container').innerHTML = "<em>No data</em> yet assigned to icon <b>" + icon + "</b>. This needs to be specified in this Google Sheet: <a href='https://docs.google.com/spreadsheets/d/1_o8HOiZ_35uajupEsw6xLSsneTBTeLh0bqvFQvMpBNY/edit#gid=0'>icons to data | fk-esr-info</a>."
+  } else {
+    Highcharts.chart('container', {
+      title: {text: title},
+      credits: {enabled: false},
+      data: {
+        csvURL: csv,
+        firstRowAsNames: true,
+        startRow: 0 }, 
+      series: [{
+        name: 'value', 
+        showInLegend: true,
+        marker: {
+          enabled: false,
+          fillColor: 'white',
+          lineWidth: 1,
+          lineColor: Highcharts.getOptions().colors[0] }}],
+      xAxis: {
+        plotBands: [{
+          from: year_max - years_band, 
+          to: year_max,
+          color: '#DEDEFF'}],
+        title: {text: x_axis_label}},
+      yAxis: {
+        title: {text: y_axis_label} }});
+  }
 </script>
 
 </body>
