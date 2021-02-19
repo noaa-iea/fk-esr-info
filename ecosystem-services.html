@@ -81,427 +81,118 @@
 								<h3>ecosystem services</h3>
 								<p>Many ecosystem services are gained from the resources in the Florida Keys National Marine Sanctuary, primarily from commercial and recreational fishing, tourism, and coastal protection. Key indicators of ecosystem services were the total number of commercial fishing trips from the Keys, the number of economically important species fishing trips, the number of recreational fishing licenses sold in Monroe County, and coastal protection provided by mangrove land cover (slider tool?), and total tourism value Gross Domestic Product. A decline in the total number of commercial fishing trips was seen since 1999, followed by a slow recovery. Total number of commercial grouper and snapper trips also declined, while the total number of lobster trips had large inter year variability. The total number of stone crab trips dropped and then rose, though not to 1999 levels. This trend likely causes less pressure on Sanctuary resources, but may mean that the way of life and income provided by career commercial fishing is more difficult to continue. The number of recreational fishing licenses has stayed relatively stable; however, there have been more non-resident licenses than resident licenses sold in Monroe County since 2010. Recreational fishing continues to be a major economic driver for tourism. There has been an overall loss of mangrove land cover and overall gain in developed land cover, reducing the amount of coastal protection provided by mangrove coastline. The adjusted GDP from the tourism industry in Monroe County continues to rise. </p>
                             
-                               
+<!-- Chart 1 -->
                                 
-                                        		<!-- Chart 1 -->
+<div id="chart1" style="width:100%; height:350px;"></div>
+
+<script>
+csv = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS-Q_3QCEbFf33mlL6fuOaZnGbFXmOx-4ke_GmNjAGMiDcSU7v89aoCX77vCcTB-497MJabsxy1xHIK/pub?output=csv';
+title = 'Commercial Fishing Trips';
+x_axis_label = "Year";
+y_axis_label = "Number of Trips";
+last_year = 2018;
+plot_band_width = 5;
+
+Highcharts.chart('chart1', {
+  title: {text: title},
+  credits: {enabled: false},
+  data: {
+    csvURL: csv,
+    firstRowAsNames: true,
+    startRow: 0 }, 
+  series: [{
+    name: 'value', 
+    showInLegend: true,
+    marker: {
+      enabled: false,
+      fillColor: 'white',
+      lineWidth: 1,
+      lineColor: Highcharts.getOptions().colors[0] }}],
+  xAxis: {
+    plotBands: [{
+      from: last_year-plot_band_width, 
+      to: last_year,
+      color: '#DEDEFF'}],
+    title: {text: x_axis_label}},
+  yAxis: {
+    title: {text: y_axis_label} }});
+
+</script>
+    
+<!-- Chart 2 -->
+<div id="chart2" style="width:100%; height:350px;"></div>
+
+<script>
+csv = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRVN_GFEi46WaX4UiORAltl-3qA19ZGvphyS0CdBEwWAWGDlkMak-kAEXRaMwlxC-YAIPDokx9nN5Rx/pub?output=csv';
+title = 'Recreational Fishing Licenses Sold';
+x_axis_label = "Year";
+y_axis_label = "Number of Licenses";
+last_year = 2018;
+plot_band_width = 5;
+
+Highcharts.chart('chart2', {
+  title: {text: title},
+  credits: {enabled: false},
+  data: {
+    csvURL: csv,
+    firstRowAsNames: true,
+    startRow: 0 }, 
+  series: [{
+    name: 'value', 
+    showInLegend: true,
+    marker: {
+      enabled: false,
+      fillColor: 'white',
+      lineWidth: 1,
+      lineColor: Highcharts.getOptions().colors[0] }}],
+  xAxis: {
+    plotBands: [{
+      from: last_year-plot_band_width, 
+      to: last_year,
+      color: '#DEDEFF'}],
+    title: {text: x_axis_label}},
+  yAxis: {
+    title: {text: y_axis_label} }});
+
+</script>
+
+<!-- Chart 3 -->
                                 
-                                <div id="chart1" style="width:100%; height:350px;"></div>
-                                <script>
-                            $(document).ready(function() {
-                                              
-                                    var ranges =[
-                                        
-                                                                                              
-                                                
-                                                ],
-                                        
-                                            oil = [
-                                                
-                                                [1942,	5],
+<div id="chart3" style="width:100%; height:350px;"></div>
 
-                                                                                        
-                                            ],
-                                        
-                                        
-                                            averages = [
-                             [	1998	,	25121	]	,
-                             [	1999	,	109485	]	,
-                             [	2000	,	102349	]	,
-                             [	2001	,	86477	]	,
-                             [	2002	,	87993	]	,
-                             [	2003	,	89081	]	,
-                             [	2004	,	84910	]	,
-                             [	2005	,	73842	]	,
-                             [	2006	,	68433	]	,
-                             [	2007	,	67444	]	,
-                             [	2008	,	53536	]	,
-                             [	2009	,	50095	]	,
-                             [	2010	,	53845	]	,
-                             [	2011	,	63362	]	,
-                             [	2012	,	62274	]	,
-                             [	2013	,	68106	]	,
-                             [	2014	,	72370	]	,
-                             [	2015	,	71637	]	,
-                             [	2016	,	67247	]	,
-                             [	2017	,	62144	]	,
-                             [	2018	,	63792	]	,
+<script>
+csv = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vR2QEK4lRwEOx1edeyGwU57i-jrr7PdnjFtTHart0Ow5ooHn4lImxVEacgK1E3Z8h1_DjkOeP4vlCtk/pub?gid=148237486&single=true&output=csv';
+title = 'Total Tourism Value GDP';
+x_axis_label = "Year";
+y_axis_label = "GDP";
+last_year = 2018;
+plot_band_width = 5;
 
+Highcharts.chart('chart3', {
+  title: {text: title},
+  credits: {enabled: false},
+  data: {
+    csvURL: csv,
+    firstRowAsNames: true,
+    startRow: 0 }, 
+  series: [{
+    name: 'value', 
+    showInLegend: true,
+    marker: {
+      enabled: false,
+      fillColor: 'white',
+      lineWidth: 1,
+      lineColor: Highcharts.getOptions().colors[0] }}],
+  xAxis: {
+    plotBands: [{
+      from: last_year-plot_band_width, 
+      to: last_year,
+      color: '#DEDEFF'}],
+    title: {text: x_axis_label}},
+  yAxis: {
+    title: {text: y_axis_label} }});
 
-
-
-                                                
-                                                                                                
-
-                                              ];
-
-            
-                                              
-                                var chart3 = new Highcharts.Chart({
-                                     credits: {
-                                        enabled: false
-                                    },
-                                    
-                                    chart: {
-                                        zoomType: 'x'  ,
-                                        renderTo: 'chart1',
-                           
-                                    },
-                                    title: {
-                                        text: 'Commercial fishing trips'
-                             
-                                    },
-                                    
-                                                                                                            
-                                    xAxis: {
-                                    type: Number,
-                                        
-                                    },
-                                    yAxis: {
-                                        title: {
-                                            text: null
-                                        }
-                                    },
-                                    
-                                    // Enable for x-axis only//
-                                    tooltip: {
-                                            valueDecimals: 0,
-                                            crosshairs: true,
-                                            snap: false,
-                                            shared: true,
-                                            valueSuffix: ''
-                                        
-                                    },
-                                    
-                                    xAxis: {
-                                        plotBands: [{
-                                            from: [2016], 
-                                            to: [2020],
-                                            color: '#DEDEFF',
-                                                                               
-                                    }]
-                                        
-                                },
-                                    
-                                    legend:{
-                                        align: 'right',
-                                        
-                                    },
-                                                                
-
-                                    series: [{
-                                        name: 'Total number of commercial fishing trips',
-                                        data: averages,
-                                        zIndex: 1,
-                                        marker: {
-                                            enabled: false,
-                                            fillColor: 'white',
-                                            lineWidth: 1,
-                                            lineColor: Highcharts.getOptions().colors[0],
-                                        }
-                                    }, {
-                                        name: 'Range',
-                                        data: ranges,
-                                        type: 'arearange',
-                                        lineWidth: 0,
-                                        linkedTo: ':previous',
-                                        color: Highcharts.getOptions().colors[0],
-                                        fillOpacity: 0.2,
-                                        zIndex: 0
-                                        
-                                        
-                                    }]
-                                    
-                                    
-
-                                                                    
-                                });
-                               });
-                                                      
-                                </script>
-                                
-                           
-                                
-                        		<!-- Chart 2 -->
-                                <div id="chart2" style="width:100%; height:350px;"></div>
-                                <script>
-                            
-                            
-                            $(document).ready(function() {
-                                              
-                                Highcharts.setOptions({
-                                lang: {
-                                    thousandsSep: ','
-                                }
-                            });
-
-                                    var ranges =[
-                                        
-                                                                                              
-                                                
-                                                ],
-                                        
-                                            oil = [
-                                                
-                                                [2018,	5],
-
-                                                                                        
-                                            ],
-                                        
-                                        
-                                            averages = [
-                                                
-                                     [	2015	,	1373554	]	,
-                                     [	2016	,	1435115	]	,
-                                     [	2017	,	1513696	]	,
-                                     [	2018	,	1538835	]	,
-
-                                
-
-                                                
-                                                                                                
-
-                                              ];
-
-            
-                                              
-                                var chart2 = new Highcharts.Chart({
-                                     credits: {
-                                        enabled: false
-                                    },
-                                    
-                                    chart: {
-                                        zoomType: 'x'  ,
-                                        renderTo: 'chart2',
-                           
-                                    },
-                                    title: {
-                                        text: 'Recreational Fishing Licenses Sold'
-                             
-                                    },
-                                    
-                                                                                                        
-                                    xAxis: {
-                                        
-                                        type: Number,
-                                 
-                                                                                                   
-                                    },
-                                    
-                                    yAxis: {
-                                        
-                                        title: {
-                                            text: null
-                                        }
-                                    },
-                                    
-                                    
-                                    
-                                    
-                                    // Enable for x-axis only//
-                                    tooltip: {
-                                       
-                                           allowDecimals: false,
-                                            crosshairs: true,
-                                            shared: true,
-                                       
-                                        
-                                    },
-                                    
-                                    xAxis: {
-                                        allowDecimals: false,
-                                        plotBands: [{
-                                            from: [2017], 
-                                            to: [2018],
-                                            color: '#DEDEFF',
-                                                                               
-                                    }]
-                                        
-                                },
-                                                                
-                                legend: {
-                                        align: 'right'
-                                    },
-                                                   
-                                    series: [{
-                                        name: 'Number of Licenses Sold',
-                                        data: averages,
-                                        zIndex: 1,
-                                        marker: {
-                                            enabled: false,
-                                            fillColor: 'white',
-                                            lineWidth: 1,
-                                            lineColor: Highcharts.getOptions().colors[0],
-                                        }
-                                    }, {
-                                        name: 'Range',
-                                        data: ranges,
-                                        type: 'arearange',
-                                        lineWidth: 0,
-                                        linkedTo: ':previous',
-                                        color: Highcharts.getOptions().colors[0],
-                                        fillOpacity: 0.2,
-                                        zIndex: 0
-                                        
-                                                                                                    
-                                    }]
-                                    
-                                    
-                                                                    
-                                });
-                               });
-                                                      
-                                </script>
-                                
-                                   						
-											        
-                         
-                        
-                                		<!-- Chart 3 -->
-                                
-                                <div id="chart3" style="width:100%; height:350px;"></div>
-                                <script>
-                            $(document).ready(function() {
-                                              
-                                    var ranges =[
-                                        
-                                                                                              
-                                                
-                                                ],
-                                        
-                                            oil = [
-                                                
-                                                [1942,	5],
-
-                                                                                        
-                                            ],
-                                        
-                                        
-                                            averages = [
-                                                
-                                              
-                                   [	1984	,	830885.11	]	,
-                                     [	1985	,	1720610.24	]	,
-                                     [	1986	,	2183953.98	]	,
-                                     [	1987	,	3464389.29	]	,
-                                     [	1988	,	4322020.23	]	,
-                                     [	1989	,	5318094.195	]	,
-                                     [	1990	,	5970852.165	]	,
-                                     [	1991	,	6106101.475	]	,
-                                     [	1992	,	6399061.74	]	,
-                                     [	1993	,	7357919.935	]	,
-                                     [	1994	,	7433356.62	]	,
-                                     [	1995	,	7939804.35	]	,
-                                     [	1996	,	8778828.43	]	,
-                                     [	1997	,	9570966.24	]	,
-                                     [	1998	,	10017013.43	]	,
-                                     [	1999	,	10491757.58	]	,
-                                     [	2000	,	11380211.33	]	,
-                                     [	2001	,	12385202.46	]	,
-                                     [	2002	,	11698336.99	]	,
-                                     [	2003	,	12483458.85	]	,
-                                     [	2004	,	13598010.35	]	,
-                                     [	2005	,	14246896.71	]	,
-                                     [	2006	,	13961657.92	]	,
-                                     [	2007	,	14996654.3	]	,
-                                     [	2008	,	15176238.54	]	,
-                                     [	2009	,	15190632.14	]	,
-                                     [	2010	,	19716720.76	]	,
-                                     [	2011	,	22382958.57	]	,
-                                     [	2012	,	25159575.65	]	,
-                                     [	2013	,	27232902.43	]	,
-                                     [	2014	,	30643184.41	]	,
-                                     [	2015	,	34292830.23	]	,
-                                     [	2016	,	36654284	]	,
-                                     [	2017	,	36663796.2	]	,
-                                     [	2018	,	32471735.23	]	,
-
-
-                                                
-                                                                                                
-
-                                              ];
-
-            
-                                              
-                                var chart4 = new Highcharts.Chart({
-                                     credits: {
-                                        enabled: false
-                                    },
-                                    
-                                    chart: {
-                                        zoomType: 'x'  ,
-                                        renderTo: 'chart3',
-                           
-                                    },
-                                    title: {
-                                        text: 'Total Tourism Value GDP'
-                             
-                                    },
-                                    
-                                                                                                            
-                                    xAxis: {
-                                    type: Number,
-                                        
-                                    },
-                                    yAxis: {
-                                        title: {
-                                            text: null
-                                        }
-                                    },
-                                    
-                                    // Enable for x-axis only//
-                                    tooltip: {
-                                            valueDecimals: 0,
-                                           crosshairs: true,
-                                            shared: true,
-                                            valueSuffix: ''
-                                        
-                                    },
-                                    
-                                    xAxis: {
-                                        plotBands: [{
-                                            from: [2016], 
-                                            to: [2020],
-                                            color: '#DEDEFF',
-                                                                               
-                                    }]
-                                    
-                                },
-                                              legend: {
-                                        align: 'right'
-                                    },
-                                                              
-
-                                    series: [{
-                                        name: 'Total Tourism Value GDP',
-                                        data: averages,
-                                        zIndex: 1,
-                                        marker: {
-                                            enabled: false,
-                                            fillColor: 'white',
-                                            lineWidth: 1,
-                                            lineColor: Highcharts.getOptions().colors[0],
-                                        }
-                                    },
-                                             
-                                             {
-                                        name: 'Range',
-                                        data: ranges,
-                                        type: 'arearange',
-                                        lineWidth: 0,
-                                        linkedTo: ':previous',
-                                        color: Highcharts.getOptions().colors[0],
-                                        fillOpacity: 0.2,
-                                        zIndex: 0
-                                        
-                                   }]
-                                    
-                                    
-                                                                    
-                                });
-                               });
-                                                      
-                                </script>
+</script>
                                         <i>*purple shaded section represents trends over the last five years. </i>                              				
 							</div>
                                                                                              

@@ -88,18 +88,17 @@
                                 
 <!-- Chart 1 -->
 
-<div id="container" style="width:100%; height:350px;"></div>
+<div id="chart1" style="width:100%; height:350px;"></div>
 
 <script>
 csv = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRE4yLL8XRMi2BAUTMgL5hNxVJ-RwFy_kbnaPKEhllULeSdgfXPfSwvKGVjw8QDNqY3iOVHx6D9sgl5/pub?output=csv';
 title = 'Keys Resident Population';
-icon  = 'resident population';
 x_axis_label = "Year";
 y_axis_label = "Population";
 last_year = 2017;
 plot_band_width = 5;
 
-Highcharts.chart('container', {
+Highcharts.chart('chart1', {
   title: {text: title},
   credits: {enabled: false},
   data: {
@@ -123,520 +122,131 @@ Highcharts.chart('container', {
   yAxis: {
     title: {text: y_axis_label} }});
 
-
-</script>
-
-                                
-<div id="chart1" style="width:100%; height:350px;"></div>
-
-<script>
-  $(document).ready(function() {
-                                              
-  var ranges = [],
-                                        
-  oil = [
-    [1942,	5],],
-
-  averages = [
-    [	1830	,	517	]	,
-    [	1840	,	688	]	,
-    [	1850	,	2645	]	,
-    [	1860	,	2913	]	,
-    [	1870	,	5657	]	,
-    [	1880	,	10940	]	,
-    [	1890	,	18786	]	,
-    [	1900	,	18006	]	,
-    [	1910	,	21563	]	,
-    [	1920	,	19550	]	,
-    [	1930	,	13624	]	,
-    [	1940	,	14078	]	,
-    [	1950	,	29957	]	,
-    [	1960	,	47921	]	,
-    [	1970	,	52586	]	,
-    [	1980	,	63188	]	,
-    [	1990	,	78024	]	,
-    [	2010	,	73219	]	,
-    [	2011	,	73981	]	,
-    [	2012	,	74627	]	,
-    [	2013	,	75914	]	,
-    [	2014	,	76492	]	,
-    [	2015	,	77003	]	,
-	  [ 2016	,	77304	]	,
-	  [ 2017	,	77013	]	,];
-
-  var chart3 = new Highcharts.Chart({
-    credits: {
-      enabled: false},
-    chart: {
-      zoomType: 'x'  ,
-      renderTo: 'chart1',},
-    title: {
-      text: 'Keys Resident Population'},
-    xAxis: {
-      type: Number,},
-    yAxis: {
-      title: {
-        text: null}},
-    // Enable for x-axis only//
-    tooltip: {
-      valueDecimals: 0,
-      crosshairs: true,
-      snap: false,
-      shared: true,
-      valueSuffix: ''},
-    xAxis: {
-      plotBands: [{
-        from: [2016], 
-        to: [2020],
-        color: '#DEDEFF',}] },
-    legend:{
-      align: 'right',},
-      
-    series: [
-      {
-        name: 'Keys Resident Population',
-        data: averages,
-        zIndex: 1,
-        marker: {
-          enabled: false,
-          fillColor: 'white',
-          lineWidth: 1,
-          lineColor: Highcharts.getOptions().colors[0],}}, 
-      {
-        name: 'Range',
-        data: ranges,
-        type: 'arearange',
-        lineWidth: 0,
-        linkedTo: ':previous',
-        color: Highcharts.getOptions().colors[0],
-        fillOpacity: 0.2,
-        zIndex: 0 }]
-    });
-  });
 </script>
                                 
 <!--            <h3>Cruise ship visitors</h3>
 <p>text for human activities still need this</p-->
                                 
-<!-- Chart 2 -->
-                                <div id="chart2" style="width:100%; height:350px;"></div>
-                                <script>
-                            
-                            
-                            $(document).ready(function() {
-                                              
-                                Highcharts.setOptions({
-                                lang: {
-                                    thousandsSep: ','
-                                }
-                            });
+<div id="chart2" style="width:100%; height:350px;"></div>
 
-                                    var ranges =[
-                                        
-                                                                                              
-                                                
-                                                ],
-                                        
-                                            oil = [
-                                                
-                                                [1997,	5],
+<script>
+  csv = 'https://marinebon.org/fk-esr-info/data/fknms_esr_indicator_data/cruise_passengers.csv';
+  title = 'Cruise Passenger Visits to Key West';
+  x_axis_label = "Year";
+  y_axis_label = "Cruise Passenger Visits";
+  last_year = 2019;
+  plot_band_width = 5;
+  
+  Highcharts.chart('chart2', {
+    title: {text: title},
+    credits: {enabled: false},
+    data: {
+      csvURL: csv,
+      firstRowAsNames: true,
+      startRow: 0 }, 
+    series: [{
+      name: 'value', 
+      showInLegend: true,
+      marker: {
+        enabled: false,
+        fillColor: 'white',
+        lineWidth: 1,
+        lineColor: Highcharts.getOptions().colors[0] }}],
+    xAxis: {
+      plotBands: [{
+        from: last_year-plot_band_width, 
+        to: last_year,
+        color: '#DEDEFF'}],
+      title: {text: x_axis_label}},
+    yAxis: {
+      title: {text: y_axis_label} }});
+</script>
 
-                                                                                        
-                                            ],
-                                        
-                                        
-                                            averages = [
-                                                
-                                                
-                                             [	1997	,	565768	]	,
-                                             [	1998	,	585028	]	,
-                                             [	1999	,	625810	]	,
-                                             [	2000	,	670531	]	,
-                                             [	2001	,	621232	]	,
-                                             [	2002	,	927746	]	,
-                                             [	2003	,	1122197	]	,
-                                             [	2004	,	929790	]	,
-                                             [	2005	,	976761	]	,
-                                             [	2006	,	859089	]	,
-                                             [	2007	,	830954	]	,
-                                             [	2008	,	754407	]	,
-                                             [	2009	,	863767	]	,
-                                             [	2010	,	804845	]	,
-                                             [	2011	,	853673	]	,
-                                             [	2012	,	832887	]	,
-                                             [	2013	,	734349	]	,
-                                             [	2014	,	800752	]	,
-                                             [	2015	,	745864	]	,
-                                             [	2016	,	696224	]	,
-                                             [	2017	,	746781	]	,
-                                             [	2018	,	865909	]	,
-                                             [	2019	,	886783	]	,
-
-
-
-                                                
-                                                                                                
-
-                                              ];
-
-            
-                                              
-                                var chart2 = new Highcharts.Chart({
-                                     credits: {
-                                        enabled: false
-                                    },
-                                    
-                                    chart: {
-                                        zoomType: 'x'  ,
-                                        renderTo: 'chart2',
-                           
-                                    },
-                                    title: {
-                                        text: 'Cruise Passenger Visits to Key West'
-                             
-                                    },
-                                    
-                                                                                                        
-                                    xAxis: {
-                                    type: Number,
-                                                                                                       
-                                    },
-                                    
-                                    yAxis: {
-                                        
-                                        title: {
-                                            text: null
-                                        }
-                                    },
-                                    
-                                    
-                                    
-                                    
-                                    // Enable for x-axis only//
-                                    tooltip: {
-                                        valueDecimals: 0,
-                                            crosshairs: true,
-                                            shared: true,
-                                       
-                                        
-                                    },
-                                    
-                                    xAxis: {
-                                        plotBands: [{
-                                            from: [2016], 
-                                            to: [2030],
-                                            color: '#DEDEFF',
-                                                                               
-                                    }]
-                                        
-                                },
-                                                                
-                                legend: {
-                                        align: 'right'
-                                    },
-                                                   
-                                    series: [{
-                                        name: 'Number of Visitors',
-                                        data: averages,
-                                        zIndex: 1,
-                                        marker: {
-                                            enabled: false,
-                                            fillColor: 'white',
-                                            lineWidth: 1,
-                                            lineColor: Highcharts.getOptions().colors[0],
-                                        }
-                                    }, {
-                                        name: 'Range',
-                                        data: ranges,
-                                        type: 'arearange',
-                                        lineWidth: 0,
-                                        linkedTo: ':previous',
-                                        color: Highcharts.getOptions().colors[0],
-                                        fillOpacity: 0.2,
-                                        zIndex: 0
-                                        
-                                                                                                    
-                                    }]
-                                    
-                                    
-                                                                    
-                                });
-                               });
-                                                      
-                                </script>
-                                
-                                   						
-											        
-                         <!--        <h3>Registered Vessels</h3>
-								<p>text for human activities still need this</p>
+<!--        <h3>Registered Vessels</h3>
+<p>text for human activities still need this</p>
                                 	                                
-                        
-                                		<!-- Chart 3 -->
+<!-- Chart 3 -->
                                 
-                                <div id="chart3" style="width:100%; height:350px;"></div>
-                                <script>
-                            $(document).ready(function() {
-                                              
-                                    var ranges =[
-                                        
-                                                                                              
-                                                
-                                                ],
-                                        
-                                            oil = [
-                                                
-                                                [1942,	5],
-
-                                                                                        
-                                            ],
-                                        
-                                        
-                                            averages = [
-                                                
-                                              
-                                       [	2000	,	26690	]	,
-                                     [	2001	,	29204	]	,
-                                     [	2002	,	29607	]	,
-                                     [	2003	,	29734	]	,
-                                     [	2004	,	29500	]	,
-                                     [	2005	,	29990	]	,
-                                     [	2006	,	29392	]	,
-                                     [	2007	,	28235	]	,
-                                     [	2008	,	29988	]	,
-                                     [	2009	,	26330	]	,
-                                     [	2010	,	26181	]	,
-                                     [	2011	,	26252	]	,
-                                     [	2012	,	26461	]	,
-                                     [	2013	,	27100	]	,
-                                     [	2014	,	27522	]	,
-                                     [	2015	,	28247	]	,
-                                     [	2016	,	29106	]	,
-                                     [	2017	,	29377	]	,
-                                     [	2018	,	29037	]	,
-
-
-                                                
-                                                                                                
-
-                                              ];
-
-            
-                                              
-                                var chart4 = new Highcharts.Chart({
-                                     credits: {
-                                        enabled: false
-                                    },
-                                    
-                                    chart: {
-                                        zoomType: 'x'  ,
-                                        renderTo: 'chart3',
-                           
-                                    },
-                                    title: {
-                                        text: 'Registered Vessels'
-                             
-                                    },
-                                    
-                                                                                                            
-                                    xAxis: {
-                                    type: Number,
-                                        
-                                    },
-                                    yAxis: {
-                                        title: {
-                                            text: null
-                                        }
-                                    },
-                                    
-                                    // Enable for x-axis only//
-                                    tooltip: {
-                                            valueDecimals: 0,
-                                           crosshairs: true,
-                                            shared: true,
-                                            valueSuffix: ''
-                                        
-                                    },
-                                    
-                                    xAxis: {
-                                        plotBands: [{
-                                            from: [2016], 
-                                            to: [2020],
-                                            color: '#DEDEFF',
-                                                                               
-                                    }]
-                                    
-                                },
-                                              legend: {
-                                        align: 'right'
-                                    },
-                                                              
-
-                                    series: [{
-                                        name: 'Registered Vessels',
-                                        data: averages,
-                                        zIndex: 1,
-                                        marker: {
-                                            enabled: false,
-                                            fillColor: 'white',
-                                            lineWidth: 1,
-                                            lineColor: Highcharts.getOptions().colors[0],
-                                        }
-                                    },
-                                             
-                                             {
-                                        name: 'Range',
-                                        data: ranges,
-                                        type: 'arearange',
-                                        lineWidth: 0,
-                                        linkedTo: ':previous',
-                                        color: Highcharts.getOptions().colors[0],
-                                        fillOpacity: 0.2,
-                                        zIndex: 0
-                                        
-                                        
-                                    }]
-                                    
-                                    
-
-                                                                    
-                                });
-                               });
+<div id="chart3" style="width:100%; height:350px;"></div>
+<script>
+  csv = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT5qCAeTdiWGrTCZbS-VK-FZ-jZtRgpS3K0_dJPXowPJ6CPaQKP-CXG1YThTvOabw/pub?gid=760779668&single=true&output=csv';
+  title = 'Registered Vessels';
+  x_axis_label = "Year";
+  y_axis_label = "Registered Vessels";
+  last_year = 2018;
+  plot_band_width = 5;
+  
+  Highcharts.chart('chart3', {
+    title: {text: title},
+    credits: {enabled: false},
+    data: {
+      csvURL: csv,
+      firstRowAsNames: true,
+      startRow: 0 }, 
+    series: [{
+      name: 'value', 
+      showInLegend: true,
+      marker: {
+        enabled: false,
+        fillColor: 'white',
+        lineWidth: 1,
+        lineColor: Highcharts.getOptions().colors[0] }}],
+    xAxis: {
+      plotBands: [{
+        from: last_year-plot_band_width, 
+        to: last_year,
+        color: '#DEDEFF'}],
+      title: {text: x_axis_label}},
+    yAxis: {
+      title: {text: y_axis_label} }});
+</script>
+                                
+<!--             	<h3>Household connections to central wastewater treatment</h3>
+<p>text still need this</p>
+                                
+<!-- Chart 4 -->
+                                
+<div id="chart4" style="width:100%; height:350px;"></div>
+<script>
+  csv = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQpgs8TjUPdfdnEgu3Lu1gseyxtFL2TSGfXfbHYVr02Y8s4fm8tIchA58-f1bT8TSvtTpgLhlDtu-et/pub?gid=624703045&single=true&output=csv';
+  title = 'Household Connections to Central Wastewater Treatment';
+  x_axis_label = "Year";
+  y_axis_label = "% of Households Connected to Sewer System";
+  last_year = 2019;
+  plot_band_width = 5;
+  
+  Highcharts.chart('chart4', {
+    title: {text: title},
+    credits: {enabled: false},
+    data: {
+      csvURL: csv,
+      firstRowAsNames: true,
+      startRow: 0 }, 
+    series: [{
+      name: 'value', 
+      showInLegend: true,
+      marker: {
+        enabled: false,
+        fillColor: 'white',
+        lineWidth: 1,
+        lineColor: Highcharts.getOptions().colors[0] }}],
+    xAxis: {
+      plotBands: [{
+        from: last_year-plot_band_width, 
+        to: last_year,
+        color: '#DEDEFF'}],
+      title: {text: x_axis_label}},
+    yAxis: {
+      title: {text: y_axis_label} }});
+</script>
+<i>*purple shaded section represents trends over the last five years. </i>                         				
+</div>
                                                       
-                                </script>
-                                
-                    <!--             	<h3>Household connections to central wastewater treatment</h3>
-								<p>text still need this</p>
-                                
-                                <!-- Chart 4 -->
-                                
-                                <div id="chart4" style="width:100%; height:350px;"></div>
-                                <script>
-                            $(document).ready(function() {
-                                              
-                                    var ranges =[
-                                        
-                                                                                              
-                                                
-                                                ],
-                                        
-                                            oil = [
-                                                
-                                                [1942,	5],
-
-                                                                                        
-                                            ],
-                                        
-                                        
-                                            averages = [
-                                                
-                                           [	2009	,	53	]	,
-         [	2011	,	43	]	,
-         [	2013	,	72	]	,
-         [	2014	,	72	]	,
-         [	2014	,	73	]	,
-         [	2015	,	76	]	,
-         [	2016	,	78	]	,
-         [	2016	,	84	]	,
-         [	2017	,	93	]	,
-         [	2019	,	93	]	,
+</section>
 
 
-                                                
-                                                                                                
 
-                                              ];
-
-            
-                                              
-                                var chart4 = new Highcharts.Chart({
-                                     credits: {
-                                        enabled: false
-                                    },
-                                    
-                                    chart: {
-                                        zoomType: 'x'  ,
-                                        renderTo: 'chart4',
-                           
-                                    },
-                                    title: {
-                                        text: 'Household connections to central wastewater treatment'
-                             
-                                    },
-                                    
-                                                                                                            
-                                    xAxis: {
-                                    type: Number,
-                                        
-                                    },
-                                    yAxis: {
-                                        title: {
-                                            text: null
-                                        }
-                                    },
-                                    
-                                    // Enable for x-axis only//
-                                    tooltip: {
-                                            valueDecimals: 0,
-                                           crosshairs: true,
-                                            shared: true,
-                                            valueSuffix: ''
-                                        
-                                    },
-                                    
-                                    xAxis: {
-                                        plotBands: [{
-                                            from: [2016], 
-                                            to: [2020],
-                                            color: '#DEDEFF',
-                                                                               
-                                    }]
-                                    
-                                },
-                                              legend: {
-                                        align: 'right'
-                                    },
-                                                              
-
-                                    series: [{
-                                        name: 'Percent of households connected to sewer system',
-                                        data: averages,
-                                        zIndex: 1,
-                                        marker: {
-                                            enabled: false,
-                                            fillColor: 'white',
-                                            lineWidth: 1,
-                                            lineColor: Highcharts.getOptions().colors[0],
-                                        }
-                                    },
-                                             
-                                             {
-                                        name: 'Range',
-                                        data: ranges,
-                                        type: 'arearange',
-                                        lineWidth: 0,
-                                        linkedTo: ':previous',
-                                        color: Highcharts.getOptions().colors[0],
-                                        fillOpacity: 0.2,
-                                        zIndex: 0
-                                        
-                                        
-                                    }]
-                                    
-                                    
-
-                                                                    
-                                });
-                               });
-                                                      
-                                </script>
-                                            <i>*purple shaded section represents trends over the last five years. </i>                         				
-							</div>
-                                                                                                  
-						</section>
-                        
-                                        
-                        
-					</article>
+</article>
 
 			<!-- Footer -->
 					<footer id="footer">
