@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch API Demo</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        font-size: 20px;
+        padding: 0 20px;
+      }
+      
+      main {
+        text-align: center;
+        margin: 0 auto;
+        max-width: 800px;
+      }
+      
+      p {
+        text-align: left;
+        padding: 0 20px;
+      }
+      
+      .box {
+        border: solid 1px;
+        background: #ccc;
+        padding: 6px;
+      }
+      
+      code {
+        color: firebrick;
+      }
+    </style>
+</head>
+<body>
+<main>
+  <h2>A Simple Fetch API Example</h2>
+  
+  <p>Use the button below to 'fetch' content from an external location via the Fetch API. The content will be displayed below:</p>
+  
+  <p class="par"></p>
+
+  <button>Get Content</button>
+
+</main>
+
+<script>
+  document.querySelector('button').addEventListener('click', function () {
+  fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vSzpqYnggAa9lUnqMFjg4BjPwaX7aHSas8Dmf202Q_YHWUC5KcEg4sjtDW_CDQQGbRRiE_Q8vF7v1Xk/pub?gid=373524529&single=true&output=csv')
+    .then((response) => {
+      return response.text();
+    })
+    .then((myContent) => {
+      document.querySelector('.par').innerHTML = myContent;
+      document.querySelector('.par').classList.add('box');
+    });
+
+}, false);
+  
+</script>
+
+</body>
+</html>
