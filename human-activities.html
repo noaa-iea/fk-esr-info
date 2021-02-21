@@ -10,25 +10,30 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		    
         <!-- Global site tag (gtag.js) - Google Analytics -->
-            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176398491-1"></script>
-            <script>
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-
-              gtag('config', 'UA-176398491-1');
-            </script>
-            <link rel="stylesheet" href="assets/css/main.css" />
-            <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-            <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-            <script src="http://code.highcharts.com/highcharts.js"></script>
-            <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-            <script src="https://code.highcharts.com/highcharts.js"></script>
-            <script src="https://code.highcharts.com/highcharts-more.js"></script>
-            <script src="http://code.highcharts.com/modules/exporting.js"></script>
-            <script src="https://code.highcharts.com/modules/data.js"></script> <!-- for csvURL -->
-            <!-- optional -->
-            <script src="http://code.highcharts.com/modules/offline-exporting.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176398491-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-176398491-1');
+    </script>
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script> 
+    <script src="http://code.highcharts.com/modules/offline-exporting.js"></script>  
+    <script src="/assets/js/highcharts_wrapper.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+    <script src="assets/js/main.js"></script>
     
         <!--highcharts dependency-->
 	</head>
@@ -84,167 +89,35 @@
 	 Indicators were selected to identify drivers and pressures to the condition of the Sanctuary. Key findings to illustrate human activities that influence quality of habitats, water, living resources, and maritime archaeological resources were drawn from the status and trends of resident population, cruise ship visitors, registered vessels, and housing units connected to wastewater treatment. Resident population has increased in the Keys over the last century, but has leveled out since the 1980s. This driver puts pressure on the ecosystem, but level or decreasing population growth in turn changes the ecosystem services available and provided in the Keys. Tourism trends, via tax revenue and cruise ship passenger numbers, have greatly increased in the last 30 years, other than a dip in 2017 likely due to Hurricane Irma. This can put pressure on infrastructure, increase degradation of Sanctuary waters, and increase extractive resource use. However, Sanctuary resources help to support the total tourism value of the Keys as an ecosystem service to the community. The number of registered vessels in Monroe County dropped and then recovered in response to the 2008 recession. This drop likely slowed the impact of vessels on Sanctuary resources. Almost 92% of housing units in the Florida Keys are now connected to central wastewater treatment. This trend promises to improve water quality, compared to the alternative of wastewater being released into Sanctuary waters. 
                                  </p>
                             
-<!--    <h3>Keys Resident population</h3>   --> 
+<!-- <h3>Keys Resident population</h3>   --> 
                                 
 <!-- Chart 1 -->
 
 <div id="chart1" style="width:100%; height:350px;"></div>
 
-<script>
-csv = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRE4yLL8XRMi2BAUTMgL5hNxVJ-RwFy_kbnaPKEhllULeSdgfXPfSwvKGVjw8QDNqY3iOVHx6D9sgl5/pub?output=csv';
-title = 'Keys Resident Population';
-x_axis_label = "Year";
-y_axis_label = "Population";
-last_year = 2017;
-plot_band_width = 5;
-
-Highcharts.chart('chart1', {
-  title: {text: title},
-  credits: {enabled: false},
-  data: {
-    csvURL: csv,
-    firstRowAsNames: true,
-    startRow: 0 }, 
-  series: [{
-    name: 'value', 
-    showInLegend: true,
-    marker: {
-      enabled: false,
-      fillColor: 'white',
-      lineWidth: 1,
-      lineColor: Highcharts.getOptions().colors[0] }}],
-  xAxis: {
-    plotBands: [{
-      from: last_year-plot_band_width, 
-      to: last_year,
-      color: '#DEDEFF'}],
-    title: {text: x_axis_label}},
-  yAxis: {
-    title: {text: y_axis_label} }});
-
-</script>
-                                
-<!--            <h3>Cruise ship visitors</h3>
-<p>text for human activities still need this</p-->
+<!-- <h3>Cruise ship visitors</h3>  --> 
+<!-- <p>text for human activities still need this</p-->
                                 
 <div id="chart2" style="width:100%; height:350px;"></div>
 
-<script>
-  csv = 'https://marinebon.org/fk-esr-info/data/fknms_esr_indicator_data/cruise_passengers.csv';
-  title = 'Cruise Passenger Visits to Key West';
-  x_axis_label = "Year";
-  y_axis_label = "Cruise Passenger Visits";
-  last_year = 2019;
-  plot_band_width = 5;
-  
-  Highcharts.chart('chart2', {
-    title: {text: title},
-    credits: {enabled: false},
-    data: {
-      csvURL: csv,
-      firstRowAsNames: true,
-      startRow: 0 }, 
-    series: [{
-      name: 'value', 
-      showInLegend: true,
-      marker: {
-        enabled: false,
-        fillColor: 'white',
-        lineWidth: 1,
-        lineColor: Highcharts.getOptions().colors[0] }}],
-    xAxis: {
-      plotBands: [{
-        from: last_year-plot_band_width, 
-        to: last_year,
-        color: '#DEDEFF'}],
-      title: {text: x_axis_label}},
-    yAxis: {
-      title: {text: y_axis_label} }});
-</script>
-
-<!--        <h3>Registered Vessels</h3>
-<p>text for human activities still need this</p>
+<!-- <h3>Registered Vessels</h3> -->
+<!-- <p>text for human activities still need this</p> -->
                                 	                                
 <!-- Chart 3 -->
                                 
 <div id="chart3" style="width:100%; height:350px;"></div>
-<script>
-  csv = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT5qCAeTdiWGrTCZbS-VK-FZ-jZtRgpS3K0_dJPXowPJ6CPaQKP-CXG1YThTvOabw/pub?gid=760779668&single=true&output=csv';
-  title = 'Registered Vessels';
-  x_axis_label = "Year";
-  y_axis_label = "Registered Vessels";
-  last_year = 2018;
-  plot_band_width = 5;
-  
-  Highcharts.chart('chart3', {
-    title: {text: title},
-    credits: {enabled: false},
-    data: {
-      csvURL: csv,
-      firstRowAsNames: true,
-      startRow: 0 }, 
-    series: [{
-      name: 'value', 
-      showInLegend: true,
-      marker: {
-        enabled: false,
-        fillColor: 'white',
-        lineWidth: 1,
-        lineColor: Highcharts.getOptions().colors[0] }}],
-    xAxis: {
-      plotBands: [{
-        from: last_year-plot_band_width, 
-        to: last_year,
-        color: '#DEDEFF'}],
-      title: {text: x_axis_label}},
-    yAxis: {
-      title: {text: y_axis_label} }});
-</script>
+
+<!-- h3>Household connections to central wastewater treatment</h3> -->
+<!-- <p>text still need this</p> -->
                                 
-<!--             	<h3>Household connections to central wastewater treatment</h3>
-<p>text still need this</p>
-                                
-<!-- Chart 4 -->
+<!--  Chart 4 -->
                                 
 <div id="chart4" style="width:100%; height:350px;"></div>
-<script>
-  csv = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQpgs8TjUPdfdnEgu3Lu1gseyxtFL2TSGfXfbHYVr02Y8s4fm8tIchA58-f1bT8TSvtTpgLhlDtu-et/pub?gid=624703045&single=true&output=csv';
-  title = 'Household Connections to Central Wastewater Treatment';
-  x_axis_label = "Year";
-  y_axis_label = "% of Households Connected to Sewer System";
-  last_year = 2019;
-  plot_band_width = 5;
-  
-  Highcharts.chart('chart4', {
-    title: {text: title},
-    credits: {enabled: false},
-    data: {
-      csvURL: csv,
-      firstRowAsNames: true,
-      startRow: 0 }, 
-    series: [{
-      name: 'value', 
-      showInLegend: true,
-      marker: {
-        enabled: false,
-        fillColor: 'white',
-        lineWidth: 1,
-        lineColor: Highcharts.getOptions().colors[0] }}],
-    xAxis: {
-      plotBands: [{
-        from: last_year-plot_band_width, 
-        to: last_year,
-        color: '#DEDEFF'}],
-      title: {text: x_axis_label}},
-    yAxis: {
-      title: {text: y_axis_label} }});
-</script>
+
 <i>*purple shaded section represents trends over the last five years. </i>                         				
 </div>
                                                       
 </section>
-
-
 
 </article>
 
@@ -257,7 +130,7 @@ Highcharts.chart('chart1', {
 
                         
 				    <ul class="copyright">
-							<li>2019  &copy; <a href="http://www.noaa.gov" target="_blank">National Oceanic and Atmospheric Administration</a> A Proejct of the NOAA <a href="https://www.integratedecosystemassessment.noaa.gov" target="_blank">IEA</a> Program </li> <br>
+							<li>2019  &copy; <a href="http://www.noaa.gov" target="_blank">National Oceanic and Atmospheric Administration</a> A Project of the NOAA <a href="https://www.integratedecosystemassessment.noaa.gov" target="_blank">IEA</a> Program </li> <br>
                         <a href="https://www.commerce.gov/" target="_blank">U.S. Department of Commerce</a>
                   
                
@@ -273,14 +146,36 @@ Highcharts.chart('chart1', {
 
 			</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
-
-	</body>
+  <!-- Scripts -->
+  <script>
+    createGraph(
+      theData = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRE4yLL8XRMi2BAUTMgL5hNxVJ-RwFy_kbnaPKEhllULeSdgfXPfSwvKGVjw8QDNqY3iOVHx6D9sgl5/pub?output=csv', 
+      graph_location = "chart1", 
+      title = "Keys Resident Population", 
+      y_axis_label = "Population"
+    );
+  
+    createGraph(
+      theData = 'https://marinebon.org/fk-esr-info/data/fknms_esr_indicator_data/cruise_passengers.csv', 
+      graph_location = 'chart2', 
+      title = 'Cruise Passenger Visits to Key West', 
+      y_axis_label = "Cruise Passenger Visits"
+    );
+  
+    createGraph(
+      theData = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT5qCAeTdiWGrTCZbS-VK-FZ-jZtRgpS3K0_dJPXowPJ6CPaQKP-CXG1YThTvOabw/pub?gid=760779668&single=true&output=csv', 
+      graph_location = 'chart3', 
+      title = 'Registered Vessels', 
+      y_axis_label = 'Registered Vessels'
+    );
+      
+    createGraph(
+      theData = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQpgs8TjUPdfdnEgu3Lu1gseyxtFL2TSGfXfbHYVr02Y8s4fm8tIchA58-f1bT8TSvtTpgLhlDtu-et/pub?gid=624703045&single=true&output=csv', 
+      graph_location = 'chart4', 
+      title = 'Household Connections to Central Wastewater Treatment', 
+      y_axis_label = "% of Households Connected to Sewer System"
+    );
+      
+  </script>
+</body>
 </html>
