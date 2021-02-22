@@ -4,968 +4,195 @@
 -->
 <html>
 	<head>
-    	<title>Florida Keys ESR</title>
-        <link rel="shortcut icon" type="image/png" href='NOAAfavicon.ico'/>
-		<meta charset="utf-8" />
+    <title>Florida Keys ESR</title>
+    <link rel="shortcut icon" type="image/png" href='NOAAfavicon.ico'/>
+    <meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		    
         <!-- Global site tag (gtag.js) - Google Analytics -->
-            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176398491-1"></script>
-            <script>
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-
-              gtag('config', 'UA-176398491-1');
-            </script>
-            <link rel="stylesheet" href="assets/css/main.css" />
-            <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-            <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-            <script src="http://code.highcharts.com/highcharts.js"></script>
-            <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-            <script src="https://code.highcharts.com/highcharts.js"></script>
-            <script src="https://code.highcharts.com/highcharts-more.js"></script>
-            <script src="http://code.highcharts.com/modules/exporting.js"></script>
-            <!-- optional -->
-            <script src="http://code.highcharts.com/modules/offline-exporting.js"></script>
-    
-        <!--highcharts dependency-->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176398491-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-176398491-1');
+    </script>
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script> 
+    <script src="https://code.highcharts.com/modules/offline-exporting.js"></script>  
+    <script src="https://marinebon.org/fk-esr-info/assets/js/highcharts_wrapper.js"></script>
+    <script src="https://marinebon.org/fk-esr-info/assets/js/jquery.min.js"></script>
+    <script src="https://marinebon.org/fk-esr-info/assets/js/jquery.scrollex.min.js"></script>
+    <script src="https://marinebon.org/fk-esr-info/assets/js/jquery.scrolly.min.js"></script>
+    <script src="https://marinebon.org/fk-esr-info/assets/js/skel.min.js"></script>
+    <script src="https://marinebon.org/fk-esr-info/assets/js/util.js"></script>
+    <script src="https://marinebon.org/fk-esr-info/assets/js/main.js"></script>
 	</head>
 	<body>
 
-		<!-- Page Wrapper -->
-			<div id="page-wrapper">
+	<!-- Page Wrapper -->
+	<div id="page-wrapper">
 
-				<!-- Header -->
-					<header id="header">
-						<h1><a href="home.html">home</a></h1>
-						<nav id="nav">
-							<ul>
-								<li class="special">
-									<a href="#menu" class="menuToggle"><span>key indicators</span></a>
-									<div id="menu">
-										<ul>
-							                                         
-											<li><h3>key indicators</h3></li>                                            
-											<li><a href="human-activities.html">Human Activities</a></li>
-                                            <li><a href="ecosystem-services.html">Ecosystem Services</a></li>
-                                            <li><a href="habitat.html">Habitat</a></li>
-                                            <li><a href="living-resources.html">Living Resources</a></li>
-                                            <li><a href="sanctuary-waters.html">Sanctuary Waters</a></li>
-                                            <li><a href="maritime-archaeological-resources.html">Maritime Archaeological Resources</a></li>
-                                      
-                                            <br>
-                                            <br>
-                                            <br>
-                                           <br>
-                                            <br>
-                                           <li><a href="https://doi.org/10.25923/f7ce-st38" target="_blank"><h1>Download the Report</h1></a></li>
-                                            <br>
-                                            <li><a href="download.html"><h1>Download Data</h1></a></li>
-										</ul>
-									</div>
-								</li>
-							</ul>
-						</nav>
-					</header>
+  <!-- Header -->
+	<header id="header">
+		<h1><a href="home.html">home</a></h1>
+		<nav id="nav">
+			<ul>
+				<li class="special">
+					<a href="#menu" class="menuToggle"><span>key indicators</span></a>
+					<div id="menu">
+						<ul>
+							<li><h3>key indicators</h3></li>                                            
+							<li><a href="human-activities.html">Human Activities</a></li>
+              <li><a href="ecosystem-services.html">Ecosystem Services</a></li>
+              <li><a href="habitat.html">Habitat</a></li>
+              <li><a href="living-resources.html">Living Resources</a></li>
+              <li><a href="sanctuary-waters.html">Sanctuary Waters</a></li>
+              <li><a href="maritime-archaeological-resources.html">Maritime Archaeological Resources</a></li>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <li><a href="https://doi.org/10.25923/f7ce-st38" target="_blank"><h1>Download the Report</h1></a></li>
+              <br>
+              <li><a href="download.html"><h1>Download Data</h1></a></li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</nav>
+	</header>
 
-				<!-- Main -->
-					<article id="main">
-						<header>
-							<h2>Living Resources</h2>
-							<p></p>
-						</header>
-						<section class="wrapper style5">
-							<div class="inner">
-
-								<h3>Living Resources</h3>
-								<p>
+  <!-- Main -->
+  <article id="main">
+    <header>
+      <h2>Living Resources</h2>
+      <p></p>
+    </header>
+    <section class="wrapper style5">
+      <div class="inner">
+      
+    	<h3>Living Resources</h3>
+    	<p>
 Biodiversity of fish species remained constant. The average abundance  of lionfish per survey site drastically increased as the invasive species spread in 2009. The number and density of coral colonies remained the same. There was an increase followed by a decrease starting in 2017 in the number of colonies of barrel sponges. There was a decrease in the abundance of yellowtail snapper, a decrease followed by a recovery of hogfish, a decrease in abundance of red grouper, and a decrease but large variability in the abundance of black grouper. 
- </p>
-                       
+      </p>
+
+      <!-- Chart 1 -->
+      <div id="chart1" style="width:100%; height:350px;"></div>
+      
+      <!-- Chart 2 -->
+      <div id="chart2" style="width:100%; height:350px;"></div>
+      
+      <!-- Chart 3 -->
+      <div id="chart3" style="width:100%; height:350px;"></div>
+      
+      <!-- Chart 4 -->
+      <div id="chart4" style="width:100%; height:350px;"></div>
+      
+      <!-- Chart 5 -->
+      <div id="chart5" style="width:100%; height:350px;"></div>
+      
+      <!-- Chart 6 -->
+      <div id="chart6" style="width:100%; height:350px;"></div>
+    
+      <i>*purple shaded section represents trends over the last five years.</i>             
+      <br>
+      <br>
+      <h3>Coral Bleaching</h3>                            
+  		<p>The below interactive visualization tools represent changes due to coral bleaching events in the Florida Keys. The site, Cheeca Rocks, in the Middle Keys, is monitored regularly and changes are documented via high resolution photo mosaics. Click the gray circle to show the pre-bleaching event reef in 2014, the reef during the bleaching event in 2015, and post event recovery in 2016.
                                 
-                                
-                        		        
-                                
-                        		<!-- Chart 0 -->
-                                <div id="chart0" style="width:100%; height:350px;"></div>
-                                <script>
-                            
-                            
-                            $(document).ready(function() {
-                                              
-                                Highcharts.setOptions({
-                                lang: {
-                                    thousandsSep: ','
-                                }
-                            });
-
-                              
-                                              
-                                var chart0 = new Highcharts.Chart({
-                                     credits: {
-                                        enabled: false
-                                    },
-                                    
-                                    chart: {
-                                        zoomType: 'x'  ,
-                                        renderTo: 'chart0',
-                           
-                                    },
-                                    title: {
-                                        text: 'Average Coral Species Richness Within and Outside protected zones in FKNMS'
-                             
-                                                                                                                    
-                                    },
-                                    
-                                    yAxis: {
-                                        
-                                        title: {
-                                            text: null
-                                        }
-                                    },
-                                    
-                                    
-                                    
-                                    
-                                    // Enable for x-axis only//
-                                    tooltip: {
-                                        valueDecimals: 100,
-                                            crosshairs: true,
-                                            shared: true,
-                                       
-                                        
-                                    },
-                                    
-                                   xAxis: {
-                                    categories: ['1996', '1997', '1998', '1999', '2000', '2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017'],
-                                       
-                                       
-                                       
-                                       
-                                       
-                                       
-                                        plotBands: [{
-                                            from: 20,
-                                            to: 22,
-                                            color: '#DEDEFF',
-                                                                               
-                                    }]
-                                        
-                                },
-                                                                
-                                legend: {
-                                        align: 'right'
-                                    },
-                                                   
-                                    series: [{
-                                    name: 'Within FKNMS',
-                                    data: [15.66666667	,
-                                            16.66666667	,
-                                            15.875	,
-                                            14.52083333	,
-                                            14.875	,
-                                            14.58208955	,
-                                            14.70769231	,
-                                            13.64615385	,
-                                            13.33846154	,
-                                            14.10769231	,
-                                            11.96923077	,
-                                            13.33846154	,
-                                            13.36923077	,
-                                            13.69230769	,
-                                            13.16923077	,
-                                            10.30434783	,
-                                            10.83695652	,
-                                            10.35869565	,
-                                            10.51086957	,
-                                            10.29347826	,
-                                            10.26086957	,
-                                            9.483516484	,
-                                            ],
-                                    marker: {
-                                            enabled: false,
-                                            fillColor: 'white',
-                                            lineWidth: 1,
-                                            lineColor: Highcharts.getOptions().colors[0],
-                                        }
-                                        
-                                }, {
-                                    name: 'Outside FKNMS',
-                          
-                                    data: [14.53125	,
-                                        14.5	,
-                                        14.515625	,
-                                        12.953125	,
-                                        13.703125	,
-                                        13.90909091	,
-                                        14.425	,
-                                        14.175	,
-                                        13.75	,
-                                        14.425	,
-                                        13.42105263	,
-                                        14.31578947	,
-                                        13.91666667	,
-                                        15.93181818	,
-                                        14.70454545	,
-                                        11.41071429	,
-                                        11.66071429	,
-                                        11.85714286	,
-                                        11.54411765	,
-                                        11.23529412	,
-                                        11.35294118	,
-                                        11.56451613	,
-                                        ],
-                                    color: 'grey',
-                                    marker: {
-                                            enabled: false,
-                                            fillColor: 'white',
-                                            lineWidth: 1,
-                                            lineColor: 'grey',
-                                    
-                                        }
-                                }]
-                                    
-                                    
-                                                                    
-                                });
-                               });
-                                                      
-                                </script>
-                                
-                                   						
-                                
-                                
-                                   						
-                                   	                                   						
-												                                
-                                		<!-- Chart 3 -->
-                                
-                                
-                        		<!-- Chart 2 -->
-                                <div id="chart2" style="width:100%; height:350px;"></div>
-                                <script>
-                            
-                            
-                            $(document).ready(function() {
-                                              
-                                Highcharts.setOptions({
-                                lang: {
-                                    thousandsSep: ','
-                                }
-                            });
-
-                                    var ranges =[
-                                        
-                                                                                              
-                                                
-                                                ],
-                                        
-                                            oil = [
-                                                
-                                                [1997,	5],
-
-                                                                                        
-                                            ],
-                                        
-                                        
-                                            averages = [
-                                                
-                                                
-                                                 [	1999	,	44	]	,
-                                                [	2000	,	43	]	,
-                                                [	2001	,	46	]	,
-                                                [	2002	,	38	]	,
-                                                [	2003	,	42	]	,
-                                                [	2004	,	51	]	,
-                                                [	2005	,	40.5	]	,
-                                                [	2006	,	37.7	]	,
-                                                [	2007	,	44.5	]	,
-                                                [	2008	,	41.3	]	,
-                                                [	2009	,	39	]	,
-                                                [	2010	,	35.8	]	,
-                                                [	2011	,	41	]	,
-                                                [	2012	,	40.5	]	,
-                                                [	2014	,	40	]	,
-                                                [	2016	,	44	]	,
-
-
-
-
-                                                
-                                                                                                
-
-                                              ];
-
-            
-                                              
-                                var chart2 = new Highcharts.Chart({
-                                     credits: {
-                                        enabled: false
-                                    },
-                                    
-                                    chart: {
-                                        zoomType: 'x'  ,
-                                        renderTo: 'chart2',
-                           
-                                    },
-                                    title: {
-                                        text: 'Mean effective number of fish species'
-                             
-                                    },
-                                    
-                                                                                                        
-                                    xAxis: {
-                                    type: Number,
-                                                                                                       
-                                    },
-                                    
-                                    yAxis: {
-                                        
-                                        title: {
-                                            text: null
-                                        }
-                                    },
-                                    
-                                    
-                                    
-                                    
-                                    // Enable for x-axis only//
-                                    tooltip: {
-                                        valueDecimals: 0,
-                                            crosshairs: true,
-                                            shared: true,
-                                       
-                                        
-                                    },
-                                    
-                                    xAxis: {
-                                        plotBands: [{
-                                            from: [2016], 
-                                            to: [2030],
-                                            color: '#DEDEFF',
-                                                                               
-                                    }]
-                                        
-                                },
-                                                                
-                                legend: {
-                                        align: 'right'
-                                    },
-                                                   
-                                    series: [{
-                                        name: 'Protected Species',
-                                        data: averages,
-                                        zIndex: 1,
-                                        marker: {
-                                            enabled: false,
-                                            fillColor: 'white',
-                                            lineWidth: 1,
-                                            lineColor: Highcharts.getOptions().colors[0],
-                                        }
-                                    }, {
-                                        name: 'Range',
-                                        data: ranges,
-                                        type: 'arearange',
-                                        lineWidth: 0,
-                                        linkedTo: ':previous',
-                                        color: Highcharts.getOptions().colors[0],
-                                        fillOpacity: 0.2,
-                                        zIndex: 0
-                                        
-                                                                                                    
-                                    }]
-                                    
-                                    
-                                                                    
-                                });
-                               });
-                                                      
-                                </script>
-                                
-                                   						
-												                                
-                                		<!-- Chart 3 -->
-                                
-                                <div id="chart3" style="width:100%; height:350px;"></div>
-                                <script>
-                            $(document).ready(function() {
-                                              
-                                    var ranges =[
-                                        
-                                                                                              
-                                                
-                                                ],
-                                        
-                                            oil = [
-                                                
-                                            [	1999	,	0	]	,
-                                  
-
-                                                                                        
-                                           
-                                            
-                                            ],
-                                        
-                                        
-                                            averages = [
-                                                
-                                        [	1999	,	0	]	,
-                                        [	2000	,	0	]	,
-                                        [	2001	,	0	]	,
-                                        [	2002	,	0	]	,
-                                        [	2003	,	0	]	,
-                                        [	2004	,	0	]	,
-                                        [	2005	,	0	]	,
-                                        [	2006	,	0	]	,
-                                        [	2007	,	0	]	,
-                                        [	2009	,	0	]	,
-                                        [	2010	,	0.048429319	]	,
-                                        [	2011	,	0.19673913	]	,
-                                        [	2012	,	0.104	]	,
-                                        [	2014	,	0.094904198	]	,
-                                        [	2016	,	0.136006772	]	,
-
-
-
-                                                
-                                                                                                
-
-                                              ];
-
-            
-                                              
-                                var chart3 = new Highcharts.Chart({
-                                     credits: {
-                                        enabled: false
-                                    },
-                                    
-                                    chart: {
-                                        zoomType: 'x'  ,
-                                        renderTo: 'chart3',
-                           
-                                    },
-                                    title: {
-                                        text: 'Average abundance of lionfish per RVC site'
-                             
-                                    },
-                                    
-                                                                                                            
-                                    xAxis: {
-                                    type: Number,
-                                        
-                                    },
-                                    yAxis: {
-                                        title: {
-                                            text: null
-                                        }
-                                    },
-                                    
-                                    // Enable for x-axis only//
-                                    tooltip: {
-                                            valueDecimals: 100,
-                                            crosshairs: true,
-                                            snap: false,
-                                            shared: true,
-                                            valueSuffix: ''
-                                        
-                                    },
-                                    
-                                    xAxis: {
-                                        plotBands: [{
-                                            from: [2016], 
-                                            to: [2020],
-                                            color: '#DEDEFF',
-                                                                               
-                                    }]
-                                        
-                                },
-                                    
-                                    legend:{
-                                        align: 'right',
-                                        
-                                    },
-                                                                
-
-                                    series: [{
-                                        name: 'Average abundance of lionfish per RVC site',
-                                        data: averages,
-                                        zIndex: 1,
-                                        marker: {
-                                            enabled: false,
-                                            fillColor: 'white',
-                                            lineWidth: 1,
-                                            lineColor: Highcharts.getOptions().colors[0],
-                                        }
-                                    }, {
-                                        name: 'Range',
-                                        data: ranges,
-                                        type: 'arearange',
-                                        lineWidth: 0,
-                                        linkedTo: ':previous',
-                                        color: Highcharts.getOptions().colors[0],
-                                        fillOpacity: 0.2,
-                                        zIndex: 0
-                                        
-                                        
-                                    }]
-                                    
-                                    
-
-                                                                    
-                                });
-                               });
-                                                      
-                                </script>
-                                
-                                  <!-- Chart 4 -->
-                                
-                                <div id="chart5" style="width:100%; height:350px;"></div>
-                                <script>
-                            $(document).ready(function() {
-                                              
-                                    var ranges =[
-                                        
-                                                                                              
-                                                
-                                                ],
-                                        
-                                            oil = [
-                                                
-                                                [1942,	5],
-
-                                                                                        
-                                            ],
-                                        
-                                        
-                                            averages = [
-                                                
-                                     [	1999	,	8.9	]	,
-                                    [	2000	,	9.25	]	,
-                                    [	2001	,	8.1	]	,
-                                    [	2002	,	9.2	]	,
-                                    [	2003	,	8.25	]	,
-                                    [	2004	,	10	]	,
-                                    [	2005	,	9.05	]	,
-                                    [	2006	,	8.2	]	,
-                                    [	2007	,	9.1	]	,
-                                    [	2008	,	8.25	]	,
-                                    [	2009	,	8.1	]	,
-                                    [	2010	,	7.8	]	,
-                                    [	2011	,	7.9	]	,
-                                    [	2012	,	8.6	]	,
-                                    [	2014	,	8.7	]	,
-                                    [	2016	,	9.2	]	,
-
-
-                                                
-                                                                                                
-
-                                              ];
-
-            
-                                              
-                                var chart4 = new Highcharts.Chart({
-                                     credits: {
-                                        enabled: false
-                                    },
-                                    
-                                    chart: {
-                                        zoomType: 'x'  ,
-                                        renderTo: 'chart5',
-                           
-                                    },
-                                    title: {
-                                        text: 'Simpsons biodiversity index of fish species'
-                             
-                                    },
-                                    
-                                                                                                            
-                                    xAxis: {
-                                    type: Number,
-                                        
-                                    },
-                                    yAxis: {
-                                        title: {
-                                            text: null
-                                        }
-                                    },
-                                    
-                                    // Enable for x-axis only//
-                                    tooltip: {
-                                            valueDecimals: 10,
-                                           crosshairs: true,
-                                            shared: true,
-                                            valueSuffix: ''
-                                        
-                                    },
-                                    
-                                    xAxis: {
-                                        plotBands: [{
-                                            from: [2016], 
-                                            to: [2020],
-                                            color: '#DEDEFF',
-                                                                               
-                                    }]
-                                    
-                                },
-                                              legend: {
-                                        align: 'right'
-                                    },
-                                                              
-
-                                    series: [{
-                                        name: 'Protected sites',
-                                        data: averages,
-                                        zIndex: 1,
-                                        marker: {
-                                            enabled: false,
-                                            fillColor: 'white',
-                                            lineWidth: 1,
-                                            lineColor: Highcharts.getOptions().colors[0],
-                                        }
-                                    },
-                                             
-                                             {
-                                        name: 'Range',
-                                        data: ranges,
-                                        type: 'arearange',
-                                        lineWidth: 0,
-                                        linkedTo: ':previous',
-                                        color: Highcharts.getOptions().colors[0],
-                                        fillOpacity: 0.2,
-                                        zIndex: 0
-                                        
-                                        
-                                    }]
-                                    
-                                    
-
-                                                                    
-                                });
-                               });
-                                                      
-                                </script>
-                                
-                                
-                               
-                                
-                                		<!-- Chart 4 -->
-                                
-                                <div id="chart4" style="width:100%; height:350px;"></div>
-                                <script>
-                            $(document).ready(function() {
-                                              
-                                    var ranges =[
-                                        
-                                                                                              
-                                                
-                                                ],
-                                        
-                                            oil = [
-                                                
-                                                [1942,	5],
-
-                                                                                        
-                                            ],
-                                        
-                                        
-                                            averages = [
-                                           
-                                [	2012	,	458	]	,
-                                [	2013	,	512	]	,
-                                [	2014	,	543	]	,
-                                [	2015	,	592	]	,
-                                [	2016	,	618	]	,
-                                [	2017	,	626	]	,
-                                [	2018	,	441	]	,
-
-
-                                                
-                                                                                                
-
-                                              ];
-
-            
-                                              
-                                var chart4 = new Highcharts.Chart({
-                                     credits: {
-                                        enabled: false
-                                    },
-                                    
-                                    chart: {
-                                        zoomType: 'x'  ,
-                                        renderTo: 'chart4',
-                           
-                                    },
-                                    title: {
-                                        text: 'Colony count of Xesto sponges in Florida Keys monitoring sites'
-                             
-                                    },
-                                    
-                                                                                                            
-                                    xAxis: {
-                                    type: Number,
-                                        
-                                    },
-                                    yAxis: {
-                                        title: {
-                                            text: null
-                                        }
-                                    },
-                                    
-                                    // Enable for x-axis only//
-                                    tooltip: {
-                                            valueDecimals: 0,
-                                           crosshairs: true,
-                                            shared: true,
-                                            valueSuffix: ''
-                                        
-                                    },
-                                    
-                                    xAxis: {
-                                        plotBands: [{
-                                            from: [2016], 
-                                            to: [2020],
-                                            color: '#DEDEFF',
-                                                                               
-                                    }]
-                                    
-                                },
-                                              legend: {
-                                        align: 'right'
-                                    },
-                                                              
-
-                                    series: [{
-                                        name: 'Colony count',
-                                        data: averages,
-                                        zIndex: 1,
-                                        marker: {
-                                            enabled: false,
-                                            fillColor: 'white',
-                                            lineWidth: 1,
-                                            lineColor: Highcharts.getOptions().colors[0],
-                                        }
-                                    },
-                                             
-                                             {
-                                        name: 'Range',
-                                        data: ranges,
-                                        type: 'arearange',
-                                        lineWidth: 0,
-                                        linkedTo: ':previous',
-                                        color: Highcharts.getOptions().colors[0],
-                                        fillOpacity: 0.2,
-                                        zIndex: 0
-                                        
-                                        
-                                    }]
-                                    
-                                    
-
-                                                                    
-                                });
-                               });
-                                                      
-                                </script>
-                                
-                              
-                                
-                                 <!-- Chart 6 -->
-                                
-                                <div id="chart6" style="width:100%; height:350px;"></div>
-                                <script>
-                            $(document).ready(function() {
-                                              
-                                    var ranges =[
-                                        
-                                                                                              
-                                                
-                                                ],
-                                        
-                                            oil = [
-                                                
-                                                [1942,	5],
-
-                                                                                        
-                                            ],
-                                        
-                                        
-                                            averages = [
-                                                
-                                  
-                                    [	2011	,	6.1	]	,
-                                    [	2012	,	7.1	]	,
-                                    [	2013	,	7	]	,
-                                    [	2014	,	6.7	]	,
-                                    [	2015	,	6.7	]	,
-                                    [	2016	,	6.8	]	,
-                                    [	2017	,	7.1	]	,
-
-                                        
-                                                                                                
-
-                                              ];
-
-            
-                                              
-                                var chart6 = new Highcharts.Chart({
-                                     credits: {
-                                        enabled: false
-                                    },
-                                    
-                                    chart: {
-                                        zoomType: 'x'  ,
-                                        renderTo: 'chart6',
-                           
-                                    },
-                                    title: {
-                                        text: 'Stony Coral Density'
-                             
-                                    },
-                                    
-                                                                                                            
-                                    xAxis: {
-                                    type: Number,
-                                        
-                                    },
-                                    yAxis: {
-                                        title: {
-                                            text: null
-                                        }
-                                    },
-                                    
-                                    // Enable for x-axis only//
-                                    tooltip: {
-                                            valueDecimals: 10,
-                                           crosshairs: true,
-                                            shared: true,
-                                            valueSuffix: ''
-                                        
-                                    },
-                                    
-                                    xAxis: {
-                                        plotBands: [{
-                                            from: [2016], 
-                                            to: [2020],
-                                            color: '#DEDEFF',
-                                                                               
-                                    }]
-                                    
-                                },
-                                              legend: {
-                                        align: 'right'
-                                    },
-                                                              
-
-                                    series: [{
-                                        name: 'Density',
-                                        data: averages,
-                                        zIndex: 1,
-                                        marker: {
-                                            enabled: false,
-                                            fillColor: 'white',
-                                            lineWidth: 1,
-                                            lineColor: Highcharts.getOptions().colors[0],
-                                        }
-                                    },
-                                             
-                                             {
-                                        name: 'Range',
-                                        data: ranges,
-                                        type: 'arearange',
-                                        lineWidth: 0,
-                                        linkedTo: ':previous',
-                                        color: Highcharts.getOptions().colors[0],
-                                        fillOpacity: 0.2,
-                                        zIndex: 0
-                                        
-                                        
-                                    }]
-                                    
-                                    
-
-                                                                    
-                                });
-                               });
-                                                      
-                                </script>
-                                <i>*purple shaded section represents trends over the last five years. </i>   
-                                
-                                <br>
-                                <br>
-                                 
-                                <h3>Coral Bleaching</h3>                            
-								<p>The below interactive visualization tools represent changes due to coral bleaching events in the Florida Keys. The site, Cheeca Rocks, in the Middle Keys, is monitored regularly and changes are documented via high resolution photo mosaics. Click the gray circle to show the pre-bleaching event reef in 2014, the reef during the bleaching event in 2015, and post event recovery in 2016.
-                                
-                                <div id="chartslide1" style="width:900px; height:800px">
-                                
-                                <iframe width=100% height= 100% src="sliders/bleaching_slider.html" frameborder="0" allowfullscreen></iframe>                        
-                                </div>
-                                
-                                Below shows the during the bleaching event in 2015, and post event recovery in 2016.
-                                
-                                <div id="chartslide2" style="width:900px; height:800px">
-                                
-                                <iframe width=100% height= 100% src="sliders/bleaching_slider_2.html" frameborder="0" allowfullscreen></iframe>                        
-                                </div>
+      <div id="chartslide1" style="width:900px; height:800px">
+        <iframe width=100% height= 100% src="sliders/bleaching_slider.html" frameborder="0" allowfullscreen></iframe>                        
+      </div>
+      
+      Below shows the during the bleaching event in 2015, and post event recovery in 2016.
+      
+      <div id="chartslide2" style="width:900px; height:800px">
+    
+      <iframe width=100% height= 100% src="sliders/bleaching_slider_2.html" frameborder="0" allowfullscreen></iframe>                        
+    </div>
                                 
                                                    
-								<h3>Coral Disease</h3>                            
-								<p>The below interactive visualization tools represent changes due to the spread of the stony coral tissue loss disease in the Florida Keys. The site, Cheeca Rocks, in the Middle Keys, is monitored regularly and changes are documented via high resolution photo mosaics. Click the gray circle to show the pre-disease spread reef in March 2018, the reef during the disease spread in June 2018, and post disease event in July 2019.
-             
-                                                        
+		<h3>Coral Disease</h3>                            
+		<p>The below interactive visualization tools represent changes due to the spread of the stony coral tissue loss disease in the Florida Keys. The site, Cheeca Rocks, in the Middle Keys, is monitored regularly and changes are documented via high resolution photo mosaics. Click the gray circle to show the pre-disease spread reef in March 2018, the reef during the disease spread in June 2018, and post disease event in July 2019.
                                              
-                                <div id="chartslide3" style="width:900px; height:800px;">
+    <div id="chartslide3" style="width:900px; height:800px;">
+      <iframe width=100% height= 100% src="sliders/disease_slider.html" frameborder="0" allowfullscreen></iframe>                        
+    </div>
+    Below shows during the disease spread in June 2018, and post disease event in July 2019.
                                 
-                                <iframe width=100% height= 100% src="sliders/disease_slider.html" frameborder="0" allowfullscreen></iframe>                        
-                                </div>
-                                Below shows during the disease spread in June 2018, and post disease event in July 2019.
-                                
-                                <div id="chartslide4" style="width:900px; height:800px;">
-                                
-                                <iframe width=100% height= 100% src="sliders/disease_slider_2.html" frameborder="0" allowfullscreen></iframe>                        
-                                </div>                             				
-							</div>
-                                                                                                  
-						</section>
-                        
-                                        
-                        
-					</article>
-<!-- Footer -->
-					<footer id="footer">
-                    <br>
-		              		              
-                                <img src="images/NOAA.svg" height="50" >
-                                 <img src="images/DOC_logo.svg" height="50">
+    <div id="chartslide4" style="width:900px; height:800px;">
+      <iframe width=100% height= 100% src="sliders/disease_slider_2.html" frameborder="0" allowfullscreen></iframe>                        
+    </div>                             				
+	</div>
+  </section>
+						
+  </article>
 
-                        
-				    <ul class="copyright">
-							<li>2019  &copy; <a href="http://www.noaa.gov" target="_blank">National Oceanic and Atmospheric Administration</a> A Proejct of the NOAA <a href="https://www.integratedecosystemassessment.noaa.gov" target="_blank">IEA</a> Program </li> <br>
-                        <a href="https://www.commerce.gov/" target="_blank">U.S. Department of Commerce</a>
-                  
-               
-                        <br>
-                        <br>
-                        <h6>PHOTOS FROM THE FKIEA TEAM, THE FLORIDA KEYS NATIONAL MARINE SANCTUARY, AND THE NOAA FLICKR ACCOUNT <a href="https://www.flickr.com/photos/noaaphotolib/">Flickr</a></h6>
-                                   
-                        
-                        </ul> 
-                   <br/> 
-            
-					</footer>
+	<!-- Footer -->
+	<footer id="footer">
+    <br>
+    <img src="images/NOAA.svg" height="50" >
+    <img src="images/DOC_logo.svg" height="50">
+    <ul class="copyright">
+			<li>2021  &copy; <a href="http://www.noaa.gov" target="_blank">National Oceanic and Atmospheric Administration</a> A Project of the NOAA <a href="https://www.integratedecosystemassessment.noaa.gov" target="_blank">IEA</a> Program </li> 
+			<br>
+      <a href="https://www.commerce.gov/" target="_blank">U.S. Department of Commerce</a>
+      <br>
+      <br>
+      <h6>PHOTOS FROM THE FKIEA TEAM, THE FLORIDA KEYS NATIONAL MARINE SANCTUARY, AND THE NOAA FLICKR ACCOUNT <a href="https://www.flickr.com/photos/noaaphotolib/">Flickr</a></h6>
+    </ul> 
+    <br/> 
+	</footer>
+	</div>
 
-			</div>
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
-
-	</body>
+  <!-- Scripts -->
+  <script>
+    createGraph(
+      theData = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRde6U8HUbuUCOAKz2aKGT3ielTvWoz0iNZFQYQgNwRoxA_hScM3mL8TCHpn5f57VQukP9y9qc-IeQf/pub?gid=697243976&single=true&output=csv', 
+      graph_location = "chart1", 
+      title = 'Average Coral Species Richness Within and Outside protected zones in FKNMS', 
+      y_axis_label = "Species Richness"
+    );
+  
+    createGraph(
+      theData = 'https://marinebon.org/fk-esr-info/data/fknms_esr_indicator_data/species_richness_fish_rvc.csv', 
+      graph_location = 'chart2', 
+      title = 'Mean effective number of fish species', 
+      y_axis_label = 'Mean effective number of fish species'
+    );
+  
+    createGraph(
+      theData = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTG1stbwWT9gIiFHeodt_UY_LSS65qjYL0NsOkto3v3_yqMzs08Y_C6X18Uix6_v04fZkG_3I9ZOoO5/pub?gid=399962298&single=true&output=csv', 
+      graph_location = 'chart3', 
+      title = 'Average abundance of lionfish per RVC site', 
+      y_axis_label = "Average Abundance"
+    );
+      
+    createGraph(
+      theData = 'https://marinebon.org/fk-esr-info/data/fknms_esr_indicator_data/simpsons_biodiversity_fish.csv', 
+      graph_location = 'chart4', 
+      title = "Simpson's Biodiversity Index of Fish Species", 
+      y_axis_label = "Mean Density"
+    );
+      
+    createGraph(
+      theData = 'https://marinebon.org/fk-esr-info/data/fknms_esr_indicator_data/xesto_sponge_colony-count.csv', 
+      graph_location = 'chart5', 
+      title = 'Colony count of Xesto sponges in Florida Keys monitoring sites', 
+      y_axis_label = "Number of Colonies"
+    );  
+    
+    createGraph(
+      theData = 'https://marinebon.org/fk-esr-info/data/fknms_esr_indicator_data/cremp_stony_coral_density.csv', 
+      graph_location = 'chart6', 
+      title = 'Stony Coral Density', 
+      y_axis_label = "Mean Density"
+    );  
+  </script>
+</body>
 </html>
