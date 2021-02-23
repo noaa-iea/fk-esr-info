@@ -69,6 +69,7 @@ function link_svg(svg, csv, debug = false, hover_color = 'yellow', width = '100%
         
         // TODO: wrap this hack into function args
         d.link = 'modals/' + d.icon + '.html';
+        d.title = d.title ? d.title : d.icon;  // fall back on id if title not set
         
         function handleClick(){
           if (d.not_modal == 'T'){
