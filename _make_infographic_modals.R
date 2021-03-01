@@ -44,7 +44,7 @@ expand_modal <- function(icon, title, data, provider_link, caption, source, y_la
   knitr::knit_expand(
     file          = "_infographic_modal_template.html", 
     icon          = icon,
-    title         = title,
+    title         = caption <- ifelse(is.na(caption), title, caption),
     csv           = data,
     caption       = caption,
     source        = source,
