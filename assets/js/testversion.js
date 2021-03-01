@@ -1,3 +1,6 @@
+var section_list = [,]; 
+var a_number = 65;
+
 // append div for tooltip
 var tooltip_div = d3.select("body").append("div")
   .attr("class", "tooltip")
@@ -43,6 +46,13 @@ function link_svg(svg, csv, debug = false, hover_color = 'yellow', width = '100%
     d3.csv(csv).then(function(data) {
       // iterate through rows of csv
     
+      // TODO: if has section column in argument to fxn
+      data = data.sort(
+        function(a,b) { return d3.ascending(a.section, b.section) ||  d3.ascending(a.section, b.title) });
+    
+      var section_now = null;
+      var i = 0;
+      
       data.forEach(function(d) {
         
         // TODO: wrap this hack into function args
@@ -58,12 +68,19 @@ function link_svg(svg, csv, debug = false, hover_color = 'yellow', width = '100%
         list_text =  d.title ? d.title : d.icon;  // fall back on id if title not set
         
         //two examples of the trouble with changing global variable
-        section_list.push([d.section, d.title]); 
-        a_number = 5;
+        //section_list.push([d.section, d.title]); 
+        //a_number = 5;
         
-        d3.select("#svg_list").append("li").append("a")
+        // if first in section, then add header
+        if (d.section != section_now){
+          section_list = d3.select("#svg_list").append("li")
+            .text(d.section).append("ul");
+          section_now = d.section;
+        }
+        section_list.append("li").append("a")
           .text(list_text);
     
+        i = i + 1;
       }); // end: data.forEach({
      
     }) // end: d3.csv().then({
@@ -71,12 +88,24 @@ function link_svg(svg, csv, debug = false, hover_color = 'yellow', width = '100%
       // d3.csv() error   
     }); // end: d3.csv()
 
-console.log("section_list: ", section_list);
-console.log("fifth row of section_list: ", section_list[4]);
-console.log("a number: ", a_number);
   // turn off questions by default
   d3.select("#text").attr("display", "none");
 
   }); // d3.xml(svg).then((f) => {
 
 }
+
+//some function somewhere
+function outside(){
+   console.log("outside(section_list[4]): " + section_list[4]);
+}
+//value of global variable when this executed is 0 
+//because no change event has been called
+console.log("Outside section_list[4]: " + section_list[4]);
+outside();
+
+
+console.log("section_list: ", section_list);
+console.log("section_list[4]: ", section_list[4]);
+console.log("a_number: ", a_number);
+

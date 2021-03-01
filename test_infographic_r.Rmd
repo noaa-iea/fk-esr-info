@@ -1,5 +1,8 @@
 ---
 title: "Infographic | Florida Keys ESR"
+output:
+  html_document:
+    self_contained: false
 params:
 #  csv: "assets/svg/svg_links.csv"
   csv: "https://docs.google.com/spreadsheets/d/e/2PACX-1vSAROGVpYB58Zkr8P0iwJdTMRPNLZtJ07IyUn-dQ62C2HMuCEScyl8x7urCD7QbRXQYSIJwDn_wku9G/pub?gid=0&single=true&output=csv"
@@ -22,11 +25,6 @@ knitr::opts_chunk$set(echo = F, message = F, warning = F)
 <script src = "assets/js/testversion.js"></script>
 
 <!-- two globally-scoped test variables -->
-<script> 
-var section_list = [,]; 
-var a_number = 65; 
-</script>
-
 <div class = "col-md-9">
   <div id = "svg"></div>
 </div>
