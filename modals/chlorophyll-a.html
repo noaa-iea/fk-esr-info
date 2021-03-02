@@ -1,7 +1,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Algal blooms</title>
+  <title>Chlorophyll a as indicator of primary productivity</title>
 </head>
 <body>
 
@@ -11,18 +11,18 @@
 
 <div id="container" style="min-width: 310px; max-width: 600px; height: 400px; margin: 0 auto"></div>
 
-NA
+Chlorophyll a as indicator of primary productivity
 
-Source: <a href="NA">NA</a>
+Source: <a href="https://www.aoml.noaa.gov/data-products/#so-flo-cruise-data">NOAA Atlantic Oceanographic and Meteorological Laboratory’s South Florida Project, Ocean Chemistry and Ecosystems Division</a>
 
 <script>
-  csv   = 'NA';
-  title = 'Algal blooms';
+  csv   = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRRuuLrBgEJdcWYU43FRVkUXmLKhWjbJGb5C7w1brx7RJY2OStSRjzZnP_Vfq--dtUkFsPNQ0QpCIjx/pub?gid=1391741389&single=true&output=csv';
+  title = 'Chlorophyll a as indicator of primary productivity';
   icon  = 'chlorophyll-a';
 
   x_axis_label = "Year";
-  y_axis_label = '';
-  year_max     = 0;      // TODO: to use JS to read in max year, presumably 1st column
+  y_axis_label = 'Average chl-a Levels (mg/L)';
+  year_max     = 2019;      // TODO: to use JS to read in max year, presumably 1st column
   years_band   = 5;
   
   if (csv == 'NA'){
