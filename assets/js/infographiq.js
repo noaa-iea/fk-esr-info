@@ -63,7 +63,7 @@ function link_svg(svg, csv, debug = false, hover_color = 'yellow', width = '100%
       
       // TODO: if has section column in argument to fxn
       data = data.sort(
-        function(a,b) { return d3.ascending(a.section, b.section) ||  d3.ascending(a.section, b.title) });
+        function(a,b) { return d3.ascending(a.section, b.section) ||  d3.ascending(a.title, b.title) });
     
       var section_now = null;
 
