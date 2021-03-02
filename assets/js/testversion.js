@@ -1,6 +1,3 @@
-var section_list = [,]; 
-var a_number = 65;
-
 // append div for tooltip
 var tooltip_div = d3.select("body").append("div")
   .attr("class", "tooltip")
@@ -51,7 +48,6 @@ function link_svg(svg, csv, debug = false, hover_color = 'yellow', width = '100%
         function(a,b) { return d3.ascending(a.section, b.section) ||  d3.ascending(a.section, b.title) });
     
       var section_now = null;
-      var i = 0;
       
       data.forEach(function(d) {
         
@@ -94,18 +90,3 @@ function link_svg(svg, csv, debug = false, hover_color = 'yellow', width = '100%
   }); // d3.xml(svg).then((f) => {
 
 }
-
-//some function somewhere
-function outside(){
-   console.log("outside(section_list[4]): " + section_list[4]);
-}
-//value of global variable when this executed is 0 
-//because no change event has been called
-console.log("Outside section_list[4]: " + section_list[4]);
-outside();
-
-
-console.log("section_list: ", section_list);
-console.log("section_list[4]: ", section_list[4]);
-console.log("a_number: ", a_number);
-

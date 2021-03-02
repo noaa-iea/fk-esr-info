@@ -424,6 +424,12 @@ function link_svg(svg, csv, debug = false, hover_color = 'yellow', width = '100%
         console.log(data);
       }
       */
+      
+      // TODO: if has section column in argument to fxn
+      data = data.sort(
+        function(a,b) { return d3.ascending(a.section, b.section) ||  d3.ascending(a.section, b.title) });
+    
+      var section_now = null;
 
       // iterate through rows of csv
       data.forEach(function(d) {
@@ -509,13 +515,21 @@ function link_svg(svg, csv, debug = false, hover_color = 'yellow', width = '100%
           
         // add to bulleted list of svg elements
         list_text = d.title ? d.title : d.icon;  // fall back on id if title not set
-        d3.select("#svg_list").append("li").append("a")
+        
+        // if first in section, then add header
+        if (d.section != section_now){
+          section_list = d3.select("#svg_list").append("li")
+            .text(d.section).append("ul");
+          section_now = d.section;
+        }
+        
+        //d3.select("#svg_list").append("li").append("a")
+        section_list.append("li").append("a")
           .text(list_text)
           .on("click", handleClick)
           .on('mouseover', handleMouseOverSansTooltip)
           .on('mouseout', handleMouseOut);
 
-      
       }); // end: data.forEach({
     }) // end: d3.csv().then({
     .catch(function(error){
