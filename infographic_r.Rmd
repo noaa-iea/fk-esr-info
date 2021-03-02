@@ -30,7 +30,7 @@ knitr::opts_chunk$set(echo = F, message = F, warning = F)
 </div>
 
 <div class = "col-md-3">
-  <ul id = "svg_list"></ul>
+  <ul id = "svg_list" style="list-style-type: none;"></ul>
 </div>
 
 <script>
