@@ -23,28 +23,31 @@ expand_modal <- function(icon, title, data, provider_link, caption, source, y_la
   # attach(d)
   # detach(d)
 
-  out   <- glue("modals/{icon}.html")
+  out   <- glue::glue("modals/{icon}.html")
   message(out)
   
-  if (!is.na(data)){
-    d        <- read_csv(data, col_types = cols())
-    year_rng <- select(d, 1) %>% pull() %>% range()
-    year_max <- year_rng[2]
-    nrows    <- nrow(d)
-      
-    if (diff(year_rng) < (nrow(d) - 1))
-      message(glue("  Whoah! More rows (n={nrow(d)}) than years [{paste(year_rng, collapse = ' - ')}]"))
-  } else{
-    year_max <- 0
-    nrows    <- 0
+  year_max <- 0
+  
+  if (icon != "hurricane-coastal-protections"){ # the data for hurricane coastal protections is totally different than everything else and needs to be handled differently
+    if (!is.na(data)){
+      d        <- read_csv(data, col_types = cols())
+      year_rng <- select(d, 1) %>% pull() %>% range()
+      year_max <- year_rng[2]
+      nrows    <- nrow(d)
+        
+      if (diff(year_rng) < (nrow(d) - 1))
+        message(glue("  Whoah! More rows (n={nrow(d)}) than years [{paste(year_rng, collapse = ' - ')}]"))
+    } 
+    else{
+      nrows    <- 0
+      message(glue("  nrows={nrows}, year_max={year_max}"))
+    }
   }
-  
-  message(glue("  nrows={nrows}, year_max={year_max}"))
-  
+
   knitr::knit_expand(
     file          = "_infographic_modal_template.html", 
     icon          = icon,
-    title         = caption <- ifelse(is.na(caption), title, caption),
+    title         = title, # caption <- ifelse(is.na(caption), title, caption),
     csv           = data,
     caption       = caption,
     source        = source,
