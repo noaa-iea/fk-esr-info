@@ -1,4 +1,4 @@
-function createGraph(theData, graph_location, title, y_axis_label, x_axis_label = "Year", plot_band_width = 5){
+function createGraph(theData, graph_location, title, y_axis_label, x_axis_label = "Year", plot_band_width = 5, SST = false){
 
   fetch(theData)
   .then((response) => {
@@ -10,13 +10,23 @@ function createGraph(theData, graph_location, title, y_axis_label, x_axis_label 
     var theCsvLines = theCsv.split(/\r\n|\n/);
     var linenum = theCsvLines.length - 1;
     var lastRow = theCsvLines[linenum];
-    var lastYear = lastRow.split(",")[0];
+    var lastDate = lastRow.split(",")[0];
     //If the csv isn't outputted by google sheets, this extra step needed
-    if (lastYear.length === 0) {
+    if (lastDate.length === 0) {
       lastRow = theCsvLines[linenum-1];
-      lastYear = lastRow.split(",")[0];
+      lastDate = lastRow.split(",")[0];
     }
-    
+
+    //The dates in the SST time series data are formatted differently than all of the other time series, so the x-axis plot bands need to be calculated differently for SST data 
+    if (SST === false){
+      begin_plot_band = lastDate - plot_band_width; 
+      end_plot_band = lastDate;
+    }
+    else{
+      date_breakout = lastDate.split("/");
+      begin_plot_band = Date.UTC(date_breakout[2] - plot_band_width, date_breakout[0], date_breakout[1]); 
+      end_plot_band = Date.UTC(date_breakout[2], date_breakout[0], date_breakout[1]);
+    }
     // Produce highcharts graph
     Highcharts.chart(graph_location, {
       title: {text: title},
@@ -35,12 +45,16 @@ function createGraph(theData, graph_location, title, y_axis_label, x_axis_label 
           lineColor: Highcharts.getOptions().colors[0] }}],
       xAxis: {
         plotBands: [{
-          from: lastYear - plot_band_width, 
-          to: lastYear,
+          from: begin_plot_band, 
+          to: end_plot_band,
           color: '#DEDEFF'}],
         title: {text: x_axis_label}},
       yAxis: {
         title: {text: y_axis_label} }});
-  });
-   
+        
+  }
+  
+  
+  );
+  
 }
