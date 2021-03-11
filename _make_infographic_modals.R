@@ -4,7 +4,7 @@ if (!require(librarian)){
   library(librarian)
 }
 shelf(
-  dplyr, glue, highcharter, knitr, purrr, readr, rmarkdown, tibble, tidyr)
+  dplyr, glue, highcharter, knitr, purrr, readr, rmarkdown, stringr, tibble, tidyr)
 
 # variables ----
 # edit icons_to_data: https://docs.google.com/spreadsheets/d/1_o8HOiZ_35uajupEsw6xLSsneTBTeLh0bqvFQvMpBNY/edit#gid=0
@@ -47,15 +47,15 @@ expand_modal <- function(icon, title, data, provider_link, caption, source, y_la
   knitr::knit_expand(
     file          = "_infographic_modal_template.html", 
     icon          = icon,
-    title         = title, # caption <- ifelse(is.na(caption), title, caption),
+    title         = gsub('"||\'',"",title), # caption <- ifelse(is.na(caption), title, caption),
     csv           = data,
-    caption       = caption,
-    source        = source,
+    caption       = gsub('"||\'',"",caption),
+    source        = gsub('"||\'',"", source),
     provider_link = provider_link,
-    y_label       = ifelse(
+    y_label       = gsub('"||\'',"", ifelse(
       !is.na(y_label) && trim(y_label) != "?",
       y_label,
-      ""),
+      "")),
     years_band = 5) %>% 
     writeLines(out) 
 }
