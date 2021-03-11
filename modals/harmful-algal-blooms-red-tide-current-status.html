@@ -1,7 +1,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Dissolved oxygen</title>
+  <title>Red tide current status</title>
 </head>
 <body>
 
@@ -14,15 +14,15 @@
 
 NA
 
-Source: <a href="https://www.aoml.noaa.gov/data-products/#so-flo-cruise-data">NOAA Atlantic Oceanographic and Meteorological Laboratory’s South Florida Project, Ocean Chemistry and Ecosystems Division</a>
+Source: <a href="https://myfwc.maps.arcgis.com/apps/View/index.html?appid=87162eec3eb846218cec711d16462a72">Florida Fish and Wildlife Conservation Commission: Fish and Wildlife Research Institute</a>
 
 <script>
   csv   = 'NA';
-  title = 'Dissolved oxygen';
-  icon  = 'DO';
+  title = 'Red tide current status';
+  icon  = 'harmful-algal-blooms-red-tide-current-status';
 
   x_axis_label = "Year";
-  y_axis_label = 'umols/liter';
+  y_axis_label = '';
   
   if (csv == 'NA'){
     document.getElementById('container').innerHTML = "<em>No data</em> yet assigned to icon <b>" + icon + "</b>. This needs to be specified in the Google Sheet 'icons to data | fk-esr-info'."

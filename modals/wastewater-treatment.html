@@ -8,6 +8,7 @@
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/data.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://marinebon.org/fk-esr-info/assets/js/highcharts_wrapper.js"></script>
 
 <div id="container" style="min-width: 310px; max-width: 600px; height: 400px; margin: 0 auto"></div>
 
@@ -26,48 +27,38 @@ Source: <a href="https://www.fkaa.com/">Monroe County Social Services Department
 
   x_axis_label = "Year";
   y_axis_label = 'Percent of Households';
-  year_max     = 2019;      // TODO: to use JS to read in max year, presumably 1st column
-  years_band   = 5;
   
   if (csv == 'NA'){
-    document.getElementById('container').innerHTML = "<em>No data</em> yet assigned to icon <b>" + icon + "</b>. This needs to be specified in this Google Sheet: <a href='https://docs.google.com/spreadsheets/d/1_o8HOiZ_35uajupEsw6xLSsneTBTeLh0bqvFQvMpBNY/edit#gid=0'>icons to data | fk-esr-info</a>."
+    document.getElementById('container').innerHTML = "<em>No data</em> yet assigned to icon <b>" + icon + "</b>. This needs to be specified in the Google Sheet 'icons to data | fk-esr-info'."
   } 
   //The chart for hurricane coastal protections is a bar chart and has to be handled differently than all other modal windows
   else if (icon == 'hurricane-coastal-protections') {
-        Highcharts.chart('container', {
-          chart: {type: 'column'},
+    Highcharts.chart('container', { 
+      chart: {type: 'column'},
       title: {text: title},
       credits: {enabled: false},
       data: {csvURL: csv},
       xAxis: {title: {text: "Storm Frequency"}},
       yAxis: {title: {text: "2010 Dollars"}},
-      legend: {enabled: false},
-});
+      legend: {enabled: false}
+    });
+  }
+  else if (icon == 'SST'){ // the SST modal window is another unusual case
+    createGraph(
+      theData = csv, 
+      graph_location = 'container', 
+      title = title, 
+      y_axis_label = y_axis_label, undefined, undefined, 
+      SST = true
+    );
   }
   else {
-    Highcharts.chart('container', {
-      title: {text: title},
-      credits: {enabled: false},
-      data: {
-        csvURL: csv,
-        firstRowAsNames: true,
-        startRow: 0 }, 
-      series: [{
-        name: 'value', 
-        showInLegend: true,
-        marker: {
-          enabled: false,
-          fillColor: 'white',
-          lineWidth: 1,
-          lineColor: Highcharts.getOptions().colors[0] }}],
-      xAxis: {
-        plotBands: [{
-          from: year_max - years_band, 
-          to: year_max,
-          color: '#DEDEFF'}],
-        title: {text: x_axis_label}},
-      yAxis: {
-        title: {text: y_axis_label} }});
+    createGraph(
+      theData = csv, 
+      graph_location = 'container', 
+      title = title, 
+      y_axis_label = y_axis_label
+    );
   }
 </script>
 

@@ -16,7 +16,7 @@ icons_to_data <- read_csv(icons_to_data_csv, col_types = cols()) %>%
   filter(!data_skip) %>% 
   arrange(icon)
 
-expand_modal <- function(icon, title, data, provider_link, caption, source, y_label, years_band = 5, ...){
+expand_modal <- function(icon, title, data, provider_link, caption, source, y_label, ...){
   
   # d <- icons_to_data %>%
   #   filter(icon == "hurricane-coastal-protections")
@@ -28,7 +28,7 @@ expand_modal <- function(icon, title, data, provider_link, caption, source, y_la
   
   year_max <- 0
   
-  if (icon != "hurricane-coastal-protections"){ # the data for hurricane coastal protections is totally different than everything else and needs to be handled differently
+  if (icon != "hurricane-coastal-protections" && icon != "SST"){ # the data for hurricane coastal protections is totally different than everything else and needs to be handled differently
     if (!is.na(data)){
       d        <- read_csv(data, col_types = cols())
       year_rng <- select(d, 1) %>% pull() %>% range()
@@ -56,7 +56,6 @@ expand_modal <- function(icon, title, data, provider_link, caption, source, y_la
       !is.na(y_label) && trim(y_label) != "?",
       y_label,
       ""),
-    year_max   = year_max, 
     years_band = 5) %>% 
     writeLines(out) 
 }

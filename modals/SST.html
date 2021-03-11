@@ -8,30 +8,55 @@
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/data.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://marinebon.org/fk-esr-info/assets/js/highcharts_wrapper.js"></script>
 
 <div id="container" style="min-width: 310px; max-width: 600px; height: 400px; margin: 0 auto"></div>
 
-<script>
-csv   = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTQD53a76TlLIMvqMBYdFIQv3-WyDWlHwOjai77eIaKa60pha5_ozTOZCoX1MoH6VsbP03fuIrLaRM8/pub?gid=365283163&single=true&output=csv';
-title = 'Sea Surface Temperature (SST)';
-icon  = 'SST';
+Changes in sea surface temperatures affect many biological and physical oceanography processes, and mass coral bleaching has become one of the most visible marine ecological impacts
+of persistently rising ocean temperatures. The following time series of changes in sea surface temperatures in the Florida Keys is collected via satellite remote sensing measurements by NOAA’s Coral Reef Watch program. An overall increasing SST trend of more than 1 degree Celsius in maximum temperature is seen in the Florida Keys
 
-if (csv == 'NA'){
-  document.getElementById('container').innerHTML = "<em>No data</em> yet assigned to icon <b>" + icon + "</b>. This needs to be specified in this Google Sheet: <a href='https://docs.google.com/spreadsheets/d/1_o8HOiZ_35uajupEsw6xLSsneTBTeLh0bqvFQvMpBNY/edit#gid=0'>icons to data | fk-esr-info</a>."
-} else {
-  Highcharts.chart('container', {
-    title: {
-      text: title
-    },
-    data: {
-      csvURL: csv,
-      firstRowAsNames: true,
-      startRow: 0
-    }, 
-    series: [{
-      name: 'value' }]
-  });
-}
+Source: <a href="https://coralreefwatch.noaa.gov/">NOAA National Environmental Satellite, Data, and Information Service, Coral Reef Watch program</a>
+
+<script>
+  csv   = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ2hi4xw9V9Wi92pLxaNn9rrqWtiFPbqHOyKAT_4NsxGBJlDECLKHMPrVHmJQpWBaA19XukL7qxCT9m/pub?gid=365283163&single=true&output=csv';
+  title = 'Sea Surface Temperature (SST)';
+  icon  = 'SST';
+
+  x_axis_label = "Year";
+  y_axis_label = 'Sea Surface Temperature (° Celsius)';
+  
+  if (csv == 'NA'){
+    document.getElementById('container').innerHTML = "<em>No data</em> yet assigned to icon <b>" + icon + "</b>. This needs to be specified in the Google Sheet 'icons to data | fk-esr-info'."
+  } 
+  //The chart for hurricane coastal protections is a bar chart and has to be handled differently than all other modal windows
+  else if (icon == 'hurricane-coastal-protections') {
+    Highcharts.chart('container', { 
+      chart: {type: 'column'},
+      title: {text: title},
+      credits: {enabled: false},
+      data: {csvURL: csv},
+      xAxis: {title: {text: "Storm Frequency"}},
+      yAxis: {title: {text: "2010 Dollars"}},
+      legend: {enabled: false}
+    });
+  }
+  else if (icon == 'SST'){ // the SST modal window is another unusual case
+    createGraph(
+      theData = csv, 
+      graph_location = 'container', 
+      title = title, 
+      y_axis_label = y_axis_label, undefined, undefined, 
+      SST = true
+    );
+  }
+  else {
+    createGraph(
+      theData = csv, 
+      graph_location = 'container', 
+      title = title, 
+      y_axis_label = y_axis_label
+    );
+  }
 </script>
 
 </body>
