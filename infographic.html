@@ -1,162 +1,125 @@
 <!DOCTYPE HTML>
 <!--
-	Florida Keys ESR - Home
+	Artificial Structures Indicator Page
 -->
 <html>
 	<head>
-    	<title>Florida Keys ESR</title>
-        <link rel="shortcut icon" type="image/png" href='NOAAfavicon.ico'/>
-		<meta charset="utf-8" />
+    <title>Florida Keys ESR</title>
+    <link rel="shortcut icon" type="image/png" href='NOAAfavicon.ico'/>
+    <meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		    
         <!-- Global site tag (gtag.js) - Google Analytics -->
-            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176398491-1"></script>
-            <script>
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176398491-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-176398491-1');
+    </script>
+ 
 
-              gtag('config', 'UA-176398491-1');
-            </script>
-            <link rel="stylesheet" href="assets/css/main.css" />
-            <link rel="stylesheet" href="assets/css/infographiq.css" />
-            <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-            <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-            <!--script src="http://code.highcharts.com/highcharts.js"></script-->
-            <!--script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script-->
-            <!--script src="https://code.highcharts.com/highcharts.js"></script-->
-            <!--script src="https://code.highcharts.com/highcharts-more.js"></script-->
-            <!--script src="http://code.highcharts.com/modules/exporting.js"></script-->
-            <!-- optional -->
-            <!--script src="http://code.highcharts.com/modules/offline-exporting.js"></script-->
-    
-        <!--highcharts dependency-->
-        
-        <!-- infographiq dependencies -->
-        <script src="assets/js/jquery-1.11.3.min.js"></script>
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/ie/html5shiv.js"></script>
-        <script src="assets/js/ie/respond.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src='assets/js/d3.v5.min.js'></script>
+    <script src="https://marinebon.org/fk-esr-info/assets/js/jquery.min.js"></script>
+    <script src="https://marinebon.org/fk-esr-info/assets/js/jquery.scrollex.min.js"></script>
+    <script src="https://marinebon.org/fk-esr-info/assets/js/jquery.scrolly.min.js"></script>
+    <script src="https://marinebon.org/fk-esr-info/assets/js/skel.min.js"></script>
+    <script src="https://marinebon.org/fk-esr-info/assets/js/util.js"></script>
+    <script src="https://marinebon.org/fk-esr-info/assets/js/main.js"></script>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css"> 
 
+       <link rel="stylesheet" href="assets/css/main.css" />
+           <link rel="stylesheet" href="assets/css/infographiq.css"> 
 	</head>
-	<body class="landing">
+	<body>
 
-		<!-- Page Wrapper -->
-			<div id="page-wrapper">
+	<!-- Page Wrapper -->
+	<div id="page-wrapper">
 
-				<!-- Header -->
-					
-				
-				<!-- One -->
-                
-					<section id="one" class="wrapper style1 special">
-						<div class="inner">
-							<header class="major">
-                                
-                                                       
-                                  <h2>conceptual model of the Florida Keys Ecosystem </h2>
-                                 <br /> 
-                                 <!--img src="images/FKIEA_Ecosystem_tri.jpg" width=900px height=600px;-->
-                                 
-                                 <!-- infographiq placeholder for svg -->
-                                 <div class = "col-md-9">
-                                    <div id = "svg"></div>
-                                 </div>
-                                 <div class = "col-md-3">
-                                    <!--Text: <input id="toggle-text" type="checkbox" data-toggle="toggle" data-size="mini">
-                                    <div id="toggle-text-event"></div-->
-                                    <ul id = "svg_list" class = "iq_list"></ul>
-                                  </div>
+    <!-- Header -->
+  	<header id="header">
+  		<h1><a href="home.html" >home</a></h1>
+  		<nav id="nav">
+  			<ul>
+  				<li class="special">
+  					<a href="#menu" class="menuToggle"><span>key indicators</span></a>
+  					<div id="menu">
+  						<ul>
+  							<li><h3>key indicators</h3></li>                                            
+  							<li><a href="human-activities.html">Human Activities</a></li>
+                <li><a href="ecosystem-services.html">Ecosystem Services</a></li>
+                <li><a href="habitat.html">Habitat</a></li>
+                <li><a href="living-resources.html">Living Resources</a></li>
+                <li><a href="sanctuary-waters.html">Sanctuary Waters</a></li>
+                <li><a href="maritime-archaeological-resources.html">Maritime Archaeological Resources</a></li>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <li><a href="https://doi.org/10.25923/f7ce-st38" target="_blank"><h1>Download the Report</h1></a></li>
+                <br>
+                <li><a href="download.html"><h1>Download Data</h1></a></li>
+  						</ul>
+  					</div>
+  				</li>
+  			</ul>
+  		</nav>
+  	</header>
+
+    <article id="main">
+      <section class="wrapper style5">
+
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-9">
+
+              <div id = "svg"></div>
+
+              <table style ="table-layout: fixed; width: 80%;   margin-left: auto;
+                margin-right: auto;">
+                  <tr>
+                    <td style =" background-color: white; text-align: center;">Sanctuary Waters and Human Activities Indicators</td> 
+                    <td style =" background-color: white; text-align: center;">Living Resources and Habitat Indicators</td>
+                    <td style ="background-color: white; text-align: center;">Maritime Heritage and Ecosystem Services Indicators</td> 
+                  </tr>
+              </table>
+              <div style="text-align: right; font-size: 80%"> Artwork by Amanda Dillon, designed by Kelly Montero</div>
+
+            </div>
+            <div class="col-md-3">
+              <ul id = "svg_list"></ul>
+            </div>
+          </div>
+        </div>
+
+      </section>
+    </article>
 
 
-                                <br>
-                               <p>
-                               Text how to use and navigate the infogrpahic 
-                                    <br>
-                                </p>                  
-                                                      
-                            </header>
-                        </div>
-					</section>
 
-				
+  	<!-- Footer -->
+  	<footer id="footer">
+      <br>
+      <img src="images/NOAA.svg" height="50" >
+      <img src="images/DOC_logo.svg" height="50">
+      <ul class="copyright">
+  			<li>2021  &copy; <a href="http://www.noaa.gov" target="_blank">National Oceanic and Atmospheric Administration</a> A Project of the NOAA <a href="https://www.integratedecosystemassessment.noaa.gov" target="_blank">IEA</a> Program </li> 
+  			<br>
+        <a href="https://www.commerce.gov/" target="_blank">U.S. Department of Commerce</a>
+        <br>
+        <br>
+        <h6>PHOTOS FROM THE FKIEA TEAM, THE FLORIDA KEYS NATIONAL MARINE SANCTUARY, AND THE NOAA FLICKR ACCOUNT <a href="https://www.flickr.com/photos/noaaphotolib/">Flickr</a></h6>
+      </ul> 
+      <br/> 
+  	</footer>
+	</div>
 
-				<!-- CTA -->
-					<section id="cta" class="wrapper style4">
-						<div class="inner">
-							<header>
-                                <br>
-								<h2>for more info about the IEA program in the Florida Keys please Contact us:</h2>
-								<p> <br>
-                                    <br>
-                                    <br>
-                                            
-                                    Kelly&nbsp;Montenero:&nbsp;<a href="mailto:kelly.montenero@noaa.gov">kelly.montenero@noaa.gov</a><br/>
-                                                                                                        
-                                    Chris&nbsp;Kelble:&nbsp;<a href="mailto:chris.kelble@noaa.gov">chris.kelble@noaa.gov </a><br/>
-                                                                    
-                                    Seann&nbsp;Regan:&nbsp;<a href="mailto:seann.regan@noaa.gov">seann.regan@noaa.gov</a><br/>
-                                    
-                                    Beth&nbsp;Dieveney:&nbsp;<a href="mailto:beth.dieveney@noaa.gov">beth.dieveney@noaa.gov</a><br/>                             
-                                                             
-                                                                        
-                                   <br>
-                                    <br>
-                                
-                                </p>
-							</header>
-							<ul class="actions vertical">
-                                <br>
-                                 <br>
-                                 <br>
-                                 <br>
-                                 <br>
-				<!-- 			<li><a href="https://www.integratedecosystemassessment.noaa.gov//" target="_blank" class="button fit">Leave Feedback</a></li>  -->
-							</ul>
-						</div>
-					</section>
+  <!-- infographiq: run function to link the svg with the svg_list -->
+  <script src='assets/js/infographiq.js'></script>
+  <script>link_svg(svg='assets/svg/FKIEA_Ecosystem.svg', csv='https://docs.google.com/spreadsheets/d/e/2PACX-1vSAROGVpYB58Zkr8P0iwJdTMRPNLZtJ07IyUn-dQ62C2HMuCEScyl8x7urCD7QbRXQYSIJwDn_wku9G/pub?gid=0&single=true&output=csv', debug=true);</script>
 
-				<!-- Footer -->
-					<footer id="footer">
-                    <br>
-		              		              
-                                <img src="images/NOAA.svg" height="50" >
-                                 <img src="images/DOC_logo.svg" height="50">
 
-                        
-				    <ul class="copyright">
-							<li>2019  &copy; <a href="http://www.noaa.gov" target="_blank">National Oceanic and Atmospheric Administration</a> A Proejct of the NOAA <a href="https://www.integratedecosystemassessment.noaa.gov" target="_blank">IEA</a> Program </li> <br>
-                        <a href="https://www.commerce.gov/" target="_blank">U.S. Department of Commerce</a>
-                  
-               
-                        <br>
-                        <br>
-                        <h6>PHOTOS FROM THE FKIEA TEAM, THE FLORIDA KEYS NATIONAL MARINE SANCTUARY, AND THE NOAA FLICKR ACCOUNT <a href="https://www.flickr.com/photos/noaaphotolib/">Flickr</a></h6>
-                                   
-                        
-                        </ul> 
-                   <br/> 
-            
-					</footer>
-
-			</div>
-
-		<!-- Scripts -->
-		<!-- script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script -->
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<!-- script src="assets/js/main.js"></script -->
-			
-    <!-- infographiq dependencies -->
-      <script src='assets/js/d3.v5.min.js'></script>
-      <script src='assets/js/infographiq.js'></script>
-      <!-- script src="assets/js/bootstrap.min.js"></script -->
-    <!-- infographiq: run function to link the svg -->
-      <script>link_svg(svg='assets/svg/FKIEA_Ecosystem.svg', csv='https://docs.google.com/spreadsheets/d/e/2PACX-1vSAROGVpYB58Zkr8P0iwJdTMRPNLZtJ07IyUn-dQ62C2HMuCEScyl8x7urCD7QbRXQYSIJwDn_wku9G/pub?gid=0&single=true&output=csv', debug=true);</script>
-
-	</body>
+</body>
 </html>
