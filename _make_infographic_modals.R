@@ -13,7 +13,7 @@ icons_to_data_csv <- "https://docs.google.com/spreadsheets/d/e/2PACX-1vSAROGVpYB
 # create modals ----
 icons_to_data <- read_csv(icons_to_data_csv, col_types = cols()) %>% 
   mutate(across(is_logical, replace_na, F)) %>% 
-  filter(!data_skip) %>% 
+  filter(!manual_modal) %>% 
   arrange(icon)
 
 expand_modal <- function(icon, title, data, provider_link, caption, source, y_label, ...){

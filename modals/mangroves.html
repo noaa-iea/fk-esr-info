@@ -1,64 +1,19 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Mangrove shoreline spatial extent</title>
+  <title>Housing disruption</title>
 </head>
 <body>
-
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/data.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script src="https://marinebon.org/fk-esr-info/assets/js/highcharts_wrapper.js"></script>
-
-<div id="container" style="min-width: 310px; max-width: 600px; height: 400px; margin: 0 auto"></div>
-
-Not only do mangroves provide ecosystem services in the form of coastal protection, but they are also an important nursery
-habitat for juvenile fish, invertebrate and other marine species, as well as important seabird roosting habitat. This habitat
-indicator has experienced a net loss in land cover over the past 20 years.
-
-Source: <a href="https://coast.noaa.gov/digitalcoast/data/ccapregional.html">NOAA National Ocean Service satellite information and Office for Coastal Management C-CAP program</a>
-
-<script>
-  csv   = 'NA';
-  title = 'Mangrove shoreline spatial extent';
-  icon  = 'mangroves';
-
-  x_axis_label = "Year";
-  y_axis_label = '';
   
-  if (csv == 'NA'){
-    document.getElementById('container').innerHTML = "<em>No data</em> yet assigned to icon <b>" + icon + "</b>. This needs to be specified in the Google Sheet 'icons to data | fk-esr-info'."
-  } 
-  //The chart for hurricane coastal protections is a bar chart and has to be handled differently than all other modal windows
-  else if (icon == 'hurricane-coastal-protections') {
-    Highcharts.chart('container', { 
-      chart: {type: 'column'},
-      title: {text: title},
-      credits: {enabled: false},
-      data: {csvURL: csv},
-      xAxis: {title: {text: "Storm Frequency"}},
-      yAxis: {title: {text: "2010 Dollars"}},
-      legend: {enabled: false}
-    });
-  }
-  else if (icon == 'SST'){ // the SST modal window is another unusual case
-    createGraph(
-      theData = csv, 
-      graph_location = 'container', 
-      title = title, 
-      y_axis_label = y_axis_label, undefined, undefined, 
-      SST = true
-    );
-  }
-  else {
-    createGraph(
-      theData = csv, 
-      graph_location = 'container', 
-      title = title, 
-      y_axis_label = y_axis_label
-    );
-  }
-</script>
+<h3>Mangrove shoreline spatial extent</h3>
+
+<img src="https://drive.google.com/uc?export=view&id=15Ovp1dblODBfDhd2DhiWn1UBqpYBnpSF">
+
+<p>Not only do mangroves provide ecosystem services in the form of coastal protection, but they are also an important nursery
+habitat for juvenile fish, invertebrate and other marine species, as well as important seabird roosting habitat. This habitat
+indicator has experienced a net loss in land cover over the past 20 years.</p>
+
+<p>Source: <a href="https://coast.noaa.gov/digitalcoast/data/ccapregional.html">NOAA National Ocean Service satellite information and Office for Coastal Management C-CAP program</a></p>
 
 </body>
 </html>
