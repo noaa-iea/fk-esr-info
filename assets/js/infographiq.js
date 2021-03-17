@@ -21,7 +21,7 @@ function basename(path) {
 }
 
 // main function to link svg elements to modal popups with data in csv
-function link_svg(svg, csv, debug = false, hover_color = 'yellow', width = '100%', height = '100%', modal_id = 'modal') {
+function link_svg(svg, csv, debug = false, hover_color = 'yellow', width = '100%', height = '100%', modal_id = 'modal', modal_url_pfx = 'https://marinebon.org/fk-esr-info/') {
   
 
   //  var f_child = div.node().appendChild(f.documentElement);
@@ -74,7 +74,7 @@ function link_svg(svg, csv, debug = false, hover_color = 'yellow', width = '100%
         }
         
         // TODO: wrap this hack into function args
-        d.link = 'modals/' + d.icon + '.html';
+        d.link = modal_url_pfx + 'modals/' + d.icon + '.html';
         d.title = d.title ? d.title : d.icon;  // fall back on id if title not set
         
         function handleClick(){
