@@ -1,62 +1,15 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Red tide current status</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Harmful Algal Blooms Red Tide Current Status</title>
 </head>
 <body>
-
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/data.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script src="https://marinebon.org/fk-esr-info/assets/js/highcharts_wrapper.js"></script>
-
-<div id="container" style="min-width: 310px; max-width: 600px; height: 400px; margin: 0 auto"></div>
-
-NA
-
-Source: <a href="https://myfwc.maps.arcgis.com/apps/View/index.html?appid=87162eec3eb846218cec711d16462a72">Florida Fish and Wildlife Conservation Commission: Fish and Wildlife Research Institute</a>
-
-<script>
-  csv   = 'NA';
-  title = 'Red tide current status';
-  icon  = 'harmful-algal-blooms-red-tide-current-status';
-
-  x_axis_label = "Year";
-  y_axis_label = '';
   
-  if (csv == 'NA'){
-    document.getElementById('container').innerHTML = "<em>No data</em> yet assigned to icon <b>" + icon + "</b>. This needs to be specified in the Google Sheet 'icons to data | fk-esr-info'."
-  } 
-  //The chart for hurricane coastal protections is a bar chart and has to be handled differently than all other modal windows
-  else if (icon == 'hurricane-coastal-protections') {
-    Highcharts.chart('container', { 
-      chart: {type: 'column'},
-      title: {text: title},
-      credits: {enabled: false},
-      data: {csvURL: csv},
-      xAxis: {title: {text: "Storm Frequency"}},
-      yAxis: {title: {text: "2010 Dollars"}},
-      legend: {enabled: false}
-    });
-  }
-  else if (icon == 'SST'){ // the SST modal window is another unusual case
-    createGraph(
-      theData = csv, 
-      graph_location = 'container', 
-      title = title, 
-      y_axis_label = y_axis_label, undefined, undefined, 
-      SST = true
-    );
-  }
-  else {
-    createGraph(
-      theData = csv, 
-      graph_location = 'container', 
-      title = title, 
-      y_axis_label = y_axis_label
-    );
-  }
-</script>
+<h3>Harmful Algal Blooms Red Tide Current Status</h3>
+<iframe src="https://myfwc.maps.arcgis.com/apps/View/index.html?appid=87162eec3eb846218cec711d16462a72" title="W3Schools Free Online Web Tutorials"  width="100%" height="600" ></iframe>
 
+<p>Source: <a href="https://myfwc.maps.arcgis.com/apps/View/index.html?appid=87162eec3eb846218cec711d16462a72">Florida Fish and Wildlife Conservation Commission: Fish and Wildlife Research Institute</a></p>
 </body>
 </html>
