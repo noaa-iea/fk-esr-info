@@ -2,19 +2,23 @@
 <head>
   <meta charset="utf-8">
   <title>Hogfish presence and abundance on reef sites</title>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/data.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="https://marinebon.org/fk-esr-info/assets/js/highcharts_wrapper.js"></script>
+  <link rel="stylesheet" href="https://marinebon.org/fk-esr-info/assets/css/infographiq.css" />
 </head>
 <body>
 
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/data.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script src="https://marinebon.org/fk-esr-info/assets/js/highcharts_wrapper.js"></script>
+
 
 <div id="container" style="min-width: 310px; max-width: 600px; height: 400px; margin: 0 auto"></div>
 
+<div class = "caption_text">
 Hogfish were selected as a key indicator for the condition of living resources in the Florida Keys, due to their status as targeted species by recreational and commercial fishers. The status and trend were represented by calculating the average abundance per species per fishery independent dive survey, per reef site in the Florida Keys. The abundance of hogfish has recovered to a site average above the mean since 2013, and the trend is increasing over the past five years. This may be due to stricter bag and season regulations on recreational fishers in Atlantic waters.
 
 Source: <a href="https://www.fisheries.noaa.gov/southeast/science-data/reef-ecology-unit">NOAA National Marine Fisheries Service, Southeast Fisheries Science Center, Reef Visual Census program</a>
+</div>
 
 <script>
   csv   = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRIV0WgctAUvWsgNAuazbzHlpnpxyFJlioBYj-vRCMKLrnyX1_bVnzAeRZfI_5yJdBx5F1PYbKMJwvJ/pub?gid=1728067002&single=true&output=csv';
@@ -48,7 +52,38 @@ Source: <a href="https://www.fisheries.noaa.gov/southeast/science-data/reef-ecol
       SST = true
     );
   }
-  else {
+  else if (icon == 'stonecrab'){ // the stone crab modal window is another unusual case
+    Highcharts.chart('container', { 
+      chart: {type: 'line'},
+      title: {text: title},
+      credits: {enabled: false},
+      data: {csvURL: csv,
+        firstRowAsNames: true,
+        startRow: 0 }, 
+      series: [{
+        yAxis: 0,
+        name: 'value', 
+        showInLegend: true,
+        marker:{enabled: false}
+        },
+        {
+        yAxis: 1,
+        name: 'value', 
+        showInLegend: true,
+        marker:{enabled: false}
+        }],
+      xAxis: {
+        plotBands: [{
+          from: 2013, 
+          to: 2018,
+          color: '#DEDEFF'}],
+        title: {text: x_axis_label}},
+      yAxis: [{title: {text:'Stone Crab Trips'},opposite: true},  
+                {title: {text:'Stone Crab Pounds Landed'},opposite: false}
+        ]
+    });
+  }
+  else { // all other modal windows
     createGraph(
       theData = csv, 
       graph_location = 'container', 

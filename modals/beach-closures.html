@@ -2,19 +2,23 @@
 <head>
   <meta charset="utf-8">
   <title>Beach closures due to presence of fecal indicator</title>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/data.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="https://marinebon.org/fk-esr-info/assets/js/highcharts_wrapper.js"></script>
+  <link rel="stylesheet" href="https://marinebon.org/fk-esr-info/assets/css/infographiq.css" />
 </head>
 <body>
 
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/data.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script src="https://marinebon.org/fk-esr-info/assets/js/highcharts_wrapper.js"></script>
+
 
 <div id="container" style="min-width: 310px; max-width: 600px; height: 400px; margin: 0 auto"></div>
 
+<div class = "caption_text">
 The presence of fecal indicator bacteria, fecal coliform and enterococci are measured by the Florida Healthy Beach program in order to advise beach closures due to threats to public health. The presence of these fecal indicators can be due to fecal pollution, which may come from stormwater runoff, pets and wildlife, and human sewage. This report uses the number of fecal indicator advisories issued on Florida Keys National Marine Sanctuary shoreline as an indicator of fecal bacteria presence as a threat to public health.
 
 Source: <a href="http://manatee.floridahealth.gov/programs-and-services/infectious-disease-services/environmental-health/healthy-beaches/index.html">Florida Healthy Beaches program; University of Miami Abess Center</a>
+</div>
 
 <script>
   csv   = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT3c4QZPzxvH3yqYQb1aOVlMPglKmW6rgfYhAiAGRHICqwlgR_StnjyOT7RPAD3FNBXChsZhuOhxMJg/pub?gid=1525589878&single=true&output=csv';
@@ -48,7 +52,38 @@ Source: <a href="http://manatee.floridahealth.gov/programs-and-services/infectio
       SST = true
     );
   }
-  else {
+  else if (icon == 'stonecrab'){ // the stone crab modal window is another unusual case
+    Highcharts.chart('container', { 
+      chart: {type: 'line'},
+      title: {text: title},
+      credits: {enabled: false},
+      data: {csvURL: csv,
+        firstRowAsNames: true,
+        startRow: 0 }, 
+      series: [{
+        yAxis: 0,
+        name: 'value', 
+        showInLegend: true,
+        marker:{enabled: false}
+        },
+        {
+        yAxis: 1,
+        name: 'value', 
+        showInLegend: true,
+        marker:{enabled: false}
+        }],
+      xAxis: {
+        plotBands: [{
+          from: 2013, 
+          to: 2018,
+          color: '#DEDEFF'}],
+        title: {text: x_axis_label}},
+      yAxis: [{title: {text:'Stone Crab Trips'},opposite: true},  
+                {title: {text:'Stone Crab Pounds Landed'},opposite: false}
+        ]
+    });
+  }
+  else { // all other modal windows
     createGraph(
       theData = csv, 
       graph_location = 'container', 

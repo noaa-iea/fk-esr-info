@@ -2,20 +2,24 @@
 <head>
   <meta charset="utf-8">
   <title>Carbonate production at reef site</title>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/data.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="https://marinebon.org/fk-esr-info/assets/js/highcharts_wrapper.js"></script>
+  <link rel="stylesheet" href="https://marinebon.org/fk-esr-info/assets/css/infographiq.css" />
 </head>
 <body>
 
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/data.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script src="https://marinebon.org/fk-esr-info/assets/js/highcharts_wrapper.js"></script>
+
 
 <div id="container" style="min-width: 310px; max-width: 600px; height: 400px; margin: 0 auto"></div>
 
+<div class = "caption_text">
 Coral calcification as measured by carbonate budget and calcification rate per ecosystem calcifier at a study site at Cheeca Rocks in the
 Florida Keys has remained stable over the past five years.
 
-Source: <a href="https://www.coris.noaa.gov/monitoring/">NOAA Atlantic Oceanographic and Meteorological Laboratoryâ€™s Acidification, Climate, and Coral Reef Ecosystems Team, NOAAs Ocean Acidification Program</a>
+Source: <a href="https://www.coris.noaa.gov/monitoring/">NOAA Atlantic Oceanographic and Meteorological Laboratory’s Acidification, Climate, and Coral Reef Ecosystems Team, NOAAs Ocean Acidification Program</a>
+</div>
 
 <script>
   csv   = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vR2J8UAAwN_AdnDLJewKrnVjLEoCmr7i2tBljpYsnTc_CVIFwQmivOrKUrA959WSb4_-PpNP5y5Iz8w/pub?gid=376679084&single=true&output=csv';
@@ -49,7 +53,38 @@ Source: <a href="https://www.coris.noaa.gov/monitoring/">NOAA Atlantic Oceanogra
       SST = true
     );
   }
-  else {
+  else if (icon == 'stonecrab'){ // the stone crab modal window is another unusual case
+    Highcharts.chart('container', { 
+      chart: {type: 'line'},
+      title: {text: title},
+      credits: {enabled: false},
+      data: {csvURL: csv,
+        firstRowAsNames: true,
+        startRow: 0 }, 
+      series: [{
+        yAxis: 0,
+        name: 'value', 
+        showInLegend: true,
+        marker:{enabled: false}
+        },
+        {
+        yAxis: 1,
+        name: 'value', 
+        showInLegend: true,
+        marker:{enabled: false}
+        }],
+      xAxis: {
+        plotBands: [{
+          from: 2013, 
+          to: 2018,
+          color: '#DEDEFF'}],
+        title: {text: x_axis_label}},
+      yAxis: [{title: {text:'Stone Crab Trips'},opposite: true},  
+                {title: {text:'Stone Crab Pounds Landed'},opposite: false}
+        ]
+    });
+  }
+  else { // all other modal windows
     createGraph(
       theData = csv, 
       graph_location = 'container', 

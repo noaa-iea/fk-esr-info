@@ -2,19 +2,23 @@
 <head>
   <meta charset="utf-8">
   <title>Recreational fishing licenses in Monroe County</title>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/data.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="https://marinebon.org/fk-esr-info/assets/js/highcharts_wrapper.js"></script>
+  <link rel="stylesheet" href="https://marinebon.org/fk-esr-info/assets/css/infographiq.css" />
 </head>
 <body>
 
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/data.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script src="https://marinebon.org/fk-esr-info/assets/js/highcharts_wrapper.js"></script>
+
 
 <div id="container" style="min-width: 310px; max-width: 600px; height: 400px; margin: 0 auto"></div>
 
+<div class = "caption_text">
 Recreational fishing is vastly important as an economic driver as well as a source of food for residents. Recreational fishing licenses sold in Monroe County, Florida is a useful indicator of this ecosystem service. The number of llicenses sold has declined since 2014. This data set was only available since 2008, when online sales were first available.
 
 Source: <a href="https://myfwc.com/license/">Florida Fish and Wildlife Conservation Commission</a>
+</div>
 
 <script>
   csv   = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRVN_GFEi46WaX4UiORAltl-3qA19ZGvphyS0CdBEwWAWGDlkMak-kAEXRaMwlxC-YAIPDokx9nN5Rx/pub?gid=1902855812&single=true&output=csv';
@@ -48,7 +52,38 @@ Source: <a href="https://myfwc.com/license/">Florida Fish and Wildlife Conservat
       SST = true
     );
   }
-  else {
+  else if (icon == 'stonecrab'){ // the stone crab modal window is another unusual case
+    Highcharts.chart('container', { 
+      chart: {type: 'line'},
+      title: {text: title},
+      credits: {enabled: false},
+      data: {csvURL: csv,
+        firstRowAsNames: true,
+        startRow: 0 }, 
+      series: [{
+        yAxis: 0,
+        name: 'value', 
+        showInLegend: true,
+        marker:{enabled: false}
+        },
+        {
+        yAxis: 1,
+        name: 'value', 
+        showInLegend: true,
+        marker:{enabled: false}
+        }],
+      xAxis: {
+        plotBands: [{
+          from: 2013, 
+          to: 2018,
+          color: '#DEDEFF'}],
+        title: {text: x_axis_label}},
+      yAxis: [{title: {text:'Stone Crab Trips'},opposite: true},  
+                {title: {text:'Stone Crab Pounds Landed'},opposite: false}
+        ]
+    });
+  }
+  else { // all other modal windows
     createGraph(
       theData = csv, 
       graph_location = 'container', 

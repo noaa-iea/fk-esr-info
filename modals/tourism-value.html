@@ -2,21 +2,25 @@
 <head>
   <meta charset="utf-8">
   <title>Total tourism value in Monroe County</title>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/data.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="https://marinebon.org/fk-esr-info/assets/js/highcharts_wrapper.js"></script>
+  <link rel="stylesheet" href="https://marinebon.org/fk-esr-info/assets/css/infographiq.css" />
 </head>
 <body>
 
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/data.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script src="https://marinebon.org/fk-esr-info/assets/js/highcharts_wrapper.js"></script>
+
 
 <div id="container" style="min-width: 310px; max-width: 600px; height: 400px; margin: 0 auto"></div>
 
+<div class = "caption_text">
 Total tourism value as calculated from the hospitality industry GDP was selected as an indicator for ecosystem services, as a benefit to the population of the Keys
 derived from nature and protected byt he Sanctuary. Tourism is the largest employer and sector of the workforce economy, with the tourism and hospitality industry employing
 approximately 31-44% (direct-indirect) of the workforce of Monroe County. The last five years show a positive trend in total tourism value.
 
 Source: <a href="https://coast.noaa.gov/digitalcoast/">Monroe County Tourism Development Council, NOAA Office for Coastal Management coastal economy</a>
+</div>
 
 <script>
   csv   = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSdfZAg3XmOCq2pi5KeHE1yAw7FWRfIUPX5L5DxQtyvqUZLXR9DtRJ06zdoF23rFIIzBexQQPuAdBs_/pub?gid=1063510568&single=true&output=csv';
@@ -50,7 +54,38 @@ Source: <a href="https://coast.noaa.gov/digitalcoast/">Monroe County Tourism Dev
       SST = true
     );
   }
-  else {
+  else if (icon == 'stonecrab'){ // the stone crab modal window is another unusual case
+    Highcharts.chart('container', { 
+      chart: {type: 'line'},
+      title: {text: title},
+      credits: {enabled: false},
+      data: {csvURL: csv,
+        firstRowAsNames: true,
+        startRow: 0 }, 
+      series: [{
+        yAxis: 0,
+        name: 'value', 
+        showInLegend: true,
+        marker:{enabled: false}
+        },
+        {
+        yAxis: 1,
+        name: 'value', 
+        showInLegend: true,
+        marker:{enabled: false}
+        }],
+      xAxis: {
+        plotBands: [{
+          from: 2013, 
+          to: 2018,
+          color: '#DEDEFF'}],
+        title: {text: x_axis_label}},
+      yAxis: [{title: {text:'Stone Crab Trips'},opposite: true},  
+                {title: {text:'Stone Crab Pounds Landed'},opposite: false}
+        ]
+    });
+  }
+  else { // all other modal windows
     createGraph(
       theData = csv, 
       graph_location = 'container', 

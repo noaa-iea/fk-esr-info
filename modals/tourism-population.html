@@ -2,16 +2,19 @@
 <head>
   <meta charset="utf-8">
   <title>Tourism population via tax revenue</title>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/data.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="https://marinebon.org/fk-esr-info/assets/js/highcharts_wrapper.js"></script>
+  <link rel="stylesheet" href="https://marinebon.org/fk-esr-info/assets/css/infographiq.css" />
 </head>
 <body>
 
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/data.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script src="https://marinebon.org/fk-esr-info/assets/js/highcharts_wrapper.js"></script>
+
 
 <div id="container" style="min-width: 310px; max-width: 600px; height: 400px; margin: 0 auto"></div>
 
+<div class = "caption_text">
 Though experts agreed that tourism visitation was an important indicator, data on this metric was surprisingly hard to
 come by, due to the need to capture all types of overnight visitors, day trip visitors, both in state and out of state visitors,
 and international as well as domestic visitors. Additionally, each municipality has a different method of recording number
@@ -20,6 +23,7 @@ visitors. Data was adjusted to reflect changes through time in the percentage of
 landfall in the Lower Keys.
 
 Source: <a href="https://www.keywestchamber.org/">Key West Chamber of Commerce</a>
+</div>
 
 <script>
   csv   = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vR2QEK4lRwEOx1edeyGwU57i-jrr7PdnjFtTHart0Ow5ooHn4lImxVEacgK1E3Z8h1_DjkOeP4vlCtk/pub?gid=148237486&single=true&output=csv';
@@ -53,7 +57,38 @@ Source: <a href="https://www.keywestchamber.org/">Key West Chamber of Commerce</
       SST = true
     );
   }
-  else {
+  else if (icon == 'stonecrab'){ // the stone crab modal window is another unusual case
+    Highcharts.chart('container', { 
+      chart: {type: 'line'},
+      title: {text: title},
+      credits: {enabled: false},
+      data: {csvURL: csv,
+        firstRowAsNames: true,
+        startRow: 0 }, 
+      series: [{
+        yAxis: 0,
+        name: 'value', 
+        showInLegend: true,
+        marker:{enabled: false}
+        },
+        {
+        yAxis: 1,
+        name: 'value', 
+        showInLegend: true,
+        marker:{enabled: false}
+        }],
+      xAxis: {
+        plotBands: [{
+          from: 2013, 
+          to: 2018,
+          color: '#DEDEFF'}],
+        title: {text: x_axis_label}},
+      yAxis: [{title: {text:'Stone Crab Trips'},opposite: true},  
+                {title: {text:'Stone Crab Pounds Landed'},opposite: false}
+        ]
+    });
+  }
+  else { // all other modal windows
     createGraph(
       theData = csv, 
       graph_location = 'container', 

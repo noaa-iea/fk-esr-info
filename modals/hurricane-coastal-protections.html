@@ -2,19 +2,23 @@
 <head>
   <meta charset="utf-8">
   <title>Value of reef and mangrove coastal protection from storms in Florida Keys</title>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/data.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="https://marinebon.org/fk-esr-info/assets/js/highcharts_wrapper.js"></script>
+  <link rel="stylesheet" href="https://marinebon.org/fk-esr-info/assets/css/infographiq.css" />
 </head>
 <body>
 
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/data.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script src="https://marinebon.org/fk-esr-info/assets/js/highcharts_wrapper.js"></script>
+
 
 <div id="container" style="min-width: 310px; max-width: 600px; height: 400px; margin: 0 auto"></div>
 
+<div class = "caption_text">
 Important ecosystem services are provided by mangroves and coral reef structure in the form of coastal protection. Both mangrove lined shorelines and coral reef structure provide important wave attenuation and storm surge mitigation during storms and extreme events, and the predicted value of coastal protection by these habitats for storm events is represented here.
 
 Source: <a href="https://www.usgs.gov/centers/pcmsc/science/role-reefs-coastal-protection?qt-science_center_objects=0#qt-science_center_objects">Storlazzi et al., USGS/UCSC report</a>
+</div>
 
 <script>
   csv   = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ09vcYWHMZd5VZGsXlASMI9z_uX4ome_bvy5lw0CM3YgSrw9eSbUoc-1ZswYpbTVs3ct3ygVSRHFMV/pub?gid=348646580&single=true&output=csv';
@@ -48,7 +52,38 @@ Source: <a href="https://www.usgs.gov/centers/pcmsc/science/role-reefs-coastal-p
       SST = true
     );
   }
-  else {
+  else if (icon == 'stonecrab'){ // the stone crab modal window is another unusual case
+    Highcharts.chart('container', { 
+      chart: {type: 'line'},
+      title: {text: title},
+      credits: {enabled: false},
+      data: {csvURL: csv,
+        firstRowAsNames: true,
+        startRow: 0 }, 
+      series: [{
+        yAxis: 0,
+        name: 'value', 
+        showInLegend: true,
+        marker:{enabled: false}
+        },
+        {
+        yAxis: 1,
+        name: 'value', 
+        showInLegend: true,
+        marker:{enabled: false}
+        }],
+      xAxis: {
+        plotBands: [{
+          from: 2013, 
+          to: 2018,
+          color: '#DEDEFF'}],
+        title: {text: x_axis_label}},
+      yAxis: [{title: {text:'Stone Crab Trips'},opposite: true},  
+                {title: {text:'Stone Crab Pounds Landed'},opposite: false}
+        ]
+    });
+  }
+  else { // all other modal windows
     createGraph(
       theData = csv, 
       graph_location = 'container', 

@@ -38,7 +38,11 @@ function createGraph(theData, graph_location, title, y_axis_label, x_axis_label 
       series: [{
         name: 'value', 
         showInLegend: true,
-        marker: {enabled: false}}],
+        marker: {
+          enabled: false,
+          fillColor: 'white',
+          lineWidth: 1,
+          lineColor: Highcharts.getOptions().colors[0] }}],
       xAxis: {
         plotBands: [{
           from: begin_plot_band, 

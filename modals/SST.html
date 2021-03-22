@@ -2,20 +2,24 @@
 <head>
   <meta charset="utf-8">
   <title>Sea Surface Temperature (SST)</title>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/data.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="https://marinebon.org/fk-esr-info/assets/js/highcharts_wrapper.js"></script>
+  <link rel="stylesheet" href="https://marinebon.org/fk-esr-info/assets/css/infographiq.css" />
 </head>
 <body>
 
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/data.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script src="https://marinebon.org/fk-esr-info/assets/js/highcharts_wrapper.js"></script>
+
 
 <div id="container" style="min-width: 310px; max-width: 600px; height: 400px; margin: 0 auto"></div>
 
+<div class = "caption_text">
 Changes in sea surface temperatures affect many biological and physical oceanography processes, and mass coral bleaching has become one of the most visible marine ecological impacts
-of persistently rising ocean temperatures. The following time series of changes in sea surface temperatures in the Florida Keys is collected via satellite remote sensing measurements by NOAAâ€™s Coral Reef Watch program. An overall increasing SST trend of more than 1 degree Celsius in maximum temperature is seen in the Florida Keys
+of persistently rising ocean temperatures. The following time series of changes in sea surface temperatures in the Florida Keys is collected via satellite remote sensing measurements by NOAA’s Coral Reef Watch program. An overall increasing SST trend of more than 1 degree Celsius in maximum temperature is seen in the Florida Keys
 
 Source: <a href="https://coralreefwatch.noaa.gov/">NOAA National Environmental Satellite, Data, and Information Service, Coral Reef Watch program</a>
+</div>
 
 <script>
   csv   = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ2hi4xw9V9Wi92pLxaNn9rrqWtiFPbqHOyKAT_4NsxGBJlDECLKHMPrVHmJQpWBaA19XukL7qxCT9m/pub?gid=365283163&single=true&output=csv';
@@ -23,7 +27,7 @@ Source: <a href="https://coralreefwatch.noaa.gov/">NOAA National Environmental S
   icon  = 'SST';
 
   x_axis_label = "Year";
-  y_axis_label = 'Sea Surface Temperature (Â° Celsius)';
+  y_axis_label = 'Sea Surface Temperature (° Celsius)';
   
   if (csv == 'NA'){
     document.getElementById('container').innerHTML = "<em>No data</em> yet assigned to icon <b>" + icon + "</b>. This needs to be specified in the Google Sheet 'icons to data | fk-esr-info'."
@@ -49,7 +53,38 @@ Source: <a href="https://coralreefwatch.noaa.gov/">NOAA National Environmental S
       SST = true
     );
   }
-  else {
+  else if (icon == 'stonecrab'){ // the stone crab modal window is another unusual case
+    Highcharts.chart('container', { 
+      chart: {type: 'line'},
+      title: {text: title},
+      credits: {enabled: false},
+      data: {csvURL: csv,
+        firstRowAsNames: true,
+        startRow: 0 }, 
+      series: [{
+        yAxis: 0,
+        name: 'value', 
+        showInLegend: true,
+        marker:{enabled: false}
+        },
+        {
+        yAxis: 1,
+        name: 'value', 
+        showInLegend: true,
+        marker:{enabled: false}
+        }],
+      xAxis: {
+        plotBands: [{
+          from: 2013, 
+          to: 2018,
+          color: '#DEDEFF'}],
+        title: {text: x_axis_label}},
+      yAxis: [{title: {text:'Stone Crab Trips'},opposite: true},  
+                {title: {text:'Stone Crab Pounds Landed'},opposite: false}
+        ]
+    });
+  }
+  else { // all other modal windows
     createGraph(
       theData = csv, 
       graph_location = 'container', 
