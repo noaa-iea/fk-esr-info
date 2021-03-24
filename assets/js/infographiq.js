@@ -12,9 +12,6 @@ function appendHtml(el, str) {
   }
 }
 
-// https://stackoverflow.com/questions/3931529/is-not-a-function-jquery-error
-var $ = jQuery;
-
 var modal_html = '<div aria-labelledby="modal-title" class="modal fade bs-example-modal-lg" id="modal" role="dialog" tabindex="-1"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="modal-title">title</h4></div><div class="modal-body"><iframe data-src="" height="100%" width="100%" frameborder="0"></iframe></div><div class="modal-footer"><button class="btn btn-default btn-sm" data-dismiss="modal">Close</button></div></div></div></div>';
 
 appendHtml(document.body, modal_html); // "body" has two more children - h1 and span.
@@ -89,17 +86,20 @@ function link_svg(svg, csv, debug = false, hover_color = 'yellow', width = '100%
               console.log('  link:' + d.link);
             }
             
-            $('#'+ modal_id).find('iframe')
-              .prop('src', function(){ return d.link });
-            
-            $('#'+ modal_id + '-title').html( d.title );
-            
-            $('#'+ modal_id).on('show.bs.modal', function () {
-              $('.modal-content').css('height',$( window ).height()*0.9);
-              $('.modal-body').css('height','calc(100% - 65px - 55.33px)');
-            });
-            
-            $('#'+ modal_id).modal();
+            // https://www.drupal.org/node/756722#using-jquery
+            (function ($) {
+              $('#'+ modal_id).find('iframe')
+                .prop('src', function(){ return d.link });
+              
+              $('#'+ modal_id + '-title').html( d.title );
+              
+              $('#'+ modal_id).on('show.bs.modal', function () {
+                $('.modal-content').css('height',$( window ).height()*0.9);
+                $('.modal-body').css('height','calc(100% - 65px - 55.33px)');
+              });
+              
+              $('#'+ modal_id).modal();
+            }(jQuery));
           }
         }
         function handleMouseOver(){
