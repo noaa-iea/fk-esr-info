@@ -1,7 +1,18 @@
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <title>Resident population</title>
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176398491-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-176398491-1');
+  </script>
+  
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <script src="https://code.highcharts.com/modules/data.js"></script>
   <script src="https://code.highcharts.com/modules/exporting.js"></script>
@@ -10,13 +21,10 @@
 </head>
 <body>
 
-
-
 <div id="container" style="min-width: 310px; max-width: 600px; height: 400px; margin: 0 auto"></div>
 
 <div class = "caption_text">
 Resident population data was chosen to illustrate how this pressure has changed in Monroe County, especially important in a land-limited area where human population put a direct strain on the natural habitats and resources. The population of the island chain increased dramatically from the 1940s to the current total population of 77,304.
-
 Source: <a href="https://data.census.gov/cedsci/profile?q=United%20States&g=0100000US" target='_parent'>Monroe County Records resident population, US Census</a>
 </div>
 
@@ -74,9 +82,11 @@ Source: <a href="https://data.census.gov/cedsci/profile?q=United%20States&g=0100
         }],
       xAxis: {
         plotBands: [{
-          from: 2013, 
+          from: 2011, 
           to: 2018,
-          color: '#DEDEFF'}],
+          color: '#DEDEFF',
+          label: {text: 'Trends Since 2011', align: 'center'}
+        }],
         title: {text: x_axis_label}},
       yAxis: [{title: {text:'Stone Crab Pounds Landed'},opposite: true},  
                 {title: {text:'Stone Crab Trips'},opposite: false}
@@ -105,9 +115,11 @@ Source: <a href="https://data.census.gov/cedsci/profile?q=United%20States&g=0100
         }],
       xAxis: {
         plotBands: [{
-          from: 2013, 
+          from: 2011, 
           to: 2018,
-          color: '#DEDEFF'}],
+          color: '#DEDEFF',
+          label: {text: 'Trends Since 2011', align: 'center'}
+        }],
         title: {text: x_axis_label}},
       yAxis: [{title: {text:'Lobster Trips'},opposite: true},  
                 {title: {text:'Lobster Landings (Pounds)'},opposite: false}

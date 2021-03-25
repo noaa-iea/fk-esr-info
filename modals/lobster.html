@@ -1,7 +1,18 @@
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <title>Spiny lobster commercial fishing trips from Monroe County</title>
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176398491-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-176398491-1');
+  </script>
+  
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <script src="https://code.highcharts.com/modules/data.js"></script>
   <script src="https://code.highcharts.com/modules/exporting.js"></script>
@@ -10,8 +21,6 @@
 </head>
 <body>
 
-
-
 <div id="container" style="min-width: 310px; max-width: 600px; height: 400px; margin: 0 auto"></div>
 
 <div class = "caption_text">
@@ -19,7 +28,6 @@ The selected economically important species referred to data collected by Florid
 Fish and Wildlife Conservation Commission and NOAA National Marine Fisheries Service, showing the number of trips of
 top fish groups for revenue: lobster  and stone crab. Declining trends were seen in the number of lobster trips in the past five years, and all fisheries experienced
 declines below one standard deviation for some period since 2008.
-
 Source: <a href="https://www.fisheries.noaa.gov/region/southeast#science" target='_parent'>NOAA National Marine Fisheries Service</a>
 </div>
 
@@ -77,9 +85,11 @@ Source: <a href="https://www.fisheries.noaa.gov/region/southeast#science" target
         }],
       xAxis: {
         plotBands: [{
-          from: 2013, 
+          from: 2011, 
           to: 2018,
-          color: '#DEDEFF'}],
+          color: '#DEDEFF',
+          label: {text: 'Trends Since 2011', align: 'center'}
+        }],
         title: {text: x_axis_label}},
       yAxis: [{title: {text:'Stone Crab Pounds Landed'},opposite: true},  
                 {title: {text:'Stone Crab Trips'},opposite: false}
@@ -108,9 +118,11 @@ Source: <a href="https://www.fisheries.noaa.gov/region/southeast#science" target
         }],
       xAxis: {
         plotBands: [{
-          from: 2013, 
+          from: 2011, 
           to: 2018,
-          color: '#DEDEFF'}],
+          color: '#DEDEFF',
+          label: {text: 'Trends Since 2011', align: 'center'}
+        }],
         title: {text: x_axis_label}},
       yAxis: [{title: {text:'Lobster Trips'},opposite: true},  
                 {title: {text:'Lobster Landings (Pounds)'},opposite: false}

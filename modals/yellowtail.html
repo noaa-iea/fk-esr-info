@@ -1,7 +1,18 @@
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <title>Yellowtail snapper abundance on reef sites</title>
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176398491-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-176398491-1');
+  </script>
+  
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <script src="https://code.highcharts.com/modules/data.js"></script>
   <script src="https://code.highcharts.com/modules/exporting.js"></script>
@@ -10,13 +21,10 @@
 </head>
 <body>
 
-
-
 <div id="container" style="min-width: 310px; max-width: 600px; height: 400px; margin: 0 auto"></div>
 
 <div class = "caption_text">
 Yellowtail snapper were selected as a key indicator for the condition of living resources in the Florida Keys, due to their status as targeted species by recreational and commercial fishers. The status and trend were represented by calculating the average abundance per species per fishery independent dive survey, per reef site in the Florida Keys.The site average abundance of yellowtail snapper has dropped from 2009 on. The trend has remained stable over the past five years.
-
 Source: <a href="https://www.fisheries.noaa.gov/southeast/science-data/reef-ecology-unit" target='_parent'>NOAA National Marine Fisheries Service, Southeast Fisheries Science Center, Reef Visual Census program</a>
 </div>
 
@@ -74,9 +82,11 @@ Source: <a href="https://www.fisheries.noaa.gov/southeast/science-data/reef-ecol
         }],
       xAxis: {
         plotBands: [{
-          from: 2013, 
+          from: 2011, 
           to: 2018,
-          color: '#DEDEFF'}],
+          color: '#DEDEFF',
+          label: {text: 'Trends Since 2011', align: 'center'}
+        }],
         title: {text: x_axis_label}},
       yAxis: [{title: {text:'Stone Crab Pounds Landed'},opposite: true},  
                 {title: {text:'Stone Crab Trips'},opposite: false}
@@ -105,9 +115,11 @@ Source: <a href="https://www.fisheries.noaa.gov/southeast/science-data/reef-ecol
         }],
       xAxis: {
         plotBands: [{
-          from: 2013, 
+          from: 2011, 
           to: 2018,
-          color: '#DEDEFF'}],
+          color: '#DEDEFF',
+          label: {text: 'Trends Since 2011', align: 'center'}
+        }],
         title: {text: x_axis_label}},
       yAxis: [{title: {text:'Lobster Trips'},opposite: true},  
                 {title: {text:'Lobster Landings (Pounds)'},opposite: false}

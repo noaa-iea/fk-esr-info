@@ -1,7 +1,18 @@
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <title>Beach closures due to presence of fecal indicator</title>
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176398491-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-176398491-1');
+  </script>
+  
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <script src="https://code.highcharts.com/modules/data.js"></script>
   <script src="https://code.highcharts.com/modules/exporting.js"></script>
@@ -10,13 +21,10 @@
 </head>
 <body>
 
-
-
 <div id="container" style="min-width: 310px; max-width: 600px; height: 400px; margin: 0 auto"></div>
 
 <div class = "caption_text">
 The presence of fecal indicator bacteria, fecal coliform and enterococci are measured by the Florida Healthy Beach program in order to advise beach closures due to threats to public health. The presence of these fecal indicators can be due to fecal pollution, which may come from stormwater runoff, pets and wildlife, and human sewage. This report uses the number of fecal indicator advisories issued on Florida Keys National Marine Sanctuary shoreline as an indicator of fecal bacteria presence as a threat to public health.
-
 Source: <a href="http://manatee.floridahealth.gov/programs-and-services/infectious-disease-services/environmental-health/healthy-beaches/index.html" target='_parent'>Florida Healthy Beaches program; University of Miami Abess Center</a>
 </div>
 
@@ -74,9 +82,11 @@ Source: <a href="http://manatee.floridahealth.gov/programs-and-services/infectio
         }],
       xAxis: {
         plotBands: [{
-          from: 2013, 
+          from: 2011, 
           to: 2018,
-          color: '#DEDEFF'}],
+          color: '#DEDEFF',
+          label: {text: 'Trends Since 2011', align: 'center'}
+        }],
         title: {text: x_axis_label}},
       yAxis: [{title: {text:'Stone Crab Pounds Landed'},opposite: true},  
                 {title: {text:'Stone Crab Trips'},opposite: false}
@@ -105,9 +115,11 @@ Source: <a href="http://manatee.floridahealth.gov/programs-and-services/infectio
         }],
       xAxis: {
         plotBands: [{
-          from: 2013, 
+          from: 2011, 
           to: 2018,
-          color: '#DEDEFF'}],
+          color: '#DEDEFF',
+          label: {text: 'Trends Since 2011', align: 'center'}
+        }],
         title: {text: x_axis_label}},
       yAxis: [{title: {text:'Lobster Trips'},opposite: true},  
                 {title: {text:'Lobster Landings (Pounds)'},opposite: false}
