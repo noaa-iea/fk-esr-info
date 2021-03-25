@@ -12,3 +12,33 @@
 .caption_text {
   font-family: "Open Sans", Helvetica, sans-serif;
 }
+
+.panel-title {
+  position: relative;
+}
+  
+.panel-title::after {
+  content: "\f107";
+  color: #333;
+  top: -2px;
+  right: 0px;
+  position: absolute;
+  font-family: "FontAwesome"
+}
+
+.panel-title[aria-expanded="true"]::after {
+  content: "\f106";
+}
+
+.panel-heading-full.panel-heading {
+  padding: 0;
+}
+
+.panel-heading-full .panel-title {
+  padding: 10px 15px;
+}
+
+.panel-heading-full .panel-title::after {
+  top: 10px;
+  right: 15px;
+}
