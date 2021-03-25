@@ -45,7 +45,7 @@ Source: <a href="https://www.fisheries.noaa.gov/region/southeast#science">NOAA N
       legend: {enabled: false}
     });
   }
-  else if (icon == 'SST'){ // the SST modal window is another unusual case
+  else if (icon == 'SST'){ // the SST modal window is another unusual case (the data format is very different)
     createGraph(
       theData = csv, 
       graph_location = 'container', 
@@ -54,7 +54,7 @@ Source: <a href="https://www.fisheries.noaa.gov/region/southeast#science">NOAA N
       SST = true
     );
   }
-  else if (icon == 'stonecrab'){ // the stone crab modal window is another unusual case
+  else if (icon == 'stonecrab'){ // the stone crab modal window is another unusual case (2 y-axes)
     Highcharts.chart('container', { 
       chart: {type: 'line'},
       title: {text: title},
@@ -80,8 +80,39 @@ Source: <a href="https://www.fisheries.noaa.gov/region/southeast#science">NOAA N
           to: 2018,
           color: '#DEDEFF'}],
         title: {text: x_axis_label}},
-      yAxis: [{title: {text:'Stone Crab Trips'},opposite: true},  
-                {title: {text:'Stone Crab Pounds Landed'},opposite: false}
+      yAxis: [{title: {text:'Stone Crab Pounds Landed'},opposite: true},  
+                {title: {text:'Stone Crab Trips'},opposite: false}
+        ]
+    });
+  }
+    else if (icon == 'lobster'){ // the lobster modal window is another unusual case (2 y-axes)
+    Highcharts.chart('container', { 
+      chart: {type: 'line'},
+      title: {text: title},
+      credits: {enabled: false},
+      data: {csvURL: csv,
+        firstRowAsNames: true,
+        startRow: 0 }, 
+      series: [{
+        yAxis: 1,
+        name: 'value', 
+        showInLegend: true,
+        marker:{enabled: false}
+        },
+        {
+        yAxis: 0,
+        name: 'value', 
+        showInLegend: true,
+        marker:{enabled: false}
+        }],
+      xAxis: {
+        plotBands: [{
+          from: 2013, 
+          to: 2018,
+          color: '#DEDEFF'}],
+        title: {text: x_axis_label}},
+      yAxis: [{title: {text:'Lobster Trips'},opposite: true},  
+                {title: {text:'Lobster Landings (Pounds)'},opposite: false}
         ]
     });
   }
