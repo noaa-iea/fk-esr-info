@@ -13,7 +13,7 @@ function createGraph(theData, graph_location, title, y_axis_label, x_axis_label 
     var lastDate = lastRow.split(",")[0];
     
     // Find first year in data, with a csv generally outputted by google sheets
-    var firstDate = theCsvLines[0].split(",")[0];
+    var firstDate = theCsvLines[1].split(",")[0];
     
     //If the csv isn't outputted by google sheets, this extra step needed
     if (lastDate.length === 0) {
