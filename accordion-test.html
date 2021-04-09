@@ -47,6 +47,20 @@
     </div>
   </div>
 
+  <h1>No text column</h1>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-9">
+        <div id = "svg4"> </div>
+      </div>
+      <div class="col-md-3">
+        <div id="accordion4" ></div> 
+      </div>
+    </div>
+  </div>
+
+
   <!-- infographiq: css & js dependencies -->
   <link rel="stylesheet" href="https://marinebon.org/fk-esr-info/assets/css/bootstrap.min.css"> 
   <link rel="stylesheet" href="https://marinebon.org/fk-esr-info/assets/css/infographiq.css"> 
@@ -69,7 +83,7 @@
       csv='https://docs.google.com/spreadsheets/d/e/2PACX-1vSAROGVpYB58Zkr8P0iwJdTMRPNLZtJ07IyUn-dQ62C2HMuCEScyl8x7urCD7QbRXQYSIJwDn_wku9G/pub?gid=0&single=true&output=csv', 
       svg_location ="svg2", 
       csv_location ="accordion2", 
-      undefined, undefined, undefined, undefined, undefined, undefined, 
+      undefined, undefined, undefined, undefined, undefined, undefined, undefined, 
       colored_sections = true);    
     
     link_svg(
@@ -77,11 +91,17 @@
       csv='https://docs.google.com/spreadsheets/d/e/2PACX-1vSAROGVpYB58Zkr8P0iwJdTMRPNLZtJ07IyUn-dQ62C2HMuCEScyl8x7urCD7QbRXQYSIJwDn_wku9G/pub?gid=0&single=true&output=csv', 
       svg_location ="svg3", 
       csv_location ="accordion3", 
-      undefined, undefined, undefined, undefined, undefined, undefined, 
+      undefined, undefined, undefined, undefined, undefined, undefined, undefined, 
       colored_sections = true,
       section_colors = ['pink', 'gray', 'BlanchedAlmond', 'Coral']);    
 
-    
+    link_svg(
+      svg='https://marinebon.org/fk-esr-info/assets/svg/FKIEA_Ecosystem.svg', 
+      csv='https://docs.google.com/spreadsheets/d/e/2PACX-1vSAROGVpYB58Zkr8P0iwJdTMRPNLZtJ07IyUn-dQ62C2HMuCEScyl8x7urCD7QbRXQYSIJwDn_wku9G/pub?gid=0&single=true&output=csv', 
+      svg_location ="svg4", 
+      csv_location ="accordion4", 
+      undefined, undefined, undefined, undefined, undefined, undefined, 
+      text_list = false);      
   </script>
 
 
