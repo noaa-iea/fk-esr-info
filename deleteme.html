@@ -1,0 +1,51 @@
+<html>
+<head>
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
+  <script>
+    google.charts.load('current', {packages: ['corechart']});
+    google.charts.setOnLoadCallback(drawGID);
+
+
+    window.onresize = function(){
+      google.charts.setOnLoadCallback(drawGID);
+    };
+
+    function drawGID() {
+      // var queryString = encodeURIComponent('SELECT A, H, O, Q, R, U LIMIT 5 OFFSET 8');
+
+      var query = new google.visualization.Query(
+          'https://docs.google.com/spreadsheets/d/16mm9dCmz0D4GgC9gOCzOV2NasG58Z2bYu7LPVnCgqYE/gviz/tq?gid=0&headers=1');
+      query.send(handleQueryResponse);
+    }
+
+    var options = {
+        legend: 'bottom',
+        height: 400,
+        hAxis: {title: 'Year',
+            gridlines: {color: 'transparent'},
+            format: '####',
+                titleTextStyle: {bold: true, italic: false }},
+        vAxis: {title: 'Number of Cars',
+                titleTextStyle: {bold: true, italic: false }}
+      };
+
+    function handleQueryResponse(response) {
+      if (response.isError()) {
+        alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+        return;
+      }
+
+      var data = response.getDataTable();
+      var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    }
+
+
+  </script>
+</head>
+<body>
+  <!-- Identify where the chart should be drawn. -->
+  <div id="chart_div"/>
+</body>
+
+</html>
