@@ -21,7 +21,7 @@ function basename(path) {
 }
 
 // main function to link svg elements to modal popups with data in csv
-function link_svg(svg, csv, debug = false, hover_color = 'yellow', width = '100%', height = '100%', modal_id = 'modal', modal_url_pfx = 'https://marinebon.org/fk-esr-info/') {
+function link_svg(svg, csv, debug = false, hover_color = 'yellow', width = '100%', height = '100%', modal_id = 'modal', modal_url_pfx = 'https://noaa-iea.github.io/fk-esr-info/') {
   
   d3.xml(svg).then((f) => {
     

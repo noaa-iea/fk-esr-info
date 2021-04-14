@@ -1,7 +1,7 @@
 # fk-esr-info
 Florida Keys infographic update using Ecosystem Status Report website
 
-Working infographic (without styling): https://marinebon.org/fk-esr-info/infographic_r.html
+Working infographic (without styling): https://noaa-iea.github.io/fk-esr-info/infographic_r.html
 
 ## Goal
 
