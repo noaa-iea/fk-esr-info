@@ -18,18 +18,56 @@
       gtag('config', 'UA-176398491-1');
     </script>
     <link rel="stylesheet" href="assets/css/main.css" />
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/highcharts-more.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/data.js"></script> 
-    <script src="https://code.highcharts.com/modules/offline-exporting.js"></script>  
-    <script src="https://noaa-iea.github.io/fk-esr-info/assets/js/highcharts_wrapper.js"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://noaa-iea.github.io/fk-esr-info/assets/js/GraphWrapper.js"></script>
     <script src="https://noaa-iea.github.io/fk-esr-info/assets/js/jquery.min.js"></script>
     <script src="https://noaa-iea.github.io/fk-esr-info/assets/js/jquery.scrollex.min.js"></script>
     <script src="https://noaa-iea.github.io/fk-esr-info/assets/js/jquery.scrolly.min.js"></script>
     <script src="https://noaa-iea.github.io/fk-esr-info/assets/js/skel.min.js"></script>
     <script src="https://noaa-iea.github.io/fk-esr-info/assets/js/util.js"></script>
     <script src="https://noaa-iea.github.io/fk-esr-info/assets/js/main.js"></script>
+
+    <script>
+      google.charts.load('current', {packages: ['corechart']});
+
+      google.charts.setOnLoadCallback(function() {
+        GraphWrapper({
+          Google_Spreadsheet_Link: 'https://docs.google.com/spreadsheets/d/16Rnz1SgKGFfb5Rg3-91d3eFL18mmRZRKFxcf6XMT1rw/edit#gid=482044818',
+          YAxisTitle: 'Population',
+          threshold_year: 2011,
+          targetElement: 'chart1'
+        });  
+      });
+
+      google.charts.setOnLoadCallback(function() {
+        GraphWrapper({
+          Google_Spreadsheet_Link: 'https://docs.google.com/spreadsheets/d/1UVf5BjSu0VoOIDuiYLDansze-gZhcFAAaXiY3SAd4BA/edit#gid=373868952',
+          YAxisTitle: 'Cruise Passenger Visits',
+          threshold_year: 2011,
+          targetElement: 'chart2'
+        });  
+      });
+  
+      google.charts.setOnLoadCallback(function() {
+        GraphWrapper({
+          Google_Spreadsheet_Link: 'https://docs.google.com/spreadsheets/d/1vIWYzo9CuP78ES4-2d2Iq3oQ7BGdQRJVm_oQeUxsloM/edit#gid=0',
+          YAxisTitle: 'Registered Vessels',
+          threshold_year: 2011,
+          targetElement: 'chart3'
+        });  
+      });
+  
+      google.charts.setOnLoadCallback(function() {
+        GraphWrapper({
+          Google_Spreadsheet_Link: 'https://docs.google.com/spreadsheets/d/1MFfi2HzW7AoZPmMDDRECe31XMKhKNxwU8TrkNfdwIew/edit#gid=624703045',
+          YAxisTitle: '% of Households Connected to Sewer System',
+          threshold_year: 2011,
+          targetElement: 'chart4'
+        });  
+      });
+      
+  </script>
+
 	</head>
 	<body>
 
@@ -83,28 +121,27 @@
 <!-- <h3>Keys Resident population</h3>   --> 
                                 
 <!-- Chart 1 -->
-
-<div id="chart1" style="width:100%; height:350px;"></div>
-
-<!-- <h3>Cruise ship visitors</h3>  --> 
-<!-- <p>text for human activities still need this</p-->
-                                
-<div id="chart2" style="width:100%; height:350px;"></div>
-
-<!-- <h3>Registered Vessels</h3> -->
-<!-- <p>text for human activities still need this</p> -->
-                                	                                
-<!-- Chart 3 -->
-                                
-<div id="chart3" style="width:100%; height:350px;"></div>
-
-<!-- h3>Household connections to central wastewater treatment</h3> -->
-<!-- <p>text still need this</p> -->
-                                
-<!--  Chart 4 -->
-                                
-<div id="chart4" style="width:100%; height:350px;"></div>
-                        				
+<div>
+  <h3 style = "text-align: center;">Keys Resident Population</h3>
+  <div id="chart1"></div>
+  <p>
+  <!-- <h3>Cruise ship visitors</h3>  --> 
+  <!-- <p>text for human activities still need this</p-->
+  <h3 style = "text-align: center;">Cruise Passenger Visits to Key West</h3>
+  <div id="chart2"></div>
+  <p>
+  <!-- <h3>Registered Vessels</h3> -->
+  <!-- <p>text for human activities still need this</p> -->                           	                                
+  <!-- Chart 3 -->                            
+  <h3 style = "text-align: center;">Registered Vessels</h3>
+  <div id="chart3"></div>
+  <p>
+  <!-- h3>Household connections to central wastewater treatment</h3> -->
+  <!-- <p>text still need this</p> -->                            
+  <!--  Chart 4 -->                         
+  <h3 style = "text-align: center;">Household Connections to Central Wastewater Treatment</h3>
+  <div id="chart4"></div>
+</div>                      				
 </div>
                                                       
 </section>
@@ -128,36 +165,5 @@
 	</footer>
 	</div>
 
-  <!-- Scripts -->
-  <script>
-    createGraph(
-      theData = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRE4yLL8XRMi2BAUTMgL5hNxVJ-RwFy_kbnaPKEhllULeSdgfXPfSwvKGVjw8QDNqY3iOVHx6D9sgl5/pub?output=csv', 
-      graph_location = "chart1", 
-      title = "Keys Resident Population", 
-      y_axis_label = "Population"
-    );
-  
-    createGraph(
-      theData = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ5bMCRAxlwQQY5eFaVLvCFoZt5KB5Fie5deO-KXOeECP-ECxDCA1YGqSR8aUWEC-ApUBNdOAdj87G0/pub?output=csv', 
-      graph_location = 'chart2', 
-      title = 'Cruise Passenger Visits to Key West', 
-      y_axis_label = "Cruise Passenger Visits"
-    );
-  
-    createGraph(
-      theData = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT5qCAeTdiWGrTCZbS-VK-FZ-jZtRgpS3K0_dJPXowPJ6CPaQKP-CXG1YThTvOabw/pub?gid=760779668&single=true&output=csv', 
-      graph_location = 'chart3', 
-      title = 'Registered Vessels', 
-      y_axis_label = 'Registered Vessels'
-    );
-      
-    createGraph(
-      theData = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQpgs8TjUPdfdnEgu3Lu1gseyxtFL2TSGfXfbHYVr02Y8s4fm8tIchA58-f1bT8TSvtTpgLhlDtu-et/pub?gid=624703045&single=true&output=csv', 
-      graph_location = 'chart4', 
-      title = 'Household Connections to Central Wastewater Treatment', 
-      y_axis_label = "% of Households Connected to Sewer System"
-    );
-      
-  </script>
 </body>
 </html>
