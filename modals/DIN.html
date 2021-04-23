@@ -13,128 +13,38 @@
     gtag('config', 'UA-176398491-1');
   </script>
   
-  <script src="https://code.highcharts.com/highcharts.js"></script>
-  <script src="https://code.highcharts.com/modules/data.js"></script>
-  <script src="https://code.highcharts.com/modules/exporting.js"></script>
-  <script src="https://noaa-iea.github.io/fk-esr-info/assets/js/highcharts_wrapper.js"></script>
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="https://noaa-iea.github.io/fk-esr-info/assets/js/GraphWrapper.js"></script>
   <link rel="stylesheet" href="https://noaa-iea.github.io/fk-esr-info/assets/css/infographiq.css" />
+  
+  <script>
+      google.charts.load('current', {packages: ['corechart']});
+  
+  if ('https://docs.google.com/spreadsheets/d/1OUv0jtIeCqvedTZykW-xwR5teC5P4J7bdWLcm-UV7Ko/edit#gid=1610224977' == 'NA'){
+    document.getElementById('chart_div').innerHTML = "<em>No data</em> yet assigned to icon <b>DIN</b>. This needs to be specified in the Google Sheet 'icons to data | fk-esr-info'."
+  } 
+  else { // all other modal windows
+    google.charts.setOnLoadCallback(function() {
+      GraphWrapper({Google_Spreadsheet_Link: 'https://docs.google.com/spreadsheets/d/1OUv0jtIeCqvedTZykW-xwR5teC5P4J7bdWLcm-UV7Ko/edit#gid=1610224977',
+      YAxisTitle: 'Average NO3+NO2 (µmol/L)',
+      threshold_year: 2011,
+      SST: false,
+      twoYAxes: false,
+      YAxisTitle2: 'nothing'
+    });
+      
+    });
+  }
+</script>
 </head>
 <body>
 
-<div id="container" style="min-width: 310px; max-width: 600px; height: 400px; margin: 0 auto"></div>
-
 <div class = "caption_text">
-Dissolved inorganic nitrates, or DIN, can contribute to eutrophication in coastal subtropical oligotrophic waters. This indicator has been measured for more than 20 years at reef sites along the Florida Keys. Generally, this indicator has varied per year, but has experienced two spikes, in 2009 and 2015. There was been a declining trend in the past five years, though this may be an artifact of the spike in 2015.
-Source: <a href="https://www.aoml.noaa.gov/data-products/#so-flo-cruise-data" target='_parent'>NOAA Atlantic Oceanographic and Meteorological Laboratory’s South Florida Project, Ocean Chemistry and Ecosystems Division</a>
+  <h3 style = "text-align: center;">Dissolved inorganic nitrogen</h3>
+<div id="chart_div" style="min-width: 310px; max-width: 600px; height: 400px; margin: 0 auto"></div>
+Dissolved inorganic nitrates, or DIN, can contribute to eutrophication (excessive richness of nutrients) in coastal subtropical oligotrophic (low nutrient content) waters. This indicator has been measured for more than 20 years at reef sites along the Florida Keys. Generally, this indicator has varied per year, but has experienced two spikes, in 2009 and 2015. There was been a declining trend in the past five years, though this may be an artifact of the spike in 2015.
+Source: <a href="https://www.aoml.noaa.gov/data-products/#so-flo-cruise-data" target='_parent'>NOAA Atlantic Oceanographic and Meteorological Laboratory’s South Florida Project, Ocean Chemistry and Ecosystems Division.</a>
 </div>
-
-<script>
-  csv   = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTx7cJ4fcWQngtF0GJaEzbDxnJSl3G16B8IZUajYKCy1JbwqIjkwQBGBmr7r3XKEK5wz0YlSfNrHMZy/pub?gid=1610224977&single=true&output=csv';
-  title = 'Dissolved inorganic nitrogen';
-  icon  = 'DIN';
-
-  x_axis_label = "Year";
-  y_axis_label = 'Average NO3+NO2 (µmol/L)';
-  
-  if (csv == 'NA'){
-    document.getElementById('container').innerHTML = "<em>No data</em> yet assigned to icon <b>" + icon + "</b>. This needs to be specified in the Google Sheet 'icons to data | fk-esr-info'."
-  } 
-  //The chart for hurricane coastal protections is a bar chart and has to be handled differently than all other modal windows
-  else if (icon == 'hurricane-coastal-protections') {
-    Highcharts.chart('container', { 
-      chart: {type: 'column'},
-      title: {text: title},
-      credits: {enabled: false},
-      data: {csvURL: csv},
-      xAxis: {title: {text: "Storm Frequency"}},
-      yAxis: {title: {text: "2010 Dollars"}},
-      legend: {enabled: false}
-    });
-  }
-  else if (icon == 'SST'){ // the SST modal window is another unusual case (the data format is very different)
-    createGraph(
-      theData = csv, 
-      graph_location = 'container', 
-      title = title, 
-      y_axis_label = y_axis_label, undefined, undefined, 
-      SST = true
-    );
-  }
-  else if (icon == 'stonecrab'){ // the stone crab modal window is another unusual case (2 y-axes)
-    Highcharts.chart('container', { 
-      chart: {type: 'line'},
-      title: {text: title},
-      credits: {enabled: false},
-      data: {csvURL: csv,
-        firstRowAsNames: true,
-        startRow: 0 }, 
-      series: [{
-        yAxis: 0,
-        name: 'value', 
-        showInLegend: true,
-        marker:{enabled: false}
-        },
-        {
-        yAxis: 1,
-        name: 'value', 
-        showInLegend: true,
-        marker:{enabled: false}
-        }],
-      xAxis: {
-        plotBands: [{
-          from: 2011, 
-          to: 2018,
-          color: '#DEDEFF',
-          label: {text: 'Trends Since 2011', align: 'center'}
-        }],
-        title: {text: x_axis_label}},
-      yAxis: [{title: {text:'Stone Crab Pounds Landed'},opposite: true},  
-                {title: {text:'Stone Crab Trips'},opposite: false}
-        ]
-    });
-  }
-    else if (icon == 'lobster'){ // the lobster modal window is another unusual case (2 y-axes)
-    Highcharts.chart('container', { 
-      chart: {type: 'line'},
-      title: {text: title},
-      credits: {enabled: false},
-      data: {csvURL: csv,
-        firstRowAsNames: true,
-        startRow: 0 }, 
-      series: [{
-        yAxis: 1,
-        name: 'value', 
-        showInLegend: true,
-        marker:{enabled: false}
-        },
-        {
-        yAxis: 0,
-        name: 'value', 
-        showInLegend: true,
-        marker:{enabled: false}
-        }],
-      xAxis: {
-        plotBands: [{
-          from: 2011, 
-          to: 2018,
-          color: '#DEDEFF',
-          label: {text: 'Trends Since 2011', align: 'center'}
-        }],
-        title: {text: x_axis_label}},
-      yAxis: [{title: {text:'Lobster Trips'},opposite: true},  
-                {title: {text:'Lobster Landings (Pounds)'},opposite: false}
-        ]
-    });
-  }
-  else { // all other modal windows
-    createGraph(
-      theData = csv, 
-      graph_location = 'container', 
-      title = title, 
-      y_axis_label = y_axis_label
-    );
-  }
-</script>
 
 </body>
 </html>

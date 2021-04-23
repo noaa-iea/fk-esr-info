@@ -13,129 +13,39 @@
     gtag('config', 'UA-176398491-1');
   </script>
   
-  <script src="https://code.highcharts.com/highcharts.js"></script>
-  <script src="https://code.highcharts.com/modules/data.js"></script>
-  <script src="https://code.highcharts.com/modules/exporting.js"></script>
-  <script src="https://noaa-iea.github.io/fk-esr-info/assets/js/highcharts_wrapper.js"></script>
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="https://noaa-iea.github.io/fk-esr-info/assets/js/GraphWrapper.js"></script>
   <link rel="stylesheet" href="https://noaa-iea.github.io/fk-esr-info/assets/css/infographiq.css" />
+  
+  <script>
+      google.charts.load('current', {packages: ['corechart']});
+  
+  if ('https://docs.google.com/spreadsheets/d/1xWZyWnR4fxljqlaejtKFEldL2jbECS1Q/edit#gid=760779668' == 'NA'){
+    document.getElementById('chart_div').innerHTML = "<em>No data</em> yet assigned to icon <b>registered-vessels</b>. This needs to be specified in the Google Sheet 'icons to data | fk-esr-info'."
+  } 
+  else { // all other modal windows
+    google.charts.setOnLoadCallback(function() {
+      GraphWrapper({Google_Spreadsheet_Link: 'https://docs.google.com/spreadsheets/d/1xWZyWnR4fxljqlaejtKFEldL2jbECS1Q/edit#gid=760779668',
+      YAxisTitle: 'Number of Vessels',
+      threshold_year: 2011,
+      SST: false,
+      twoYAxes: false,
+      YAxisTitle2: 'nothing'
+    });
+      
+    });
+  }
+</script>
 </head>
 <body>
 
-<div id="container" style="min-width: 310px; max-width: 600px; height: 400px; margin: 0 auto"></div>
-
 <div class = "caption_text">
+  <h3 style = "text-align: center;">Total registered vessels in Monroe County</h3>
+<div id="chart_div" style="min-width: 310px; max-width: 600px; height: 400px; margin: 0 auto"></div>
 The number of combined recreational and commercial vessels registered by the Florida Department of Highway Safety
 and Motor Vehicles saw a drop in 2008, recovering in 2013. This trend likely corresponds to the financial recession in 2008 and subsequent recovery.
-Source: <a href="https://www.flhsmv.gov/" target='_parent'>Florida Department of Highway Safety and Motor Vehicles</a>
+Source: <a href="https://www.flhsmv.gov/" target='_parent'>Florida Department of Highway Safety and Motor Vehicles.</a>
 </div>
-
-<script>
-  csv   = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT5qCAeTdiWGrTCZbS-VK-FZ-jZtRgpS3K0_dJPXowPJ6CPaQKP-CXG1YThTvOabw/pub?gid=760779668&single=true&output=csv';
-  title = 'Total registered vessels in Monroe County';
-  icon  = 'registered-vessels';
-
-  x_axis_label = "Year";
-  y_axis_label = 'Number of Vessels';
-  
-  if (csv == 'NA'){
-    document.getElementById('container').innerHTML = "<em>No data</em> yet assigned to icon <b>" + icon + "</b>. This needs to be specified in the Google Sheet 'icons to data | fk-esr-info'."
-  } 
-  //The chart for hurricane coastal protections is a bar chart and has to be handled differently than all other modal windows
-  else if (icon == 'hurricane-coastal-protections') {
-    Highcharts.chart('container', { 
-      chart: {type: 'column'},
-      title: {text: title},
-      credits: {enabled: false},
-      data: {csvURL: csv},
-      xAxis: {title: {text: "Storm Frequency"}},
-      yAxis: {title: {text: "2010 Dollars"}},
-      legend: {enabled: false}
-    });
-  }
-  else if (icon == 'SST'){ // the SST modal window is another unusual case (the data format is very different)
-    createGraph(
-      theData = csv, 
-      graph_location = 'container', 
-      title = title, 
-      y_axis_label = y_axis_label, undefined, undefined, 
-      SST = true
-    );
-  }
-  else if (icon == 'stonecrab'){ // the stone crab modal window is another unusual case (2 y-axes)
-    Highcharts.chart('container', { 
-      chart: {type: 'line'},
-      title: {text: title},
-      credits: {enabled: false},
-      data: {csvURL: csv,
-        firstRowAsNames: true,
-        startRow: 0 }, 
-      series: [{
-        yAxis: 0,
-        name: 'value', 
-        showInLegend: true,
-        marker:{enabled: false}
-        },
-        {
-        yAxis: 1,
-        name: 'value', 
-        showInLegend: true,
-        marker:{enabled: false}
-        }],
-      xAxis: {
-        plotBands: [{
-          from: 2011, 
-          to: 2018,
-          color: '#DEDEFF',
-          label: {text: 'Trends Since 2011', align: 'center'}
-        }],
-        title: {text: x_axis_label}},
-      yAxis: [{title: {text:'Stone Crab Pounds Landed'},opposite: true},  
-                {title: {text:'Stone Crab Trips'},opposite: false}
-        ]
-    });
-  }
-    else if (icon == 'lobster'){ // the lobster modal window is another unusual case (2 y-axes)
-    Highcharts.chart('container', { 
-      chart: {type: 'line'},
-      title: {text: title},
-      credits: {enabled: false},
-      data: {csvURL: csv,
-        firstRowAsNames: true,
-        startRow: 0 }, 
-      series: [{
-        yAxis: 1,
-        name: 'value', 
-        showInLegend: true,
-        marker:{enabled: false}
-        },
-        {
-        yAxis: 0,
-        name: 'value', 
-        showInLegend: true,
-        marker:{enabled: false}
-        }],
-      xAxis: {
-        plotBands: [{
-          from: 2011, 
-          to: 2018,
-          color: '#DEDEFF',
-          label: {text: 'Trends Since 2011', align: 'center'}
-        }],
-        title: {text: x_axis_label}},
-      yAxis: [{title: {text:'Lobster Trips'},opposite: true},  
-                {title: {text:'Lobster Landings (Pounds)'},opposite: false}
-        ]
-    });
-  }
-  else { // all other modal windows
-    createGraph(
-      theData = csv, 
-      graph_location = 'container', 
-      title = title, 
-      y_axis_label = y_axis_label
-    );
-  }
-</script>
 
 </body>
 </html>

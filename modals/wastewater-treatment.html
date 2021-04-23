@@ -13,132 +13,42 @@
     gtag('config', 'UA-176398491-1');
   </script>
   
-  <script src="https://code.highcharts.com/highcharts.js"></script>
-  <script src="https://code.highcharts.com/modules/data.js"></script>
-  <script src="https://code.highcharts.com/modules/exporting.js"></script>
-  <script src="https://noaa-iea.github.io/fk-esr-info/assets/js/highcharts_wrapper.js"></script>
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="https://noaa-iea.github.io/fk-esr-info/assets/js/GraphWrapper.js"></script>
   <link rel="stylesheet" href="https://noaa-iea.github.io/fk-esr-info/assets/css/infographiq.css" />
+  
+  <script>
+      google.charts.load('current', {packages: ['corechart']});
+  
+  if ('https://docs.google.com/spreadsheets/d/1MFfi2HzW7AoZPmMDDRECe31XMKhKNxwU8TrkNfdwIew/edit#gid=624703045' == 'NA'){
+    document.getElementById('chart_div').innerHTML = "<em>No data</em> yet assigned to icon <b>wastewater-treatment</b>. This needs to be specified in the Google Sheet 'icons to data | fk-esr-info'."
+  } 
+  else { // all other modal windows
+    google.charts.setOnLoadCallback(function() {
+      GraphWrapper({Google_Spreadsheet_Link: 'https://docs.google.com/spreadsheets/d/1MFfi2HzW7AoZPmMDDRECe31XMKhKNxwU8TrkNfdwIew/edit#gid=624703045',
+      YAxisTitle: 'Percent of Households',
+      threshold_year: 2011,
+      SST: false,
+      twoYAxes: false,
+      YAxisTitle2: 'nothing'
+    });
+      
+    });
+  }
+</script>
 </head>
 <body>
 
-<div id="container" style="min-width: 310px; max-width: 600px; height: 400px; margin: 0 auto"></div>
-
 <div class = "caption_text">
+  <h3 style = "text-align: center;">Housing units connected to wastewater treatment</h3>
+<div id="chart_div" style="min-width: 310px; max-width: 600px; height: 400px; margin: 0 auto"></div>
 Management of sewage and wastewater was determined to be an important indicator of how human activites and presence put pressure
 on the ecosystem condition of the archipelago of the Florida Keys. A major effort was undertaken in the Keys to connect all household to a central sewer system
 rather than using cesspits, septic tanks and other individual wastewater containment susceptible to damage and leakage
 of wastewater into Sanctuary waters. In the last five years, almost all household have been connected to the central sewer
 system, a human management activity that reduces pressure on Sanctuary condition and resources.
-Source: <a href="https://www.fkaa.com/" target='_parent'>Monroe County Social Services Department, Florida Keys Aqueduct Authority</a>
+Source: <a href="https://www.fkaa.com/" target='_parent'>Monroe County Social Services Department, Florida Keys Aqueduct Authority.</a>
 </div>
-
-<script>
-  csv   = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQpgs8TjUPdfdnEgu3Lu1gseyxtFL2TSGfXfbHYVr02Y8s4fm8tIchA58-f1bT8TSvtTpgLhlDtu-et/pub?gid=624703045&single=true&output=csv';
-  title = 'Housing units connected to wastewater treatment';
-  icon  = 'wastewater-treatment';
-
-  x_axis_label = "Year";
-  y_axis_label = 'Percent of Households';
-  
-  if (csv == 'NA'){
-    document.getElementById('container').innerHTML = "<em>No data</em> yet assigned to icon <b>" + icon + "</b>. This needs to be specified in the Google Sheet 'icons to data | fk-esr-info'."
-  } 
-  //The chart for hurricane coastal protections is a bar chart and has to be handled differently than all other modal windows
-  else if (icon == 'hurricane-coastal-protections') {
-    Highcharts.chart('container', { 
-      chart: {type: 'column'},
-      title: {text: title},
-      credits: {enabled: false},
-      data: {csvURL: csv},
-      xAxis: {title: {text: "Storm Frequency"}},
-      yAxis: {title: {text: "2010 Dollars"}},
-      legend: {enabled: false}
-    });
-  }
-  else if (icon == 'SST'){ // the SST modal window is another unusual case (the data format is very different)
-    createGraph(
-      theData = csv, 
-      graph_location = 'container', 
-      title = title, 
-      y_axis_label = y_axis_label, undefined, undefined, 
-      SST = true
-    );
-  }
-  else if (icon == 'stonecrab'){ // the stone crab modal window is another unusual case (2 y-axes)
-    Highcharts.chart('container', { 
-      chart: {type: 'line'},
-      title: {text: title},
-      credits: {enabled: false},
-      data: {csvURL: csv,
-        firstRowAsNames: true,
-        startRow: 0 }, 
-      series: [{
-        yAxis: 0,
-        name: 'value', 
-        showInLegend: true,
-        marker:{enabled: false}
-        },
-        {
-        yAxis: 1,
-        name: 'value', 
-        showInLegend: true,
-        marker:{enabled: false}
-        }],
-      xAxis: {
-        plotBands: [{
-          from: 2011, 
-          to: 2018,
-          color: '#DEDEFF',
-          label: {text: 'Trends Since 2011', align: 'center'}
-        }],
-        title: {text: x_axis_label}},
-      yAxis: [{title: {text:'Stone Crab Pounds Landed'},opposite: true},  
-                {title: {text:'Stone Crab Trips'},opposite: false}
-        ]
-    });
-  }
-    else if (icon == 'lobster'){ // the lobster modal window is another unusual case (2 y-axes)
-    Highcharts.chart('container', { 
-      chart: {type: 'line'},
-      title: {text: title},
-      credits: {enabled: false},
-      data: {csvURL: csv,
-        firstRowAsNames: true,
-        startRow: 0 }, 
-      series: [{
-        yAxis: 1,
-        name: 'value', 
-        showInLegend: true,
-        marker:{enabled: false}
-        },
-        {
-        yAxis: 0,
-        name: 'value', 
-        showInLegend: true,
-        marker:{enabled: false}
-        }],
-      xAxis: {
-        plotBands: [{
-          from: 2011, 
-          to: 2018,
-          color: '#DEDEFF',
-          label: {text: 'Trends Since 2011', align: 'center'}
-        }],
-        title: {text: x_axis_label}},
-      yAxis: [{title: {text:'Lobster Trips'},opposite: true},  
-                {title: {text:'Lobster Landings (Pounds)'},opposite: false}
-        ]
-    });
-  }
-  else { // all other modal windows
-    createGraph(
-      theData = csv, 
-      graph_location = 'container', 
-      title = title, 
-      y_axis_label = y_axis_label
-    );
-  }
-</script>
 
 </body>
 </html>

@@ -13,128 +13,61 @@
     gtag('config', 'UA-176398491-1');
   </script>
   
-  <script src="https://code.highcharts.com/highcharts.js"></script>
-  <script src="https://code.highcharts.com/modules/data.js"></script>
-  <script src="https://code.highcharts.com/modules/exporting.js"></script>
-  <script src="https://noaa-iea.github.io/fk-esr-info/assets/js/highcharts_wrapper.js"></script>
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
   <link rel="stylesheet" href="https://noaa-iea.github.io/fk-esr-info/assets/css/infographiq.css" />
+  
+  <script>
+        // ELLEN: VARIABLES FOR YOU TO FILL IN 
+      var X_Axis_Title = "Year";
+      var Y_Axis_Title = "UFOs Sighted";
+      var Google_Spreadsheet_Link = 
+        'https://docs.google.com/spreadsheets/d/1Mc2_Rls4XgY8QQ_xY7ZVVVWdWWhTWvh94FHDr0l2f7Q/edit#gid=348646580';
+
+    google.charts.load('current', {packages: ['corechart']});
+    google.charts.setOnLoadCallback(drawGID);
+
+    function drawGID() {
+      var query = new google.visualization.Query(Google_Spreadsheet_Link);
+      query.send(handleQueryResponse);
+    }
+    
+    function handleQueryResponse(response) {
+
+      if (response.isError()) {
+        alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+        return;
+      }
+
+      var data = response.getDataTable();
+      var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+    var options = {
+      tooltip: {textStyle: {fontSize: 15}},
+      animation: {startup: true, duration:700},
+     chartArea: {top: 10, height: '80%'},
+      legend: 'none',
+      hAxis: { 
+       // textStyle: {fontSize: 15},
+        title: "Storm Frequency", 
+        titleTextStyle: {bold: true, italic: false}}, 
+      vAxis: {  // options for the Y Axis
+      title: "Economic activity protected by Florida Keys coral reefs (2010 dollars)",
+      titleTextStyle: {bold: true, italic: false }, // Set how the Y Axis title looks
+      minorGridlines: {color: 'transparent'}}
+      };
+
+      chart.draw(data, options);
+    }
+    
+  </script>
+  
 </head>
 <body>
-
-<div id="container" style="min-width: 310px; max-width: 600px; height: 400px; margin: 0 auto"></div>
-
 <div class = "caption_text">
+  <h3 style = "text-align: center;">Value of reef and mangrove coastal protection from storms in Florida Keys</h3>
+<div id="chart_div" style="min-width: 310px; max-width: 600px; height: 400px; margin: 0 auto"></div>
 Important ecosystem services are provided by mangroves and coral reef structure in the form of coastal protection. Both mangrove lined shorelines and coral reef structure provide important wave attenuation and storm surge mitigation during storms and extreme events, and the predicted value of coastal protection by these habitats for storm events is represented here.
-Source: <a href="https://www.usgs.gov/centers/pcmsc/science/role-reefs-coastal-protection?qt-science_center_objects=0#qt-science_center_objects" target='_parent'>Storlazzi et al., USGS/UCSC report</a>
+Source: <a href="https://www.usgs.gov/centers/pcmsc/science/role-reefs-coastal-protection?qt-science_center_objects=0#qt-science_center_objects" target='_parent'>Storlazzi et al., USGS/UCSC report.</a>
 </div>
-
-<script>
-  csv   = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ09vcYWHMZd5VZGsXlASMI9z_uX4ome_bvy5lw0CM3YgSrw9eSbUoc-1ZswYpbTVs3ct3ygVSRHFMV/pub?gid=348646580&single=true&output=csv';
-  title = 'Value of reef and mangrove coastal protection from storms in Florida Keys';
-  icon  = 'hurricane-coastal-protections';
-
-  x_axis_label = "Year";
-  y_axis_label = 'Total Value of Economic Activity Protected by Florida Keys Coral Reefs (in 2010 dollars)';
-  
-  if (csv == 'NA'){
-    document.getElementById('container').innerHTML = "<em>No data</em> yet assigned to icon <b>" + icon + "</b>. This needs to be specified in the Google Sheet 'icons to data | fk-esr-info'."
-  } 
-  //The chart for hurricane coastal protections is a bar chart and has to be handled differently than all other modal windows
-  else if (icon == 'hurricane-coastal-protections') {
-    Highcharts.chart('container', { 
-      chart: {type: 'column'},
-      title: {text: title},
-      credits: {enabled: false},
-      data: {csvURL: csv},
-      xAxis: {title: {text: "Storm Frequency"}},
-      yAxis: {title: {text: "2010 Dollars"}},
-      legend: {enabled: false}
-    });
-  }
-  else if (icon == 'SST'){ // the SST modal window is another unusual case (the data format is very different)
-    createGraph(
-      theData = csv, 
-      graph_location = 'container', 
-      title = title, 
-      y_axis_label = y_axis_label, undefined, undefined, 
-      SST = true
-    );
-  }
-  else if (icon == 'stonecrab'){ // the stone crab modal window is another unusual case (2 y-axes)
-    Highcharts.chart('container', { 
-      chart: {type: 'line'},
-      title: {text: title},
-      credits: {enabled: false},
-      data: {csvURL: csv,
-        firstRowAsNames: true,
-        startRow: 0 }, 
-      series: [{
-        yAxis: 0,
-        name: 'value', 
-        showInLegend: true,
-        marker:{enabled: false}
-        },
-        {
-        yAxis: 1,
-        name: 'value', 
-        showInLegend: true,
-        marker:{enabled: false}
-        }],
-      xAxis: {
-        plotBands: [{
-          from: 2011, 
-          to: 2018,
-          color: '#DEDEFF',
-          label: {text: 'Trends Since 2011', align: 'center'}
-        }],
-        title: {text: x_axis_label}},
-      yAxis: [{title: {text:'Stone Crab Pounds Landed'},opposite: true},  
-                {title: {text:'Stone Crab Trips'},opposite: false}
-        ]
-    });
-  }
-    else if (icon == 'lobster'){ // the lobster modal window is another unusual case (2 y-axes)
-    Highcharts.chart('container', { 
-      chart: {type: 'line'},
-      title: {text: title},
-      credits: {enabled: false},
-      data: {csvURL: csv,
-        firstRowAsNames: true,
-        startRow: 0 }, 
-      series: [{
-        yAxis: 1,
-        name: 'value', 
-        showInLegend: true,
-        marker:{enabled: false}
-        },
-        {
-        yAxis: 0,
-        name: 'value', 
-        showInLegend: true,
-        marker:{enabled: false}
-        }],
-      xAxis: {
-        plotBands: [{
-          from: 2011, 
-          to: 2018,
-          color: '#DEDEFF',
-          label: {text: 'Trends Since 2011', align: 'center'}
-        }],
-        title: {text: x_axis_label}},
-      yAxis: [{title: {text:'Lobster Trips'},opposite: true},  
-                {title: {text:'Lobster Landings (Pounds)'},opposite: false}
-        ]
-    });
-  }
-  else { // all other modal windows
-    createGraph(
-      theData = csv, 
-      graph_location = 'container', 
-      title = title, 
-      y_axis_label = y_axis_label
-    );
-  }
-</script>
 
 </body>
 </html>
