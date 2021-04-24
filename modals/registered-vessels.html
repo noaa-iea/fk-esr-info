@@ -20,12 +20,12 @@
   <script>
       google.charts.load('current', {packages: ['corechart']});
   
-  if ('https://docs.google.com/spreadsheets/d/1xWZyWnR4fxljqlaejtKFEldL2jbECS1Q/edit#gid=760779668' == 'NA'){
+  if ('https://docs.google.com/spreadsheets/d/1vIWYzo9CuP78ES4-2d2Iq3oQ7BGdQRJVm_oQeUxsloM/edit?usp=sharing' == 'NA'){
     document.getElementById('chart_div').innerHTML = "<em>No data</em> yet assigned to icon <b>registered-vessels</b>. This needs to be specified in the Google Sheet 'icons to data | fk-esr-info'."
   } 
   else { // all other modal windows
     google.charts.setOnLoadCallback(function() {
-      GraphWrapper({Google_Spreadsheet_Link: 'https://docs.google.com/spreadsheets/d/1xWZyWnR4fxljqlaejtKFEldL2jbECS1Q/edit#gid=760779668',
+      GraphWrapper({Google_Spreadsheet_Link: 'https://docs.google.com/spreadsheets/d/1vIWYzo9CuP78ES4-2d2Iq3oQ7BGdQRJVm_oQeUxsloM/edit?usp=sharing',
       YAxisTitle: 'Number of Vessels',
       threshold_year: 2011,
       SST: false,
