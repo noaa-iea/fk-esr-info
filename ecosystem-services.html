@@ -18,124 +18,121 @@
       gtag('config', 'UA-176398491-1');
     </script>
     <link rel="stylesheet" href="assets/css/main.css" />
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/highcharts-more.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/data.js"></script> 
-    <script src="https://code.highcharts.com/modules/offline-exporting.js"></script>  
-    <script src="https://noaa-iea.github.io/fk-esr-info/assets/js/highcharts_wrapper.js"></script>
+    <link rel="stylesheet" href="assets/css/google-tooltip.css" />
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://marinebon.org/infographiq/infographiq-v1.0/js/GraphWrapper.js"></script>
     <script src="https://noaa-iea.github.io/fk-esr-info/assets/js/jquery.min.js"></script>
     <script src="https://noaa-iea.github.io/fk-esr-info/assets/js/jquery.scrollex.min.js"></script>
     <script src="https://noaa-iea.github.io/fk-esr-info/assets/js/jquery.scrolly.min.js"></script>
     <script src="https://noaa-iea.github.io/fk-esr-info/assets/js/skel.min.js"></script>
     <script src="https://noaa-iea.github.io/fk-esr-info/assets/js/util.js"></script>
     <script src="https://noaa-iea.github.io/fk-esr-info/assets/js/main.js"></script>
+
+    <script>
+      google.charts.load('current', {packages: ['corechart']});
+
+      google.charts.setOnLoadCallback(function() {
+        GraphWrapper({
+          Google_Spreadsheet_Link: 'https://docs.google.com/spreadsheets/d/1tCMfmqGzemHfrx2qsrgDke0IYnKCyeuuzazPZ31l1_A/edit#gid=1495286514',
+          YAxisTitle: 'Number of Trips',
+          targetElement: 'chart1'
+        });  
+      });
+
+      google.charts.setOnLoadCallback(function() {
+        GraphWrapper({
+          Google_Spreadsheet_Link: 'https://docs.google.com/spreadsheets/d/1-cpHGtLh-ABdwiYHwVh2DTYkT1Hcr4geD3rbaHFjKx0/edit#gid=1902855812',
+          YAxisTitle: 'Number of Licenses',
+          targetElement: 'chart2'
+        });  
+      });
+  
+      google.charts.setOnLoadCallback(function() {
+        GraphWrapper({
+          Google_Spreadsheet_Link: 'https://docs.google.com/spreadsheets/d/1rrgiEHE61iu1dR8EfF0ryX-gId0U4zaoVvMQaoFTUdE/edit#gid=148237486',
+          YAxisTitle: 'Tax Revenue (Millions of Dollars)',
+          targetElement: 'chart3'
+        });  
+      });
+    </script>
 	</head>
 	<body>
 
-	<!-- Page Wrapper -->
-	<div id="page-wrapper">
+  	<!-- Page Wrapper -->
+  	<div id="page-wrapper">
 
-  <!-- Header -->
-	<header id="header">
-		<h1><a href="https://noaa-iea.github.io/fk-esr-info/home.html">home</a></h1>
-		<nav id="nav">
-			<ul>
-				<li class="special">
-					<a href="#menu" class="menuToggle"><span>key indicators</span></a>
-					<div id="menu">
-						<ul>
-							<li><h3>Key Indicators</h3></li>                                            
-							<li><a href="https://noaa-iea.github.io/fk-esr-info/human-activities.html">Human Activities</a></li>
-              <li><a href="https://noaa-iea.github.io/fk-esr-info/ecosystem-services.html">Ecosystem Services</a></li>
-              <li><a href="https://noaa-iea.github.io/fk-esr-info/habitat.html">Habitat</a></li>
-              <li><a href="https://noaa-iea.github.io/fk-esr-info/living-resources.html">Living Resources</a></li>
-              <li><a href="https://noaa-iea.github.io/fk-esr-info/sanctuary-waters.html">Sanctuary Waters</a></li>
-              <li><a href="https://noaa-iea.github.io/fk-esr-info/maritime-archaeological-resources.html">Maritime Archaeological Resources</a></li>
-              <br>
-              <br>
-              <br>
-              <li><a href="https://noaa-iea.github.io/fk-esr-info/infographic.html"><h1>Ecosystem Infographic</h1></a></li>
-              <br>
-              <li><a href="https://doi.org/10.25923/f7ce-st38" target="_blank"><h1>Download the Report</h1></a></li>
-              <br>
-              <li><a href="https://noaa-iea.github.io/fk-esr-info/download.html"><h1>Download Data</h1></a></li>
-						</ul>
-					</div>
-				</li>
-			</ul>
-		</nav>
-	</header>
+      <!-- Header -->
+    	<header id="header">
+    		<h1><a href="https://noaa-iea.github.io/fk-esr-info/home.html">home</a></h1>
+    		<nav id="nav">
+    			<ul>
+    				<li class="special">
+    					<a href="#menu" class="menuToggle"><span>key indicators</span></a>
+    					<div id="menu">
+    						<ul>
+    							<li><h3>Key Indicators</h3></li>                                            
+    							<li><a href="https://noaa-iea.github.io/fk-esr-info/human-activities.html">Human Activities</a></li>
+                  <li><a href="https://noaa-iea.github.io/fk-esr-info/ecosystem-services.html">Ecosystem Services</a></li>
+                  <li><a href="https://noaa-iea.github.io/fk-esr-info/habitat.html">Habitat</a></li>
+                  <li><a href="https://noaa-iea.github.io/fk-esr-info/living-resources.html">Living Resources</a></li>
+                  <li><a href="https://noaa-iea.github.io/fk-esr-info/sanctuary-waters.html">Sanctuary Waters</a></li>
+                  <li><a href="https://noaa-iea.github.io/fk-esr-info/maritime-archaeological-resources.html">Maritime Archaeological Resources</a></li>
+                  <br>
+                  <br>
+                  <br>
+                  <li><a href="https://noaa-iea.github.io/fk-esr-info/infographic.html"><h1>Ecosystem Infographic</h1></a></li>
+                  <br>
+                  <li><a href="https://doi.org/10.25923/f7ce-st38" target="_blank"><h1>Download the Report</h1></a></li>
+                  <br>
+                  <li><a href="https://noaa-iea.github.io/fk-esr-info/download.html"><h1>Download Data</h1></a></li>
+    						</ul>
+    					</div>
+    				</li>
+    			</ul>
+    		</nav>
+    	</header>
 
-  <!-- Main -->
-  <article id="main">
-    <header>
-      <h2>ecosystem services</h2>
-      <p>services derived from the system </p>
-    </header>
-    <section class="wrapper style5">
-    <div class="inner">
-  
-  <h3>ecosystem services</h3>
-  <p>Many ecosystem services are gained from the resources in the Florida Keys National Marine Sanctuary, primarily from commercial and recreational fishing, tourism, and coastal protection. Key indicators of ecosystem services were the total number of commercial fishing trips from the Keys, the number of economically important species fishing trips, the number of recreational fishing licenses sold in Monroe County, and coastal protection provided by mangrove land cover (slider tool?), and total tourism value Gross Domestic Product. A decline in the total number of commercial fishing trips was seen since 1999, followed by a slow recovery. Total number of commercial grouper and snapper trips also declined, while the total number of lobster trips had large inter year variability. The total number of stone crab trips dropped and then rose, though not to 1999 levels. This trend likely causes less pressure on Sanctuary resources, but may mean that the way of life and income provided by career commercial fishing is more difficult to continue. The number of recreational fishing licenses has stayed relatively stable; however, there have been more non-resident licenses than resident licenses sold in Monroe County since 2010. Recreational fishing continues to be a major economic driver for tourism. There has been an overall loss of mangrove land cover and overall gain in developed land cover, reducing the amount of coastal protection provided by mangrove coastline. The adjusted GDP from the tourism industry in Monroe County continues to rise. </p>
-                            
-<!-- Chart 1 -->
-                                
-<div id="chart1" style="width:100%; height:350px;"></div>
-    
-<!-- Chart 2 -->
-<div id="chart2" style="width:100%; height:350px;"></div>
+      <!-- Main -->
+      <article id="main">
+        <header>
+          <h2>ecosystem services</h2>
+          <p>services derived from the system </p>
+        </header>
+        <section class="wrapper style5">
+          <div class="inner">
+        
+            <h3>ecosystem services</h3>
+            <p>Many ecosystem services are gained from the resources in the Florida Keys National Marine Sanctuary, primarily from commercial and recreational fishing, tourism, and coastal protection. Key indicators of ecosystem services were the total number of commercial fishing trips from the Keys, the number of economically important species fishing trips, the number of recreational fishing licenses sold in Monroe County, and coastal protection provided by mangrove land cover (slider tool?), and total tourism value Gross Domestic Product. A decline in the total number of commercial fishing trips was seen since 1999, followed by a slow recovery. Total number of commercial grouper and snapper trips also declined, while the total number of lobster trips had large inter year variability. The total number of stone crab trips dropped and then rose, though not to 1999 levels. This trend likely causes less pressure on Sanctuary resources, but may mean that the way of life and income provided by career commercial fishing is more difficult to continue. The number of recreational fishing licenses has stayed relatively stable; however, there have been more non-resident licenses than resident licenses sold in Monroe County since 2010. Recreational fishing continues to be a major economic driver for tourism. There has been an overall loss of mangrove land cover and overall gain in developed land cover, reducing the amount of coastal protection provided by mangrove coastline. The adjusted GDP from the tourism industry in Monroe County continues to rise. </p>
+                         
+            <div>
+              <h3 style = "text-align: center;">Commercial Fishing Trips</h3>
+              <div id="chart1"></div>
+              <p>
+              <h3 style = "text-align: center;">Recreational Fishing Licenses Sold</h3>
+              <div id="chart2"></div>
+              <p>                       
+              <h3 style = "text-align: center;">Tourist Tax Revenue for Monroe County</h3>
+              <div id="chart3"></div>
+            </div>  
+          </div>                                                
+        </section>
+      </article>
 
-<!-- Chart 3 -->
-                                
-<div id="chart3" style="width:100%; height:350px;"></div>
-
-</div>
-                                                      
-</section>
-
-</article>
-
-	<!-- Footer -->
-	<footer id="footer">
-    <br>
-    <img src="images/NOAA.svg" height="50" >
-    <img src="images/DOC_logo.svg" height="50">
-    <ul class="copyright">
-			<li>2021  &copy; <a href="https://www.noaa.gov" target="_blank">National Oceanic and Atmospheric Administration</a> A Project of the NOAA <a href="https://www.integratedecosystemassessment.noaa.gov" target="_blank">IEA</a> Program </li> 
-			<br>
-      <a href="https://www.commerce.gov/" target="_blank">U.S. Department of Commerce</a>
-      <br>
-      <br>
-      <h6>PHOTOS FROM THE FKIEA TEAM, THE FLORIDA KEYS NATIONAL MARINE SANCTUARY, AND THE NOAA FLICKR ACCOUNT <a href="https://www.flickr.com/photos/noaaphotolib/">Flickr</a></h6>
-    </ul> 
-    <br/> 
-	</footer>
-	</div>
-
-  <!-- Scripts -->
-  <script>
-    createGraph(
-      theData = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS-Q_3QCEbFf33mlL6fuOaZnGbFXmOx-4ke_GmNjAGMiDcSU7v89aoCX77vCcTB-497MJabsxy1xHIK/pub?output=csv', 
-      graph_location = "chart1", 
-      title = "Commercial Fishing Trips", 
-      y_axis_label = "Number of Trips"
-    );
-  
-    createGraph(
-      theData = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRVN_GFEi46WaX4UiORAltl-3qA19ZGvphyS0CdBEwWAWGDlkMak-kAEXRaMwlxC-YAIPDokx9nN5Rx/pub?output=csv', 
-      graph_location = 'chart2', 
-      title = 'Recreational Fishing Licenses Sold', 
-      y_axis_label = "Number of Licenses"
-    );
-  
-    createGraph(
-      theData = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vR2QEK4lRwEOx1edeyGwU57i-jrr7PdnjFtTHart0Ow5ooHn4lImxVEacgK1E3Z8h1_DjkOeP4vlCtk/pub?gid=148237486&single=true&output=csv', 
-      graph_location = 'chart3', 
-      title = 'Total Tourism Value GDP', 
-      y_axis_label = "Tax Revenue"
-    );
-      
-  </script>
-</body>
+    	<!-- Footer -->
+    	<footer id="footer">
+        <br>
+        <img src="images/NOAA.svg" height="50" >
+        <img src="images/DOC_logo.svg" height="50">
+        <ul class="copyright">
+    			<li>2021  &copy; <a href="https://www.noaa.gov" target="_blank">National Oceanic and Atmospheric Administration</a> A Project of the NOAA <a href="https://www.integratedecosystemassessment.noaa.gov" target="_blank">IEA</a> Program </li> 
+    			<br>
+          <a href="https://www.commerce.gov/" target="_blank">U.S. Department of Commerce</a>
+          <br>
+          <br>
+          <h6>PHOTOS FROM THE FKIEA TEAM, THE FLORIDA KEYS NATIONAL MARINE SANCTUARY, AND THE NOAA FLICKR ACCOUNT <a href="https://www.flickr.com/photos/noaaphotolib/">Flickr</a></h6>
+        </ul> 
+        <br/> 
+    	</footer>
+    </div>
+  </body>
 </html>
