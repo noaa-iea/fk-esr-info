@@ -4,48 +4,36 @@
   <meta charset="utf-8">
   <title>Sea Surface Temperature (SST)</title>
   
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176398491-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-176398491-1');
-  </script>
-  
-  <script src="https://www.gstatic.com/charts/loader.js"></script>
-  <script src="https://marinebon.org/infographiq/infographiq-v1.0/js/GraphWrapper.js"></script>
-  <link rel="stylesheet" href="https://marinebon.org/infographiq/infographiq-v1.0/css/infographiq.css" />
-  
-  <script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176398491-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-176398491-1');
+    </script>
+    
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://noaa-iea.github.io/plot-extra/GoogleChartsWrapper.js"></script>
+    <script src="https://noaa-iea.github.io/plot-extra/CreateFKContent.js"></script>
+    <link rel="stylesheet" href="https://marinebon.org/infographiq/infographiq-v1.0/css/infographiq.css" />
+    
+    <script>
       google.charts.load('current', {packages: ['corechart']});
-  
-  if ('https://docs.google.com/spreadsheets/d/1A8BYx8D0MhJY227qVGYWDiK5fe0plcAU6QDJah9csg8/edit#gid=365283163' == 'NA'){
-    document.getElementById('chart_div').innerHTML = "<em>No data</em> yet assigned to icon <b>SST</b>. This needs to be specified in the Google Sheet 'icons to data | fk-esr-info'."
-  } 
-  else { // all other modal windows
-    google.charts.setOnLoadCallback(function() {
-      GraphWrapper({Google_Spreadsheet_Link: 'https://docs.google.com/spreadsheets/d/1A8BYx8D0MhJY227qVGYWDiK5fe0plcAU6QDJah9csg8/edit#gid=365283163',
-      YAxisTitle: 'Sea Surface Temperature (Celsius)',
-      threshold_year: 2011,
-      SST: true,
-      twoYAxes: false,
-      YAxisTitle2: 'nothing'
-    });
-      
-    });
-  }
-</script>
-</head>
-<body>
 
-<div class = "caption_text">
-  <h3 style = "text-align: center;">Sea Surface Temperature (SST)</h3>
-<div id="chart_div" style="height: 400px; margin: 0 auto"></div>
-Changes in sea surface temperatures affect many biological and physical oceanography processes, and mass coral bleaching has become one of the most visible marine ecological impacts
-of persistently rising ocean temperatures. The following time series of changes in sea surface temperatures in the Florida Keys is collected via satellite remote sensing measurements by the Coral Reef Watch program. An overall increasing SST trend of more than 1 degree Celsius in maximum temperature is seen in the Florida Keys.
-Source: <a href="https://coralreefwatch.noaa.gov/" target='_parent'>NOAA National Environmental Satellite, Data, and Information Service, Coral Reef Watch program.</a>
-</div>
-
-</body>
+      google.charts.setOnLoadCallback(function() {
+        var DataSourceURL = "https://docs.google.com/spreadsheets/d/1_o8HOiZ_35uajupEsw6xLSsneTBTeLh0bqvFQvMpBNY/gviz/tq?gid=0&headers=1";
+        var url = window.location.pathname;
+        var icon = url.substring(url.lastIndexOf('/')+1, url.lastIndexOf('.'));
+        createFKContent(DataSourceURL, icon);
+      });
+    </script>
+  </head>
+  <body>
+    <div class = "caption_text">
+      <h3 style = "text-align: center;"><span id="title"></span></h3>
+      <div id="chart_div" style="height: 400px; margin: 0 auto"></div>
+      <span id="caption"></span> Source: <span id="source"></span>
+    </div>
+  </body>
 </html>

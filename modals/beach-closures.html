@@ -4,47 +4,36 @@
   <meta charset="utf-8">
   <title>Beach closures due to presence of fecal indicator</title>
   
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176398491-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-176398491-1');
-  </script>
-  
-  <script src="https://www.gstatic.com/charts/loader.js"></script>
-  <script src="https://marinebon.org/infographiq/infographiq-v1.0/js/GraphWrapper.js"></script>
-  <link rel="stylesheet" href="https://marinebon.org/infographiq/infographiq-v1.0/css/infographiq.css" />
-  
-  <script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176398491-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-176398491-1');
+    </script>
+    
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://noaa-iea.github.io/plot-extra/GoogleChartsWrapper.js"></script>
+    <script src="https://noaa-iea.github.io/plot-extra/CreateFKContent.js"></script>
+    <link rel="stylesheet" href="https://marinebon.org/infographiq/infographiq-v1.0/css/infographiq.css" />
+    
+    <script>
       google.charts.load('current', {packages: ['corechart']});
-  
-  if ('https://docs.google.com/spreadsheets/d/1EGz5rEIOZZ84OSEOriDENUK0YPSG1ApxepJNKVAQEzU/edit#gid=1525589878' == 'NA'){
-    document.getElementById('chart_div').innerHTML = "<em>No data</em> yet assigned to icon <b>beach-closures</b>. This needs to be specified in the Google Sheet 'icons to data | fk-esr-info'."
-  } 
-  else { // all other modal windows
-    google.charts.setOnLoadCallback(function() {
-      GraphWrapper({Google_Spreadsheet_Link: 'https://docs.google.com/spreadsheets/d/1EGz5rEIOZZ84OSEOriDENUK0YPSG1ApxepJNKVAQEzU/edit#gid=1525589878',
-      YAxisTitle: 'Number of Fecal Advisories at Keys public beaches',
-      threshold_year: 2011,
-      SST: false,
-      twoYAxes: false,
-      YAxisTitle2: 'nothing'
-    });
-      
-    });
-  }
-</script>
-</head>
-<body>
 
-<div class = "caption_text">
-  <h3 style = "text-align: center;">Beach closures due to presence of fecal indicator</h3>
-<div id="chart_div" style="height: 400px; margin: 0 auto"></div>
-The presence of fecal indicator bacteria, fecal coliform and enterococci are measured by the Florida Healthy Beach program in order to advise beach closures due to threats to public health. The presence of these fecal indicators can be due to fecal pollution, which may come from stormwater runoff, pets and wildlife, and human sewage. This report uses the number of fecal indicator advisories issued on Florida Keys National Marine Sanctuary shoreline as an indicator of fecal bacteria presence as a threat to public health.
-Source: <a href="http://manatee.floridahealth.gov/programs-and-services/infectious-disease-services/environmental-health/healthy-beaches/index.html" target='_parent'>Florida Healthy Beaches program; University of Miami Abess Center.</a>
-</div>
-
-</body>
+      google.charts.setOnLoadCallback(function() {
+        var DataSourceURL = "https://docs.google.com/spreadsheets/d/1_o8HOiZ_35uajupEsw6xLSsneTBTeLh0bqvFQvMpBNY/gviz/tq?gid=0&headers=1";
+        var url = window.location.pathname;
+        var icon = url.substring(url.lastIndexOf('/')+1, url.lastIndexOf('.'));
+        createFKContent(DataSourceURL, icon);
+      });
+    </script>
+  </head>
+  <body>
+    <div class = "caption_text">
+      <h3 style = "text-align: center;"><span id="title"></span></h3>
+      <div id="chart_div" style="height: 400px; margin: 0 auto"></div>
+      <span id="caption"></span> Source: <span id="source"></span>
+    </div>
+  </body>
 </html>

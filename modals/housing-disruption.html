@@ -1,31 +1,39 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>Housing Disruption</title>
+  <head>
+    <meta charset="utf-8">
+    <title>Housing Disruption</title>
   
     <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176398491-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-176398491-1');
-  </script>
-  
-  <link rel="stylesheet" href="https://noaa-iea.github.io/fk-esr-info/assets/css/infographiq.css" />
-</head>
-<body>
-<h3 style = 'text-align: center; font-family: "Open Sans", Helvetica, sans-serif;'>Housing Disruption</h3>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176398491-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-176398491-1');
+    </script>
+    
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://noaa-iea.github.io/plot-extra/GoogleChartsWrapper.js"></script>
+    <script src="https://noaa-iea.github.io/plot-extra/CreateFKContent.js"></script>
+    <link rel="stylesheet" href="https://marinebon.org/infographiq/infographiq-v1.0/css/infographiq.css" />
+    
+    <script>
+      google.charts.load('current', {packages: ['corechart']});
 
-<img src="https://noaa-iea.github.io/fk-esr-info/modals/housing-disruption-NCCOS.png" alt = "A map of the Florida Keys showing housing disruption across the keys." width = "auto" height = "auto" style = "display: block; margin-left: auto; margin-right: auto;">
-<p>
-<div class = "caption_text">
-Housing disruption was selected as an indicator of available ecosystem services, as a measure of social vulnerability in a
-vacation destination area with high amounts of second home ownership and low availability of rentable long term housing,
-both relating to high levels of tourism and gentrification. Additionally, housing disruption occurs due to hurricanes and
-storms. The Florida Keys have a high level of housing disruption in all regions/municipalities, except for northern Key Largo. Source: <a href="https://www.st.nmfs.noaa.gov/data-and-tools/social-indicators/" target="_parent" >NOAA Office of Science and Technology coastal social vulnerability survey</a>.
-
-</div>
-</body>
+      google.charts.setOnLoadCallback(function() {
+        var DataSourceURL = "https://docs.google.com/spreadsheets/d/1_o8HOiZ_35uajupEsw6xLSsneTBTeLh0bqvFQvMpBNY/gviz/tq?gid=0&headers=1";
+        var url = window.location.pathname;
+        var icon = url.substring(url.lastIndexOf('/')+1, url.lastIndexOf('.'));
+        createFKContent(DataSourceURL, icon);
+      });
+    </script>
+  </head>
+  <body>
+    <div class = "caption_text">
+      <h3 style = "text-align: center;"><span id="title"></span></h3>
+      <img src="https://noaa-iea.github.io/fk-esr-info/modals/housing-disruption-NCCOS.png" alt = "A map of the Florida Keys showing housing disruption across the keys." width = "auto" height = "auto" style = "display: block; margin-left: auto; margin-right: auto;"><br>
+      <span id="caption"></span> Source: <span id="source"></span>
+    </div>
+  </body>
 </html>

@@ -4,47 +4,36 @@
   <meta charset="utf-8">
   <title>Resident population</title>
   
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176398491-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-176398491-1');
-  </script>
-  
-  <script src="https://www.gstatic.com/charts/loader.js"></script>
-  <script src="https://marinebon.org/infographiq/infographiq-v1.0/js/GraphWrapper.js"></script>
-  <link rel="stylesheet" href="https://marinebon.org/infographiq/infographiq-v1.0/css/infographiq.css" />
-  
-  <script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176398491-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-176398491-1');
+    </script>
+    
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://noaa-iea.github.io/plot-extra/GoogleChartsWrapper.js"></script>
+    <script src="https://noaa-iea.github.io/plot-extra/CreateFKContent.js"></script>
+    <link rel="stylesheet" href="https://marinebon.org/infographiq/infographiq-v1.0/css/infographiq.css" />
+    
+    <script>
       google.charts.load('current', {packages: ['corechart']});
-  
-  if ('https://docs.google.com/spreadsheets/d/16Rnz1SgKGFfb5Rg3-91d3eFL18mmRZRKFxcf6XMT1rw/edit#gid=482044818' == 'NA'){
-    document.getElementById('chart_div').innerHTML = "<em>No data</em> yet assigned to icon <b>resident-population</b>. This needs to be specified in the Google Sheet 'icons to data | fk-esr-info'."
-  } 
-  else { // all other modal windows
-    google.charts.setOnLoadCallback(function() {
-      GraphWrapper({Google_Spreadsheet_Link: 'https://docs.google.com/spreadsheets/d/16Rnz1SgKGFfb5Rg3-91d3eFL18mmRZRKFxcf6XMT1rw/edit#gid=482044818',
-      YAxisTitle: 'Population',
-      threshold_year: 2011,
-      SST: false,
-      twoYAxes: false,
-      YAxisTitle2: 'nothing'
-    });
-      
-    });
-  }
-</script>
-</head>
-<body>
 
-<div class = "caption_text">
-  <h3 style = "text-align: center;">Resident population</h3>
-<div id="chart_div" style="height: 400px; margin: 0 auto"></div>
-Resident population data was chosen to illustrate how this pressure has changed in Monroe County, especially important in a land-limited area where human population put a direct strain on the natural habitats and resources. The population of the island chain increased dramatically from the 1940s to the current total population of 77,304.
-Source: <a href="https://data.census.gov/cedsci/profile?q=United%20States&g=0100000US" target='_parent'>Monroe County Records resident population, US Census.</a>
-</div>
-
-</body>
+      google.charts.setOnLoadCallback(function() {
+        var DataSourceURL = "https://docs.google.com/spreadsheets/d/1_o8HOiZ_35uajupEsw6xLSsneTBTeLh0bqvFQvMpBNY/gviz/tq?gid=0&headers=1";
+        var url = window.location.pathname;
+        var icon = url.substring(url.lastIndexOf('/')+1, url.lastIndexOf('.'));
+        createFKContent(DataSourceURL, icon);
+      });
+    </script>
+  </head>
+  <body>
+    <div class = "caption_text">
+      <h3 style = "text-align: center;"><span id="title"></span></h3>
+      <div id="chart_div" style="height: 400px; margin: 0 auto"></div>
+      <span id="caption"></span> Source: <span id="source"></span>
+    </div>
+  </body>
 </html>

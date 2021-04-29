@@ -1,15 +1,39 @@
+<!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Harmful Algal Blooms Red Tide Current Status</title>
+	    <!-- Global site tag (gtag.js) - Google Analytics -->
+	    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176398491-1"></script>
+	    <script>
+	      window.dataLayer = window.dataLayer || [];
+	      function gtag(){dataLayer.push(arguments);}
+	      gtag('js', new Date());
+	      gtag('config', 'UA-176398491-1');
+	    </script>
+	    
+	    <script src="https://www.gstatic.com/charts/loader.js"></script>
+	    <script src="https://noaa-iea.github.io/plot-extra/GoogleChartsWrapper.js"></script>
+	    <script src="https://noaa-iea.github.io/plot-extra/CreateFKContent.js"></script>
+	    <link rel="stylesheet" href="https://marinebon.org/infographiq/infographiq-v1.0/css/infographiq.css" />
+	    
+	    <script>
+	      google.charts.load('current', {packages: ['corechart']});
 
-  <title>Harmful Algal Blooms Red Tide Current Status</title>
-    <link rel="stylesheet" href="https://noaa-iea.github.io/fk-esr-info/assets/css/infographiq.css" />
-</head>
-<body>
-  
-<h3 style = 'text-align: center; font-family: "Open Sans", Helvetica, sans-serif;'>Harmful Algal Blooms Red Tide Current Status</h3>
-<iframe src="https://myfwc.maps.arcgis.com/apps/View/index.html?appid=87162eec3eb846218cec711d16462a72" title="Harmful Algal Blooms Red Tide Current Status"  width="100%" height="600" ></iframe>
-<p class = "caption_text" >Source: <a href="https://myfwc.maps.arcgis.com/apps/View/index.html?appid=87162eec3eb846218cec711d16462a72">Florida Fish and Wildlife Conservation Commission: Fish and Wildlife Research Institute</a>.</p>
-</body>
+	      google.charts.setOnLoadCallback(function() {
+	        var DataSourceURL = "https://docs.google.com/spreadsheets/d/1_o8HOiZ_35uajupEsw6xLSsneTBTeLh0bqvFQvMpBNY/gviz/tq?gid=0&headers=1";
+	        var url = window.location.pathname;
+	        var icon = url.substring(url.lastIndexOf('/')+1, url.lastIndexOf('.'));
+	        createFKContent(DataSourceURL, icon);
+	      });
+	    </script>
+	</head>
+  	<body>
+    	<div class = "caption_text">
+      		<h3 style = "text-align: center;"><span id="title"></span></h3>
+			<iframe src="https://myfwc.maps.arcgis.com/apps/View/index.html?appid=87162eec3eb846218cec711d16462a72" title="Harmful Algal Blooms Red Tide Current Status"  width="100%" height="600" ></iframe><br>
+			<span id="caption"></span> Source: <span id="source"></span>
+		</div>
+	</body>
 </html>

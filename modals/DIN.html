@@ -4,47 +4,36 @@
   <meta charset="utf-8">
   <title>Dissolved inorganic nitrogen</title>
   
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176398491-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-176398491-1');
-  </script>
-  
-  <script src="https://www.gstatic.com/charts/loader.js"></script>
-  <script src="https://marinebon.org/infographiq/infographiq-v1.0/js/GraphWrapper.js"></script>
-  <link rel="stylesheet" href="https://marinebon.org/infographiq/infographiq-v1.0/css/infographiq.css" />
-  
-  <script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176398491-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-176398491-1');
+    </script>
+    
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://noaa-iea.github.io/plot-extra/GoogleChartsWrapper.js"></script>
+    <script src="https://noaa-iea.github.io/plot-extra/CreateFKContent.js"></script>
+    <link rel="stylesheet" href="https://marinebon.org/infographiq/infographiq-v1.0/css/infographiq.css" />
+    
+    <script>
       google.charts.load('current', {packages: ['corechart']});
-  
-  if ('https://docs.google.com/spreadsheets/d/1OUv0jtIeCqvedTZykW-xwR5teC5P4J7bdWLcm-UV7Ko/edit#gid=1610224977' == 'NA'){
-    document.getElementById('chart_div').innerHTML = "<em>No data</em> yet assigned to icon <b>DIN</b>. This needs to be specified in the Google Sheet 'icons to data | fk-esr-info'."
-  } 
-  else { // all other modal windows
-    google.charts.setOnLoadCallback(function() {
-      GraphWrapper({Google_Spreadsheet_Link: 'https://docs.google.com/spreadsheets/d/1OUv0jtIeCqvedTZykW-xwR5teC5P4J7bdWLcm-UV7Ko/edit#gid=1610224977',
-      YAxisTitle: 'Average NO3+NO2 (µmol/L)',
-      threshold_year: 2011,
-      SST: false,
-      twoYAxes: false,
-      YAxisTitle2: 'nothing'
-    });
-      
-    });
-  }
-</script>
-</head>
-<body>
 
-<div class = "caption_text">
-  <h3 style = "text-align: center;">Dissolved inorganic nitrogen</h3>
-<div id="chart_div" style="height: 400px; margin: 0 auto"></div>
-Dissolved inorganic nitrates, or DIN, can contribute to eutrophication (excessive richness of nutrients) in coastal subtropical oligotrophic (low nutrient content) waters. This indicator has been measured for more than 20 years at reef sites along the Florida Keys. Generally, this indicator has varied per year, but has experienced two spikes, in 2009 and 2015. There was been a declining trend in the past five years, though this may be an artifact of the spike in 2015.
-Source: <a href="https://www.aoml.noaa.gov/data-products/#so-flo-cruise-data" target='_parent'>NOAA Atlantic Oceanographic and Meteorological Laboratory’s South Florida Project, Ocean Chemistry and Ecosystems Division.</a>
-</div>
-
-</body>
+      google.charts.setOnLoadCallback(function() {
+        var DataSourceURL = "https://docs.google.com/spreadsheets/d/1_o8HOiZ_35uajupEsw6xLSsneTBTeLh0bqvFQvMpBNY/gviz/tq?gid=0&headers=1";
+        var url = window.location.pathname;
+        var icon = url.substring(url.lastIndexOf('/')+1, url.lastIndexOf('.'));
+        createFKContent(DataSourceURL, icon);
+      });
+    </script>
+  </head>
+  <body>
+    <div class = "caption_text">
+      <h3 style = "text-align: center;"><span id="title"></span></h3>
+      <div id="chart_div" style="height: 400px; margin: 0 auto"></div>
+      <span id="caption"></span> Source: <span id="source"></span>
+    </div>
+  </body>
 </html>

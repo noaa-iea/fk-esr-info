@@ -4,52 +4,36 @@
   <meta charset="utf-8">
   <title>Tourism population via tax revenue</title>
   
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176398491-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-176398491-1');
-  </script>
-  
-  <script src="https://www.gstatic.com/charts/loader.js"></script>
-  <script src="https://marinebon.org/infographiq/infographiq-v1.0/js/GraphWrapper.js"></script>
-  <link rel="stylesheet" href="https://marinebon.org/infographiq/infographiq-v1.0/css/infographiq.css" />
-  
-  <script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176398491-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-176398491-1');
+    </script>
+    
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://noaa-iea.github.io/plot-extra/GoogleChartsWrapper.js"></script>
+    <script src="https://noaa-iea.github.io/plot-extra/CreateFKContent.js"></script>
+    <link rel="stylesheet" href="https://marinebon.org/infographiq/infographiq-v1.0/css/infographiq.css" />
+    
+    <script>
       google.charts.load('current', {packages: ['corechart']});
-  
-  if ('https://docs.google.com/spreadsheets/d/1rrgiEHE61iu1dR8EfF0ryX-gId0U4zaoVvMQaoFTUdE/edit#gid=148237486' == 'NA'){
-    document.getElementById('chart_div').innerHTML = "<em>No data</em> yet assigned to icon <b>tourism-population</b>. This needs to be specified in the Google Sheet 'icons to data | fk-esr-info'."
-  } 
-  else { // all other modal windows
-    google.charts.setOnLoadCallback(function() {
-      GraphWrapper({Google_Spreadsheet_Link: 'https://docs.google.com/spreadsheets/d/1rrgiEHE61iu1dR8EfF0ryX-gId0U4zaoVvMQaoFTUdE/edit#gid=148237486',
-      YAxisTitle: 'Tourist Tax Revenue (Millions of Dollars)',
-      threshold_year: 2011,
-      SST: false,
-      twoYAxes: false,
-      YAxisTitle2: 'nothing'
-    });
-      
-    });
-  }
-</script>
-</head>
-<body>
 
-<div class = "caption_text">
-  <h3 style = "text-align: center;">Tourism population via tax revenue</h3>
-<div id="chart_div" style="height: 400px; margin: 0 auto"></div>
-Though experts agreed that tourism visitation was an important indicator, data on this metric was surprisingly hard to
-come by, due to the need to capture all types of overnight visitors, day trip visitors, both in state and out of state visitors,
-and international as well as domestic visitors. Additionally, each municipality has a different method of recording number
-of visitors. Thus, this study was recommended to review trends in the tourist tax revenue collected as a proxy to capture the longest time series trends in all categories of
-visitors. Data was adjusted to reflect changes through time in the percentage of tax levied. Of note is a recent decrease occurred in 2017 due to Hurricane Irma making
-landfall in the Lower Keys.
-Source: <a href="https://www.keywestchamber.org/" target='_parent'>Key West Chamber of Commerce.</a>
-</div>
-
-</body>
+      google.charts.setOnLoadCallback(function() {
+        var DataSourceURL = "https://docs.google.com/spreadsheets/d/1_o8HOiZ_35uajupEsw6xLSsneTBTeLh0bqvFQvMpBNY/gviz/tq?gid=0&headers=1";
+        var url = window.location.pathname;
+        var icon = url.substring(url.lastIndexOf('/')+1, url.lastIndexOf('.'));
+        createFKContent(DataSourceURL, icon);
+      });
+    </script>
+  </head>
+  <body>
+    <div class = "caption_text">
+      <h3 style = "text-align: center;"><span id="title"></span></h3>
+      <div id="chart_div" style="height: 400px; margin: 0 auto"></div>
+      <span id="caption"></span> Source: <span id="source"></span>
+    </div>
+  </body>
 </html>

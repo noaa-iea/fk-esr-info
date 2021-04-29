@@ -1,73 +1,75 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>Value of reef and mangrove coastal protection from storms in Florida Keys</title>
-  
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176398491-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-176398491-1');
-  </script>
-  
-  <script src="https://www.gstatic.com/charts/loader.js"></script>
-  <link rel="stylesheet" href="https://noaa-iea.github.io/fk-esr-info/assets/css/infographiq.css" />
-  
-  <script>
-        // ELLEN: VARIABLES FOR YOU TO FILL IN 
-      var X_Axis_Title = "Year";
-      var Y_Axis_Title = "UFOs Sighted";
-      var Google_Spreadsheet_Link = 
-        'https://docs.google.com/spreadsheets/d/1Mc2_Rls4XgY8QQ_xY7ZVVVWdWWhTWvh94FHDr0l2f7Q/edit#gid=348646580';
-
-    google.charts.load('current', {packages: ['corechart']});
-    google.charts.setOnLoadCallback(drawGID);
-
-    function drawGID() {
-      var query = new google.visualization.Query(Google_Spreadsheet_Link);
-      query.send(handleQueryResponse);
-    }
+  <head>
+    <meta charset="utf-8">
+    <title>Value of reef and mangrove coastal protection from storms in Florida Keys</title>
     
-    function handleQueryResponse(response) {
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176398491-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-176398491-1');
+    </script>
+    
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://noaa-iea.github.io/plot-extra/GoogleChartsWrapper.js"></script>
+    <script src="https://noaa-iea.github.io/plot-extra/CreateFKContent.js"></script>
+    <link rel="stylesheet" href="https://marinebon.org/infographiq/infographiq-v1.0/css/infographiq.css" />
+    
+    <script>
+        var Google_Spreadsheet_Link = 
+          'https://docs.google.com/spreadsheets/d/1Mc2_Rls4XgY8QQ_xY7ZVVVWdWWhTWvh94FHDr0l2f7Q/edit#gid=348646580';
 
-      if (response.isError()) {
-        alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
-        return;
+      google.charts.load('current', {packages: ['corechart']});
+      google.charts.setOnLoadCallback(drawGID);
+      google.charts.setOnLoadCallback(function() {
+        var DataSourceURL = "https://docs.google.com/spreadsheets/d/1_o8HOiZ_35uajupEsw6xLSsneTBTeLh0bqvFQvMpBNY/gviz/tq?gid=0&headers=1";
+        var url = window.location.pathname;
+        var icon = url.substring(url.lastIndexOf('/')+1, url.lastIndexOf('.'));
+        createFKContent(DataSourceURL, icon);
+      }); 
+
+      function drawGID() {
+        var query = new google.visualization.Query(Google_Spreadsheet_Link);
+        query.send(handleQueryResponse);
       }
+      
+      function handleQueryResponse(response) {
 
-      var data = response.getDataTable();
-      var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
-    var options = {
-      tooltip: {textStyle: {fontSize: 15}},
-      animation: {startup: true, duration:700},
-     chartArea: {top: 10, height: '80%'},
-      legend: 'none',
-      hAxis: { 
-       // textStyle: {fontSize: 15},
-        title: "Storm Frequency", 
-        titleTextStyle: {bold: true, italic: false}}, 
-      vAxis: {  // options for the Y Axis
-      title: "Economic activity protected by Florida Keys coral reefs (2010 dollars)",
-      titleTextStyle: {bold: true, italic: false }, // Set how the Y Axis title looks
-      minorGridlines: {color: 'transparent'}}
-      };
+        if (response.isError()) {
+          alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+          return;
+        }
 
-      chart.draw(data, options);
-    }
+        var data = response.getDataTable();
+        var chart = new google.visualization.ColumnChart(document.getElementById('chart_div1'));
+        var options = {
+          tooltip: {textStyle: {fontSize: 15}},
+          animation: {startup: true, duration:700},
+          chartArea: {top: 10, height: '80%'},
+          legend: 'none',
+          hAxis: { 
+            title: "Storm Frequency", 
+            titleTextStyle: {bold: true, italic: false}}, 
+          vAxis: {  // options for the Y Axis
+          title: "Economic activity protected by Florida Keys coral reefs (2010 dollars)",
+          titleTextStyle: {bold: true, italic: false }, // Set how the Y Axis title looks
+          minorGridlines: {color: 'transparent'}}
+        };
+
+        chart.draw(data, options);
+      }
+      
+    </script>
     
-  </script>
-  
-</head>
-<body>
-<div class = "caption_text">
-  <h3 style = "text-align: center;">Value of reef and mangrove coastal protection from storms in Florida Keys</h3>
-<div id="chart_div" style="min-width: 310px; max-width: 600px; height: 400px; margin: 0 auto"></div>
-Important ecosystem services are provided by mangroves and coral reef structure in the form of coastal protection. Both mangrove lined shorelines and coral reef structure provide important wave attenuation and storm surge mitigation during storms and extreme events, and the predicted value of coastal protection by these habitats for storm events is represented here.
-Source: <a href="https://www.usgs.gov/centers/pcmsc/science/role-reefs-coastal-protection?qt-science_center_objects=0#qt-science_center_objects" target='_parent'>Storlazzi et al., USGS/UCSC report.</a>
-</div>
-
-</body>
+  </head>
+  <body>
+    <div class = "caption_text">
+      <h3 style = "text-align: center;"><span id="title"></span></h3>
+      <div id="chart_div1" style="min-width: 310px; max-width: 600px; height: 400px; margin: 0 auto"></div>
+      <span id="caption"></span> Source: <span id="source"></span>
+    </div>
+  </body>
 </html>

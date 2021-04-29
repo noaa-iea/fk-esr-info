@@ -20,31 +20,10 @@ expand_modal <- function(icon, title, data, provider_link, caption, source, y_la
   out   <- glue::glue("modals/{icon}.html")
   message(out)
 
-  SecondYAxis = "nothing"
-            
-  if (icon == "stonecrab"){
-    y_label = 'Stone Crab Pounds Landed'
-    SecondYAxis = 'Stone Crab Trips'
-  } 
-                        
-  if (icon == "lobster"){
-    y_label = 'Lobster Landings (Pounds)'
-    SecondYAxis = 'Lobster Trips'
-  }
-  
   knitr::knit_expand(
-    file          = "_infographic_modal_template.html", 
-    icon          = icon,
-    title         = title, # caption <- ifelse(is.na(caption), title, caption),
-    data_link     = data,
-    caption       = caption,
-    source        = source,
-    provider_link = provider_link,
-    y_label       = ifelse(!is.na(y_label) && trim(y_label) != "?", y_label, ""),
-    threshold_year = 2011,
-    YAxisTitle2 = SecondYAxis, 
-    twoYAxes = ifelse(icon == "stonecrab" | icon == "lobster", 'true', 'false'), 
-    SST = ifelse(icon == "SST", 'true', 'false')) %>% 
+    file    = "_infographic_modal_template.html", 
+    title = title
+  ) %>% 
     writeLines(out) 
 }
 

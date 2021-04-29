@@ -5,29 +5,35 @@
   <title>Mangrove shoreline spatial extent</title>
   
     <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176398491-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-176398491-1');
-  </script>
-  
-  <link rel="stylesheet" href="https://noaa-iea.github.io/fk-esr-info/assets/css/infographiq.css" />
-</head>
-<body>
-  
-<h3 style = 'text-align: center; font-family: "Open Sans", Helvetica, sans-serif;'>Mangrove shoreline spatial extent</h3>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176398491-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-176398491-1');
+    </script>
+    
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://noaa-iea.github.io/plot-extra/GoogleChartsWrapper.js"></script>
+    <script src="https://noaa-iea.github.io/plot-extra/CreateFKContent.js"></script>
+    <link rel="stylesheet" href="https://marinebon.org/infographiq/infographiq-v1.0/css/infographiq.css" />
+    
+    <script>
+      google.charts.load('current', {packages: ['corechart']});
 
-<img src="https://noaa-iea.github.io/fk-esr-info/modals/mangroves.png" alt ="A satellite-based image of the Florida Keys National Marine Sanctuary that shows change in wetlands." width = 800 height = "auto" style = "display: block; margin-left: auto; margin-right: auto;">
-
-<p>
-
-<div class = "caption_text">  
-Not only do mangroves provide ecosystem services in the form of coastal protection, but they are also an important nursery
-habitat for juvenile fish, invertebrate and other marine species, as well as important seabird roosting habitat. This habitat
-indicator has experienced a net loss in land cover over the past 20 years. Source: <a href="https://coast.noaa.gov/digitalcoast/data/ccapregional.html" target="_parent">NOAA National Ocean Service satellite information and Office for Coastal Management C-CAP program</a>.
-</div>
-
-</body>
+      google.charts.setOnLoadCallback(function() {
+        var DataSourceURL = "https://docs.google.com/spreadsheets/d/1_o8HOiZ_35uajupEsw6xLSsneTBTeLh0bqvFQvMpBNY/gviz/tq?gid=0&headers=1";
+        var url = window.location.pathname;
+        var icon = url.substring(url.lastIndexOf('/')+1, url.lastIndexOf('.'));
+        createFKContent(DataSourceURL, icon);
+      });
+    </script>
+  </head>
+  <body>
+    <div class = "caption_text">
+      <h3 style = "text-align: center;"><span id="title"></span></h3>
+<img src="https://noaa-iea.github.io/fk-esr-info/modals/mangroves.png" alt ="A satellite-based image of the Florida Keys National Marine Sanctuary that shows change in wetlands." width = 800 height = "auto" style = "display: block; margin-left: auto; margin-right: auto;"><br>
+      <span id="caption"></span> Source: <span id="source"></span>
+    </div>
+  </body>
 </html>
