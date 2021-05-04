@@ -4,14 +4,15 @@ if (!require(librarian)){
   library(librarian)
 }
 shelf(
-  dplyr, glue, highcharter, knitr, purrr, readr, rmarkdown, stringr, tibble, tidyr)
+  dplyr, glue, highcharter, knitr, purrr, readr, rmarkdown, stringr, tibble, tidyr, tidyselect)
 
 # variables ----
 icons_to_data_csv <- "https://docs.google.com/spreadsheets/d/e/2PACX-1vSAROGVpYB58Zkr8P0iwJdTMRPNLZtJ07IyUn-dQ62C2HMuCEScyl8x7urCD7QbRXQYSIJwDn_wku9G/pub?gid=0&single=true&output=csv"
 
 # create modals ----
 icons_to_data <- read_csv(icons_to_data_csv, col_types = cols()) %>% 
-  mutate(across(is_logical, replace_na, F)) %>% 
+  mutate(tidyselect::where(is_logical, replace_na, F)) %>% 
+  #mutate(across(is_logical, replace_na, F)) %>% 
   filter(!manual_modal) %>% 
   arrange(icon)
 
@@ -22,8 +23,7 @@ expand_modal <- function(icon, title, data, provider_link, caption, source, y_la
 
   knitr::knit_expand(
     file    = "_infographic_modal_template.html", 
-    title = title
-  ) %>% 
+    title = title) %>% 
     writeLines(out) 
 }
 
