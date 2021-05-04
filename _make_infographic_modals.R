@@ -11,8 +11,7 @@ icons_to_data_csv <- "https://docs.google.com/spreadsheets/d/e/2PACX-1vSAROGVpYB
 
 # create modals ----
 icons_to_data <- read_csv(icons_to_data_csv, col_types = cols()) %>% 
-  mutate(tidyselect::where(is_logical, replace_na, F)) %>% 
-  #mutate(across(is_logical, replace_na, F)) %>% 
+  mutate(across(is_logical, replace_na, F)) %>% 
   filter(!manual_modal) %>% 
   arrange(icon)
 
