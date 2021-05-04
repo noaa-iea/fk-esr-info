@@ -18,17 +18,20 @@
       gtag('config', 'UA-176398491-1');
     </script>
  
-    <script src="https://noaa-iea.github.io/fk-esr-info/assets/js/jquery.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src='assets/js/d3.v5.min.js'></script>
+			<script src="https://code.jquery.com/jquery-1.9.1.min.js"
+  integrity="sha256-wS9gmOZBqsqWxgIVgA8Y9WcQOa7PgSIX+rPA0VL2rbQ="
+  crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+
     <script src="https://noaa-iea.github.io/fk-esr-info/assets/js/jquery.scrollex.min.js"></script>
     <script src="https://noaa-iea.github.io/fk-esr-info/assets/js/jquery.scrolly.min.js"></script>
     <script src="https://noaa-iea.github.io/fk-esr-info/assets/js/skel.min.js"></script>
     <script src="https://noaa-iea.github.io/fk-esr-info/assets/js/util.js"></script>
     <script src="https://noaa-iea.github.io/fk-esr-info/assets/js/main.js"></script>
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css"> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="stylesheet" href="https://marinebon.org/infographiq/infographiq-v1.0/css/infographiq.css"> 
+    <link rel="stylesheet" href="https://marinebon.org/infographiqJS/libs/infographiq_latest/infographiq.css"> 
 	</head>
 	<body>
 
@@ -89,7 +92,7 @@
 
             </div>
             <div class="col-md-3">
-              <ul class="panel-group" id="accordion1" role="tablist" aria-multiselectable="true"></ul>
+              <ul class="panel-group" id="toc1" role="tablist" aria-multiselectable="true"></ul>
             </div>
           </div>
         </div>
@@ -117,16 +120,16 @@
 	</div>
 
   <!-- infographiq: run function to link the svg with the svg_list -->
-  <script src='https://marinebon.org/infographiq/infographiq-v1.0/js/infographiq.js'></script>
+  <script src='https://marinebon.org/infographiqJS/libs/infographiq_latest/infographiq.js'></script>
 
   <script>
     link_svg({
       svg: 'https://noaa-iea.github.io/fk-esr-info/assets/svg/FKIEA_Ecosystem.svg', 
       csv: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSAROGVpYB58Zkr8P0iwJdTMRPNLZtJ07IyUn-dQ62C2HMuCEScyl8x7urCD7QbRXQYSIJwDn_wku9G/pub?gid=0&single=true&output=csv', 
-      svg_location: "svg1", 
-      csv_location: "accordion1",
+      svg_id: "svg1", 
+      toc_id: "toc1",
       modal_url_pfx: 'https://noaa-iea.github.io/fk-esr-info/modals/',
-      text_list: "accordion"});
+      toc_style: "accordion"});
     </script>
 
 
