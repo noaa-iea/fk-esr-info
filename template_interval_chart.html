@@ -12,7 +12,7 @@
       var X_Axis_Title = "Year";
       var Y_Axis_Title = "UFOs Sighted";
       var Google_Spreadsheet_Link = 
-        'https://docs.google.com/spreadsheets/d/1kb9SPsioe0163b2_xICUp1sOvYGQtBmiLiSkEeW1u-Y/edit#gid=0';
+        'https://docs.google.com/spreadsheets/d/1qkpqGTBJygvY6lMz74QSEEFALg1IOU4YZrOSFEAf1Sc/edit#gid=0';
     // ELLEN: END OF VARIABLE SECTION 
 
     // Load more Google javascript
@@ -58,6 +58,15 @@
       // Get the data from the google spreadsheet
       var data = response.getDataTable();
 
+      // EllEN: Here's where we set the columns that will define the error bars. We set the columns that
+      // we want as errors bars to the role of "interval". You will notice in the function "setColumnProperty" that
+      // there is a number and that refers to the column number (with column A in a google spreadsheet being column number 0, 
+      // B being 1, and so on)
+      data.setColumnProperty(2, "role", "interval");
+      data.setColumnProperty(3, "role", "interval");
+      data.setColumnProperty(5, "role", "interval");
+      data.setColumnProperty(6, "role", "interval");
+
       // Create a line chart (note the use of LineChart in the command) and put that in the div element 'chart_div'
       var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
 
@@ -75,7 +84,7 @@
 <body>
   <!-- Identify where the chart should be drawn. -->
   <div>
-    <h3 style="text-align:center;">A Basic Line Chart in Google Charts</h3>
+    <h3 style="text-align:center;">An Interval Chart in Google Charts</h3>
     <div id="chart_div"/>
   </div>
 </body>
