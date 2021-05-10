@@ -1,4 +1,3 @@
-### Infographic Credits
 
 - **Design and data compilation**: Kelly Montenero
 - **Artwork**: Amanda Dillon
