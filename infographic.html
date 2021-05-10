@@ -88,7 +88,9 @@
                     <td style ="background-color: white; text-align: center;">Maritime Heritage and Ecosystem Services Indicators</td> 
                   </tr>
               </table>
-              <div style="text-align: right; font-size: 80%"> Artwork by Amanda Dillon, designed by Kelly Montenero</div>
+              <div style="text-align: right; font-size: 80%"> 
+                <a id="iq_credits" href="">Infographic Credits</a>
+              </div>
 
             </div>
             <div class="col-md-3">
@@ -130,7 +132,32 @@
       toc_id: "toc1",
       modal_url_pfx: 'https://noaa-iea.github.io/fk-esr-info/modals/',
       toc_style: "accordion"});
-    </script>
+      
+      // credits modal
+      // TODO: make this function below in link_svg() standalone so usable like here in simpler functional form.
+      var modal_id = 'modal';
+      var d = {
+        link:  'modals/_credits.html',
+        title: 'Infographic Credits'};
+      $('#iq_credits').click( function(e) {
+        e.preventDefault(); 
+        (function ($) {
+          $('#'+ modal_id).find('iframe')
+            .prop('src', function(){ return d.link });
+          
+          $('#'+ modal_id + '-title').html( d.title );
+          
+          $('#'+ modal_id).on('show.bs.modal', function () {
+            $('.modal-content').css('height',$( window ).height()*0.9);
+            $('.modal-body').css('height','calc(100% - 65px - 55.33px)');
+          });
+          
+          $('#'+ modal_id).modal();
+        }(jQuery));
+        return false; } );  
+}
+    
+  </script>
 
 
 </body>

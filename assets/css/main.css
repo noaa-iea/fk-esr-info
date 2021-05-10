@@ -1472,7 +1472,8 @@
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		color: #fff;
+		/*color: #fff; */
+		color: black;
 		font-weight: 800;
 		letter-spacing: 0.225em;
 		line-height: 1em;
