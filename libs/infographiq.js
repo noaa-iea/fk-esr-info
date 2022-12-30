@@ -400,8 +400,7 @@ function icon_append(d, h, modal_url_pfx, svg_id, hover_color, section_content, 
         tooltip_div.style("text-align", "left");
         tooltip_div.style("right", "auto");
       }
-
-        tooltip_div.style("top", (d3.event.pageY - svg_position.y + y_offset - window.scrollY) + "px");
+      tooltip_div.style("top", (d3.event.pageY - svg_position.y + y_offset - window.scrollY) + "px");
     }
   }
 
